@@ -36,3 +36,18 @@ pytest minecraft/tests -v
 ## Asset policy
 
 All textures/audio are original procedural works from Appendix F palettes. Identifiers/geometry follow the spec contract; no Mojang files.
+
+## Build file .exe (Windows)
+File `.exe` phải build trên Windows (PyInstaller không cross-compile từ Linux sang Windows được).
+
+**Cách 1 — 1 click:** double-click `minecraft/build-exe.bat` → chờ xong → lấy `minecraft/dist/Minecraft.exe`
+
+**Cách 2 — thủ công:**
+```
+cd minecraft
+pip install pyinstaller
+pyinstaller --onefile --windowed --name Minecraft --add-data "data;data" app.py
+```
+File ra: `minecraft/dist/Minecraft.exe` — double-click chạy ngay, không cần Python.
+
+**Mac/Linux:** chạy `bash minecraft/build-exe.sh` → `minecraft/dist/Minecraft`

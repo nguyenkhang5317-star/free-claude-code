@@ -1,0 +1,1090 @@
+{
+ "sounds": {
+  "block.stone.break": {
+   "synth": "noise",
+   "freq": 1800,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  "block.stone.place": {
+   "synth": "noise",
+   "freq": 1800,
+   "duration": 0.1,
+   "volume": 0.9
+  },
+  "block.stone.step": {
+   "synth": "noise",
+   "freq": 1800,
+   "duration": 0.055,
+   "volume": 0.35
+  },
+  "block.stone.hit": {
+   "synth": "noise",
+   "freq": 1800,
+   "duration": 0.045,
+   "volume": 0.4
+  },
+  "block.stone.fall": {
+   "synth": "noise",
+   "freq": 1800,
+   "duration": 0.08,
+   "volume": 0.5
+  },
+  "block.gravel.break": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.192,
+   "volume": 1.0
+  },
+  "block.gravel.place": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.12,
+   "volume": 0.9
+  },
+  "block.gravel.step": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.066,
+   "volume": 0.35
+  },
+  "block.gravel.hit": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.054,
+   "volume": 0.4
+  },
+  "block.gravel.fall": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.096,
+   "volume": 0.5
+  },
+  "block.grass.break": {
+   "synth": "noise",
+   "freq": 1300,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  "block.grass.place": {
+   "synth": "noise",
+   "freq": 1300,
+   "duration": 0.1,
+   "volume": 0.9
+  },
+  "block.grass.step": {
+   "synth": "noise",
+   "freq": 1300,
+   "duration": 0.055,
+   "volume": 0.35
+  },
+  "block.grass.hit": {
+   "synth": "noise",
+   "freq": 1300,
+   "duration": 0.045,
+   "volume": 0.4
+  },
+  "block.grass.fall": {
+   "synth": "noise",
+   "freq": 1300,
+   "duration": 0.08,
+   "volume": 0.5
+  },
+  "block.sand.break": {
+   "synth": "noise",
+   "freq": 2600,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  "block.sand.place": {
+   "synth": "noise",
+   "freq": 2600,
+   "duration": 0.1,
+   "volume": 0.9
+  },
+  "block.sand.step": {
+   "synth": "noise",
+   "freq": 2600,
+   "duration": 0.055,
+   "volume": 0.35
+  },
+  "block.sand.hit": {
+   "synth": "noise",
+   "freq": 2600,
+   "duration": 0.045,
+   "volume": 0.4
+  },
+  "block.sand.fall": {
+   "synth": "noise",
+   "freq": 2600,
+   "duration": 0.08,
+   "volume": 0.5
+  },
+  "block.wood.break": {
+   "synth": "noise",
+   "freq": 500,
+   "duration": 0.144,
+   "volume": 1.0
+  },
+  "block.wood.place": {
+   "synth": "noise",
+   "freq": 500,
+   "duration": 0.09,
+   "volume": 0.9
+  },
+  "block.wood.step": {
+   "synth": "noise",
+   "freq": 500,
+   "duration": 0.05,
+   "volume": 0.35
+  },
+  "block.wood.hit": {
+   "synth": "noise",
+   "freq": 500,
+   "duration": 0.041,
+   "volume": 0.4
+  },
+  "block.wood.fall": {
+   "synth": "noise",
+   "freq": 500,
+   "duration": 0.072,
+   "volume": 0.5
+  },
+  "block.wool.break": {
+   "synth": "noise",
+   "freq": 700,
+   "duration": 0.128,
+   "volume": 1.0
+  },
+  "block.wool.place": {
+   "synth": "noise",
+   "freq": 700,
+   "duration": 0.08,
+   "volume": 0.9
+  },
+  "block.wool.step": {
+   "synth": "noise",
+   "freq": 700,
+   "duration": 0.044,
+   "volume": 0.35
+  },
+  "block.wool.hit": {
+   "synth": "noise",
+   "freq": 700,
+   "duration": 0.036,
+   "volume": 0.4
+  },
+  "block.wool.fall": {
+   "synth": "noise",
+   "freq": 700,
+   "duration": 0.064,
+   "volume": 0.5
+  },
+  "block.glass.break": {
+   "synth": "noise",
+   "freq": 4200,
+   "duration": 0.288,
+   "volume": 1.0
+  },
+  "block.glass.place": {
+   "synth": "noise",
+   "freq": 4200,
+   "duration": 0.18,
+   "volume": 0.9
+  },
+  "block.glass.step": {
+   "synth": "noise",
+   "freq": 4200,
+   "duration": 0.099,
+   "volume": 0.35
+  },
+  "block.glass.hit": {
+   "synth": "noise",
+   "freq": 4200,
+   "duration": 0.081,
+   "volume": 0.4
+  },
+  "block.glass.fall": {
+   "synth": "noise",
+   "freq": 4200,
+   "duration": 0.144,
+   "volume": 0.5
+  },
+  "block.metal.break": {
+   "synth": "noise",
+   "freq": 3200,
+   "duration": 0.224,
+   "volume": 1.0
+  },
+  "block.metal.place": {
+   "synth": "noise",
+   "freq": 3200,
+   "duration": 0.14,
+   "volume": 0.9
+  },
+  "block.metal.step": {
+   "synth": "noise",
+   "freq": 3200,
+   "duration": 0.077,
+   "volume": 0.35
+  },
+  "block.metal.hit": {
+   "synth": "noise",
+   "freq": 3200,
+   "duration": 0.063,
+   "volume": 0.4
+  },
+  "block.metal.fall": {
+   "synth": "noise",
+   "freq": 3200,
+   "duration": 0.112,
+   "volume": 0.5
+  },
+  "block.snow.break": {
+   "synth": "noise",
+   "freq": 2000,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  "block.snow.place": {
+   "synth": "noise",
+   "freq": 2000,
+   "duration": 0.1,
+   "volume": 0.9
+  },
+  "block.snow.step": {
+   "synth": "noise",
+   "freq": 2000,
+   "duration": 0.055,
+   "volume": 0.35
+  },
+  "block.snow.hit": {
+   "synth": "noise",
+   "freq": 2000,
+   "duration": 0.045,
+   "volume": 0.4
+  },
+  "block.snow.fall": {
+   "synth": "noise",
+   "freq": 2000,
+   "duration": 0.08,
+   "volume": 0.5
+  },
+  "block.ladder.break": {
+   "synth": "noise",
+   "freq": 550,
+   "duration": 0.128,
+   "volume": 1.0
+  },
+  "block.ladder.place": {
+   "synth": "noise",
+   "freq": 550,
+   "duration": 0.08,
+   "volume": 0.9
+  },
+  "block.ladder.step": {
+   "synth": "noise",
+   "freq": 550,
+   "duration": 0.044,
+   "volume": 0.35
+  },
+  "block.ladder.hit": {
+   "synth": "noise",
+   "freq": 550,
+   "duration": 0.036,
+   "volume": 0.4
+  },
+  "block.ladder.fall": {
+   "synth": "noise",
+   "freq": 550,
+   "duration": 0.064,
+   "volume": 0.5
+  },
+  "block.netherrack.break": {
+   "synth": "noise",
+   "freq": 1100,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  "block.netherrack.place": {
+   "synth": "noise",
+   "freq": 1100,
+   "duration": 0.1,
+   "volume": 0.9
+  },
+  "block.netherrack.step": {
+   "synth": "noise",
+   "freq": 1100,
+   "duration": 0.055,
+   "volume": 0.35
+  },
+  "block.netherrack.hit": {
+   "synth": "noise",
+   "freq": 1100,
+   "duration": 0.045,
+   "volume": 0.4
+  },
+  "block.netherrack.fall": {
+   "synth": "noise",
+   "freq": 1100,
+   "duration": 0.08,
+   "volume": 0.5
+  },
+  "block.soul_sand.break": {
+   "synth": "noise",
+   "freq": 800,
+   "duration": 0.192,
+   "volume": 1.0
+  },
+  "block.soul_sand.place": {
+   "synth": "noise",
+   "freq": 800,
+   "duration": 0.12,
+   "volume": 0.9
+  },
+  "block.soul_sand.step": {
+   "synth": "noise",
+   "freq": 800,
+   "duration": 0.066,
+   "volume": 0.35
+  },
+  "block.soul_sand.hit": {
+   "synth": "noise",
+   "freq": 800,
+   "duration": 0.054,
+   "volume": 0.4
+  },
+  "block.soul_sand.fall": {
+   "synth": "noise",
+   "freq": 800,
+   "duration": 0.096,
+   "volume": 0.5
+  },
+  "block.soul_soil.break": {
+   "synth": "noise",
+   "freq": 850,
+   "duration": 0.176,
+   "volume": 1.0
+  },
+  "block.soul_soil.place": {
+   "synth": "noise",
+   "freq": 850,
+   "duration": 0.11,
+   "volume": 0.9
+  },
+  "block.soul_soil.step": {
+   "synth": "noise",
+   "freq": 850,
+   "duration": 0.061,
+   "volume": 0.35
+  },
+  "block.soul_soil.hit": {
+   "synth": "noise",
+   "freq": 850,
+   "duration": 0.05,
+   "volume": 0.4
+  },
+  "block.soul_soil.fall": {
+   "synth": "noise",
+   "freq": 850,
+   "duration": 0.088,
+   "volume": 0.5
+  },
+  "block.nylium.break": {
+   "synth": "noise",
+   "freq": 1000,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  "block.nylium.place": {
+   "synth": "noise",
+   "freq": 1000,
+   "duration": 0.1,
+   "volume": 0.9
+  },
+  "block.nylium.step": {
+   "synth": "noise",
+   "freq": 1000,
+   "duration": 0.055,
+   "volume": 0.35
+  },
+  "block.nylium.hit": {
+   "synth": "noise",
+   "freq": 1000,
+   "duration": 0.045,
+   "volume": 0.4
+  },
+  "block.nylium.fall": {
+   "synth": "noise",
+   "freq": 1000,
+   "duration": 0.08,
+   "volume": 0.5
+  },
+  "block.nether_wood.break": {
+   "synth": "noise",
+   "freq": 520,
+   "duration": 0.144,
+   "volume": 1.0
+  },
+  "block.nether_wood.place": {
+   "synth": "noise",
+   "freq": 520,
+   "duration": 0.09,
+   "volume": 0.9
+  },
+  "block.nether_wood.step": {
+   "synth": "noise",
+   "freq": 520,
+   "duration": 0.05,
+   "volume": 0.35
+  },
+  "block.nether_wood.hit": {
+   "synth": "noise",
+   "freq": 520,
+   "duration": 0.041,
+   "volume": 0.4
+  },
+  "block.nether_wood.fall": {
+   "synth": "noise",
+   "freq": 520,
+   "duration": 0.072,
+   "volume": 0.5
+  },
+  "block.nether_wart.break": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.144,
+   "volume": 1.0
+  },
+  "block.nether_wart.place": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.09,
+   "volume": 0.9
+  },
+  "block.nether_wart.step": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.05,
+   "volume": 0.35
+  },
+  "block.nether_wart.hit": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.041,
+   "volume": 0.4
+  },
+  "block.nether_wart.fall": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.072,
+   "volume": 0.5
+  },
+  "block.shroomlight.break": {
+   "synth": "noise",
+   "freq": 1100,
+   "duration": 0.144,
+   "volume": 1.0
+  },
+  "block.shroomlight.place": {
+   "synth": "noise",
+   "freq": 1100,
+   "duration": 0.09,
+   "volume": 0.9
+  },
+  "block.shroomlight.step": {
+   "synth": "noise",
+   "freq": 1100,
+   "duration": 0.05,
+   "volume": 0.35
+  },
+  "block.shroomlight.hit": {
+   "synth": "noise",
+   "freq": 1100,
+   "duration": 0.041,
+   "volume": 0.4
+  },
+  "block.shroomlight.fall": {
+   "synth": "noise",
+   "freq": 1100,
+   "duration": 0.072,
+   "volume": 0.5
+  },
+  "block.basalt.break": {
+   "synth": "noise",
+   "freq": 1500,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  "block.basalt.place": {
+   "synth": "noise",
+   "freq": 1500,
+   "duration": 0.1,
+   "volume": 0.9
+  },
+  "block.basalt.step": {
+   "synth": "noise",
+   "freq": 1500,
+   "duration": 0.055,
+   "volume": 0.35
+  },
+  "block.basalt.hit": {
+   "synth": "noise",
+   "freq": 1500,
+   "duration": 0.045,
+   "volume": 0.4
+  },
+  "block.basalt.fall": {
+   "synth": "noise",
+   "freq": 1500,
+   "duration": 0.08,
+   "volume": 0.5
+  },
+  "block.blackstone.break": {
+   "synth": "noise",
+   "freq": 1600,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  "block.blackstone.place": {
+   "synth": "noise",
+   "freq": 1600,
+   "duration": 0.1,
+   "volume": 0.9
+  },
+  "block.blackstone.step": {
+   "synth": "noise",
+   "freq": 1600,
+   "duration": 0.055,
+   "volume": 0.35
+  },
+  "block.blackstone.hit": {
+   "synth": "noise",
+   "freq": 1600,
+   "duration": 0.045,
+   "volume": 0.4
+  },
+  "block.blackstone.fall": {
+   "synth": "noise",
+   "freq": 1600,
+   "duration": 0.08,
+   "volume": 0.5
+  },
+  "block.nether_bricks.break": {
+   "synth": "noise",
+   "freq": 1700,
+   "duration": 0.16,
+   "volume": 1.0
+  },
+  "block.nether_bricks.place": {
+   "synth": "noise",
+   "freq": 1700,
+   "duration": 0.1,
+   "volume": 0.9
+  },
+  "block.nether_bricks.step": {
+   "synth": "noise",
+   "freq": 1700,
+   "duration": 0.055,
+   "volume": 0.35
+  },
+  "block.nether_bricks.hit": {
+   "synth": "noise",
+   "freq": 1700,
+   "duration": 0.045,
+   "volume": 0.4
+  },
+  "block.nether_bricks.fall": {
+   "synth": "noise",
+   "freq": 1700,
+   "duration": 0.08,
+   "volume": 0.5
+  },
+  "block.ancient_debris.break": {
+   "synth": "noise",
+   "freq": 1200,
+   "duration": 0.224,
+   "volume": 1.0
+  },
+  "block.ancient_debris.place": {
+   "synth": "noise",
+   "freq": 1200,
+   "duration": 0.14,
+   "volume": 0.9
+  },
+  "block.ancient_debris.step": {
+   "synth": "noise",
+   "freq": 1200,
+   "duration": 0.077,
+   "volume": 0.35
+  },
+  "block.ancient_debris.hit": {
+   "synth": "noise",
+   "freq": 1200,
+   "duration": 0.063,
+   "volume": 0.4
+  },
+  "block.ancient_debris.fall": {
+   "synth": "noise",
+   "freq": 1200,
+   "duration": 0.112,
+   "volume": 0.5
+  },
+  "block.netherite_block.break": {
+   "synth": "noise",
+   "freq": 2600,
+   "duration": 0.224,
+   "volume": 1.0
+  },
+  "block.netherite_block.place": {
+   "synth": "noise",
+   "freq": 2600,
+   "duration": 0.14,
+   "volume": 0.9
+  },
+  "block.netherite_block.step": {
+   "synth": "noise",
+   "freq": 2600,
+   "duration": 0.077,
+   "volume": 0.35
+  },
+  "block.netherite_block.hit": {
+   "synth": "noise",
+   "freq": 2600,
+   "duration": 0.063,
+   "volume": 0.4
+  },
+  "block.netherite_block.fall": {
+   "synth": "noise",
+   "freq": 2600,
+   "duration": 0.112,
+   "volume": 0.5
+  },
+  "entity.cow.ambient": {
+   "synth": "moo",
+   "freq": 140.0,
+   "duration": 0.5,
+   "volume": 0.8
+  },
+  "entity.cow.hurt": {
+   "synth": "moo",
+   "freq": 175.0,
+   "duration": 0.25,
+   "volume": 0.8
+  },
+  "entity.cow.death": {
+   "synth": "moo",
+   "freq": 112.0,
+   "duration": 0.6,
+   "volume": 0.8
+  },
+  "entity.cow.step": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.06,
+   "volume": 0.25
+  },
+  "entity.pig.ambient": {
+   "synth": "oink",
+   "freq": 420.0,
+   "duration": 0.5,
+   "volume": 0.8
+  },
+  "entity.pig.hurt": {
+   "synth": "oink",
+   "freq": 525.0,
+   "duration": 0.25,
+   "volume": 0.8
+  },
+  "entity.pig.death": {
+   "synth": "oink",
+   "freq": 336.0,
+   "duration": 0.6,
+   "volume": 0.8
+  },
+  "entity.pig.step": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.06,
+   "volume": 0.25
+  },
+  "entity.sheep.ambient": {
+   "synth": "baa",
+   "freq": 380.0,
+   "duration": 0.5,
+   "volume": 0.8
+  },
+  "entity.sheep.hurt": {
+   "synth": "baa",
+   "freq": 475.0,
+   "duration": 0.25,
+   "volume": 0.8
+  },
+  "entity.sheep.death": {
+   "synth": "baa",
+   "freq": 304.0,
+   "duration": 0.6,
+   "volume": 0.8
+  },
+  "entity.sheep.step": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.06,
+   "volume": 0.25
+  },
+  "entity.chicken.ambient": {
+   "synth": "cluck",
+   "freq": 1100.0,
+   "duration": 0.5,
+   "volume": 0.8
+  },
+  "entity.chicken.hurt": {
+   "synth": "cluck",
+   "freq": 1375.0,
+   "duration": 0.25,
+   "volume": 0.8
+  },
+  "entity.chicken.death": {
+   "synth": "cluck",
+   "freq": 880.0,
+   "duration": 0.6,
+   "volume": 0.8
+  },
+  "entity.chicken.step": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.06,
+   "volume": 0.25
+  },
+  "entity.zombie.ambient": {
+   "synth": "groan",
+   "freq": 120.0,
+   "duration": 0.5,
+   "volume": 0.8
+  },
+  "entity.zombie.hurt": {
+   "synth": "groan",
+   "freq": 150.0,
+   "duration": 0.25,
+   "volume": 0.8
+  },
+  "entity.zombie.death": {
+   "synth": "groan",
+   "freq": 96.0,
+   "duration": 0.6,
+   "volume": 0.8
+  },
+  "entity.zombie.step": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.06,
+   "volume": 0.25
+  },
+  "entity.skeleton.ambient": {
+   "synth": "rattle",
+   "freq": 900.0,
+   "duration": 0.5,
+   "volume": 0.8
+  },
+  "entity.skeleton.hurt": {
+   "synth": "rattle",
+   "freq": 1125.0,
+   "duration": 0.25,
+   "volume": 0.8
+  },
+  "entity.skeleton.death": {
+   "synth": "rattle",
+   "freq": 720.0,
+   "duration": 0.6,
+   "volume": 0.8
+  },
+  "entity.skeleton.step": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.06,
+   "volume": 0.25
+  },
+  "entity.creeper.ambient": {
+   "synth": "hiss",
+   "freq": 3000.0,
+   "duration": 0.5,
+   "volume": 0.8
+  },
+  "entity.creeper.hurt": {
+   "synth": "hiss",
+   "freq": 3750.0,
+   "duration": 0.25,
+   "volume": 0.8
+  },
+  "entity.creeper.death": {
+   "synth": "hiss",
+   "freq": 2400.0,
+   "duration": 0.6,
+   "volume": 0.8
+  },
+  "entity.creeper.step": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.06,
+   "volume": 0.25
+  },
+  "entity.spider.ambient": {
+   "synth": "hiss",
+   "freq": 700.0,
+   "duration": 0.5,
+   "volume": 0.8
+  },
+  "entity.spider.hurt": {
+   "synth": "hiss",
+   "freq": 875.0,
+   "duration": 0.25,
+   "volume": 0.8
+  },
+  "entity.spider.death": {
+   "synth": "hiss",
+   "freq": 560.0,
+   "duration": 0.6,
+   "volume": 0.8
+  },
+  "entity.spider.step": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.06,
+   "volume": 0.25
+  },
+  "entity.player.ambient": {
+   "synth": "oof",
+   "freq": 300.0,
+   "duration": 0.5,
+   "volume": 0.8
+  },
+  "entity.player.hurt": {
+   "synth": "oof",
+   "freq": 375.0,
+   "duration": 0.25,
+   "volume": 0.8
+  },
+  "entity.player.death": {
+   "synth": "oof",
+   "freq": 240.0,
+   "duration": 0.6,
+   "volume": 0.8
+  },
+  "entity.player.step": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.06,
+   "volume": 0.25
+  },
+  "entity.creeper.primed": {
+   "synth": "hiss",
+   "freq": 3500,
+   "duration": 1.2,
+   "volume": 0.9
+  },
+  "entity.skeleton.shoot": {
+   "synth": "twang",
+   "freq": 300,
+   "duration": 0.25,
+   "volume": 0.7
+  },
+  "entity.arrow.shoot": {
+   "synth": "twang",
+   "freq": 300,
+   "duration": 0.25,
+   "volume": 0.7
+  },
+  "entity.arrow.hit": {
+   "synth": "noise",
+   "freq": 2000,
+   "duration": 0.08,
+   "volume": 0.6
+  },
+  "entity.generic.explode": {
+   "synth": "boom",
+   "freq": 60,
+   "duration": 1.4,
+   "volume": 1.0
+  },
+  "entity.tnt.primed": {
+   "synth": "hiss",
+   "freq": 2500,
+   "duration": 1.0,
+   "volume": 0.8
+  },
+  "entity.generic.eat": {
+   "synth": "crunch",
+   "freq": 1600,
+   "duration": 0.18,
+   "volume": 0.6
+  },
+  "entity.player.burp": {
+   "synth": "oof",
+   "freq": 140,
+   "duration": 0.35,
+   "volume": 0.6
+  },
+  "entity.item.pickup": {
+   "synth": "pop",
+   "freq": 1400,
+   "duration": 0.08,
+   "volume": 0.4
+  },
+  "entity.experience_orb.pickup": {
+   "synth": "chime",
+   "freq": 1700,
+   "duration": 0.12,
+   "volume": 0.35
+  },
+  "entity.player.levelup": {
+   "synth": "chime",
+   "freq": 880,
+   "duration": 0.7,
+   "volume": 0.7
+  },
+  "entity.player.attack.strong": {
+   "synth": "noise",
+   "freq": 700,
+   "duration": 0.08,
+   "volume": 0.6
+  },
+  "entity.player.attack.crit": {
+   "synth": "noise",
+   "freq": 1200,
+   "duration": 0.1,
+   "volume": 0.7
+  },
+  "entity.player.splash": {
+   "synth": "noise",
+   "freq": 2400,
+   "duration": 0.4,
+   "volume": 0.6
+  },
+  "entity.generic.splash": {
+   "synth": "noise",
+   "freq": 2400,
+   "duration": 0.3,
+   "volume": 0.5
+  },
+  "entity.player.big_fall": {
+   "synth": "oof",
+   "freq": 200,
+   "duration": 0.25,
+   "volume": 0.8
+  },
+  "entity.player.small_fall": {
+   "synth": "noise",
+   "freq": 600,
+   "duration": 0.1,
+   "volume": 0.5
+  },
+  "entity.chicken.egg": {
+   "synth": "pop",
+   "freq": 500,
+   "duration": 0.12,
+   "volume": 0.6
+  },
+  "entity.cow.milk": {
+   "synth": "noise",
+   "freq": 1800,
+   "duration": 0.3,
+   "volume": 0.5
+  },
+  "entity.sheep.shear": {
+   "synth": "noise",
+   "freq": 3600,
+   "duration": 0.15,
+   "volume": 0.6
+  },
+  "entity.item.break": {
+   "synth": "noise",
+   "freq": 3000,
+   "duration": 0.2,
+   "volume": 0.8
+  },
+  "block.chest.open": {
+   "synth": "creak",
+   "freq": 260,
+   "duration": 0.35,
+   "volume": 0.6
+  },
+  "block.chest.close": {
+   "synth": "creak",
+   "freq": 200,
+   "duration": 0.25,
+   "volume": 0.6
+  },
+  "block.furnace.fire_crackle": {
+   "synth": "noise",
+   "freq": 1500,
+   "duration": 0.2,
+   "volume": 0.4
+  },
+  "block.fire.ambient": {
+   "synth": "noise",
+   "freq": 900,
+   "duration": 0.5,
+   "volume": 0.3
+  },
+  "block.fire.extinguish": {
+   "synth": "hiss",
+   "freq": 2500,
+   "duration": 0.4,
+   "volume": 0.5
+  },
+  "item.flintandsteel.use": {
+   "synth": "noise",
+   "freq": 4000,
+   "duration": 0.1,
+   "volume": 0.6
+  },
+  "item.bucket.fill": {
+   "synth": "noise",
+   "freq": 1500,
+   "duration": 0.3,
+   "volume": 0.6
+  },
+  "item.bucket.empty": {
+   "synth": "noise",
+   "freq": 1300,
+   "duration": 0.3,
+   "volume": 0.6
+  },
+  "block.portal.trigger": {
+   "synth": "chime",
+   "freq": 200,
+   "duration": 1.5,
+   "volume": 0.5
+  },
+  "block.portal.travel": {
+   "synth": "chime",
+   "freq": 150,
+   "duration": 2.0,
+   "volume": 0.5
+  },
+  "ui.button.click": {
+   "synth": "pop",
+   "freq": 900,
+   "duration": 0.05,
+   "volume": 0.5
+  },
+  "weather.rain": {
+   "synth": "noise",
+   "freq": 5000,
+   "duration": 1.0,
+   "volume": 0.15
+  },
+  "entity.lightning_bolt.thunder": {
+   "synth": "boom",
+   "freq": 45,
+   "duration": 2.5,
+   "volume": 1.0
+  },
+  "ambient.cave": {
+   "synth": "groan",
+   "freq": 70,
+   "duration": 2.0,
+   "volume": 0.3
+  }
+ }
+}

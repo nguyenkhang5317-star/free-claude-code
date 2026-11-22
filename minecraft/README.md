@@ -1,34 +1,110 @@
-# Minecraft 1.16.5 — Java Desktop App
+# Minecraft 1.16.5 — original Java rebuild (desktop app)
 
-App desktop native bằng **Java** (Swing), không phải web, không cần Python.
+This is a vanilla-faithful rebuild of Minecraft Java Edition 1.16.5, written from scratch in pure Java 17. It uses only the JDK: no libraries, no OpenGL bindings, no Mojang code or assets. It follows `MASTER_PROMPT_FULL.md`.
+Every texture and sound is generated procedurally from the data pack in `data/`.
 
-## Mô tả
-Minecraft 1.16.5 voxel sandbox chạy trực tiếp trên máy tính:
-- Worldgen deterministic theo seed (cùng seed = cùng world)
-- WASD di chuyển, Space nhảy, đào/đặt block bằng chuột
-- Hotbar 1-9, túi đồ E, chế tạo, ăn F
-- Ngày/đêm, máu/đói, chết/respawn
-- Render isometric 2.5D bằng Java Swing (thuần JDK, không cần thư viện ngoài)
+## Download & play
 
-## Yêu cầu
-- JDK 17+ (tải tại https://adoptium.net) — cần cho build .exe
+| Download | What it is | Needs |
+|---|---|---|
+| **`Minecraft-1.16.5-Windows.zip`** | Self-contained Windows app: `Minecraft.exe` + bundled Java runtime | Nothing. Extract the zip and double-click `Minecraft.exe` |
+| `Minecraft-1.16.5.jar` | Cross-platform jar with the data pack embedded | Java 17+ (`java -jar Minecraft-1.16.5.jar`) |
 
-## Chạy app
-- Windows: double-click `minecraft/java/run.bat`
-- Thủ công: `javac -d out src/MinecraftApp.java && java -cp out MinecraftApp`
+Saves, `options.txt` and screenshots go to `%APPDATA%\.minecraft-rebuild\` (Windows) or `~/.minecraft-rebuild/`.
+You can change this with `-Dmc.dir=...`.
+Windows SmartScreen may warn that the exe is unsigned. Click *More info → Run anyway*.
 
-## Build .exe (Windows)
-1. Double-click `minecraft/java/build.bat`
-2. Lấy `minecraft/java/dist/Minecraft/Minecraft.exe`
+## Build from source
 
-## Controls
-WASD di chuyển · Space nhảy · Chuột trái đào · Chuột phải đặt · 1-9 hotbar · E túi đồ · F ăn · Esc menu
-
-## Cấu trúc
+```bat
+build.bat        :: Windows, JDK 17+: compile → tests → build\Minecraft.jar → dist\Minecraft\Minecraft.exe (jpackage)
+run.bat          :: launch build\Minecraft.jar
 ```
-minecraft/
-├── java/src/MinecraftApp.java  ← app Java chính
-├── java/build.bat              ← build .exe
-├── data/                       ← 103 blocks, 165 items, 69 mobs
-└── tests/
+```sh
+./build.sh && ./run.sh                      # Linux / macOS
+python3 tools/package_release.py            # release artefacts: jar + self-contained Windows zip (from any OS)
+python3 tools/gen_data.py                   # regenerate data/*.json from the authoritative tables
 ```
+
+Other entry points:
+- `java -jar Minecraft.jar --headless <seed> <ticks>` generates and ticks a world with null render and audio sinks (§2.8).
+- `--make-icon out.ico` writes the app icon.
+
+## Controls (§14 / Appendix keys)
+
+| Key | Action |
+|---|---|
+| W A S D / mouse | Move / look |
+| Space | Jump. Double-tap to fly in creative |
+| Left Shift / Left Ctrl | Sneak / sprint. Double-tap W also sprints |
+| Left click | Break block / attack |
+| Right click | Use item / place block |
+| Middle click | Pick block |
+| 1–9, mouse wheel | Hotbar |
+| E | Inventory (with creative palette in creative mode) |
+| Q / Ctrl+Q | Drop one / drop stack |
+| F | Swap hands |
+| T, / | Chat, commands |
+| Esc | Pause menu |
+| F1 | Hide HUD |
+| F2 | Screenshot |
+| F3 | Debug overlay with server stage timers and frame chart |
+| F5 | Camera mode |
+| F11 | Fullscreen |
+
+Commands available in chat:
+- `/time`, `/weather`, `/gamemode`, `/difficulty`, `/give`
+- `/tp`, `/kill`, `/seed`, `/summon`, `/spawnpoint`, `/setworldspawn`
+- `/effect`, `/xp`, `/clear`, `/gamerule`, `/help`
+
+## What is implemented
+
+- **World:**
+  - Deterministic overworld generator, a pure function of (seed, cx, cz). It produces 37 biomes, density terrain, cheese/noodle caves, ravines, ores, trees, plants and dungeons.
+  - Nether and End generators, plus Nether portals.
+  - Palette-encoded 16³ sections.
+- **Simulation:**
+  - The integrated server runs at 20 TPS, with at most 2 catch-up ticks and interpolated rendering.
+  - Sky and block light with incremental BFS updates.
+  - Fluids, fire, random ticks (crops, saplings, grass, leaf decay, cactus, cane), weather and lightning.
+  - Day/night cycle, beds and sleeping.
+- **Gameplay:**
+  - Survival, Creative, Adventure and Spectator modes.
+  - Mining with vanilla tool tiers and break times; loot.
+  - 2×2 and 3×3 crafting (143 recipes), furnace smelting with fuel, chests.
+  - Hunger, saturation and exhaustion; fall damage, drowning, lava, death and respawn; XP.
+  - Bows and arrows, TNT, falling blocks.
+- **Mobs:** cow, pig, sheep, chicken, zombie, skeleton, creeper and spider. They have A* pathfinding, natural spawning with caps and light rules, despawning, and data-driven models and walk animations.
+- **Client:**
+  - Multi-threaded software rasteriser with greedy meshing, smooth lighting and AO, cutout and translucent passes, fog, a sky with sun, moon, stars and clouds, rain and snow, particles, and a block-breaking overlay.
+  - Vanilla-style HUD and F3 overlay; title, world list, create-world, options, pause, death, chat and container GUIs.
+  - Procedural stereo audio mixer.
+- **Persistence:** region files with CRC32 per chunk. A corrupt chunk is quarantined and then regenerated. Saves are atomic `level.json` writes with a 45 s autosave.
+
+## Repository layout (§0 required layout)
+
+```
+src/      game source (mc.util, mc.content, mc.core, mc.gen, mc.entity, mc.net, mc.server, mc.client, mc.Main)
+data/     data pack: blocks, items, recipes, entities, biomes, sounds, textures, tuning, worldgen (JSON)
+assets/   original assets: none are stored, because all textures/sounds are generated from data/ at startup
+tests/    verification suite (mc.tests.TestRunner) + golden chunk hashes
+tools/    gen_data.py (data source of truth), package_release.py, make_jar.py, launcher/ (Minecraft.exe source)
+DECISIONS.md   decision log        PLAYTEST.md   Tier 1 acceptance record
+```
+
+## Verification suite
+
+Run it with `build.bat`, `./build.sh`, or `java -cp build/classes:build/tests -Dmc.data=data mc.tests.TestRunner`. It has 23 checks:
+- **Registry completeness:** textures, loot, items, recipes, entities and biomes.
+- **Seed determinism:**
+  - Chunk hashes are compared across runs and across generation orders.
+  - Golden hashes in `tests/golden_hashes.json` are checked for 4 seeds × 7 chunks.
+- **Persistence:** codec round trip, save → reopen, and corrupt-region recovery.
+- **Mining and harvest:** break times are checked against vanilla, e.g. stone 7.5 s by hand and 1.15 s with a wooden pickaxe, obsidian 9.4 s with a diamond pickaxe.
+- **Physics:**
+  - Speeds match vanilla: walk 4.317 b/s, sprint 5.612 b/s, sneak 1.295 b/s.
+  - Jump apex is 1.2522 blocks; falling 10 blocks deals 7 damage.
+- **Animation validator.**
+- **Sound audit:**
+  - Every referenced sound id exists.
+  - Every sound synthesises audible, non-clipping PCM.

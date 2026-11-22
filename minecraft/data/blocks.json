@@ -1,107 +1,6508 @@
 {
-  "blocks": [
-    {"id": "minecraft:air", "name": "Air", "hardness": 0, "tool": "none", "light": 0, "opaque": false, "layer": "translucent"},
-    {"id": "minecraft:grass_block", "name": "Grass Block", "hardness": 0.6, "tool": "shovel", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:dirt", "name": "Dirt", "hardness": 0.5, "tool": "shovel", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:stone", "name": "Stone", "hardness": 1.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:cobblestone", "name": "Cobblestone", "hardness": 2.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:oak_log", "name": "Oak Log", "hardness": 2.0, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:oak_planks", "name": "Oak Planks", "hardness": 2.0, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:oak_leaves", "name": "Oak Leaves", "hardness": 0.2, "tool": "shears", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:sand", "name": "Sand", "hardness": 0.5, "tool": "shovel", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:gravel", "name": "Gravel", "hardness": 0.6, "tool": "shovel", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:glass", "name": "Glass", "hardness": 0.3, "tool": "any", "light": 0, "opaque": false, "layer": "translucent"},
-    {"id": "minecraft:bedrock", "name": "Bedrock", "hardness": -1, "tool": "none", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:coal_ore", "name": "Coal Ore", "hardness": 3.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:iron_ore", "name": "Iron Ore", "hardness": 3.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:gold_ore", "name": "Gold Ore", "hardness": 3.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:redstone_ore", "name": "Redstone Ore", "hardness": 3.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:diamond_ore", "name": "Diamond Ore", "hardness": 3.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:lapis_ore", "name": "Lapis Lazuli Ore", "hardness": 3.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:emerald_ore", "name": "Emerald Ore", "hardness": 3.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:obsidian", "name": "Obsidian", "hardness": 50.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:netherrack", "name": "Netherrack", "hardness": 0.4, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:soul_sand", "name": "Soul Sand", "hardness": 0.5, "tool": "shovel", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:end_stone", "name": "End Stone", "hardness": 3.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:torch", "name": "Torch", "hardness": 0.0, "tool": "any", "light": 14, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:crafting_table", "name": "Crafting Table", "hardness": 2.0, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:furnace", "name": "Furnace", "hardness": 3.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:chest", "name": "Chest", "hardness": 2.5, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:bed", "name": "Red Bed", "hardness": 0.2, "tool": "any", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:bookshelf", "name": "Bookshelf", "hardness": 1.5, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:enchanting_table", "name": "Enchanting Table", "hardness": 5.0, "tool": "pickaxe", "light": 7, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:anvil", "name": "Anvil", "hardness": 5.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:water", "name": "Water", "hardness": -1, "tool": "none", "light": 0, "opaque": false, "layer": "translucent"},
-    {"id": "minecraft:lava", "name": "Lava", "hardness": -1, "tool": "none", "light": 15, "opaque": true, "layer": "translucent"},
-    {"id": "minecraft:fire", "name": "Fire", "hardness": -1, "tool": "none", "light": 15, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:farmland", "name": "Farmland", "hardness": 0.6, "tool": "shovel", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:wheat", "name": "Wheat", "hardness": 0.0, "tool": "any", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:lever", "name": "Lever", "hardness": 0.0, "tool": "any", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:redstone_wire", "name": "Redstone Dust", "hardness": 0.0, "tool": "any", "light": 7, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:piston", "name": "Piston", "hardness": 1.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:observer", "name": "Observer", "hardness": 3.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:spawner", "name": "Monster Spawner", "hardness": 5.0, "tool": "pickaxe", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:portal", "name": "Nether Portal", "hardness": -1, "tool": "none", "light": 11, "opaque": false, "layer": "translucent"},
-    {"id": "minecraft:end_portal", "name": "End Portal", "hardness": -1, "tool": "none", "light": 15, "opaque": false, "layer": "translucent"},
-    {"id": "minecraft:beacon", "name": "Beacon", "hardness": 3.0, "tool": "pickaxe", "light": 15, "opaque": false, "layer": "translucent"},
-    {"id": "minecraft:glowstone", "name": "Glowstone", "hardness": 0.3, "tool": "any", "light": 15, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:prismarine", "name": "Prismarine", "hardness": 1.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:purpur_block", "name": "Purpur Block", "hardness": 2.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:shroomlight", "name": "Shroomlight", "hardness": 0.3, "tool": "any", "light": 15, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:basalt", "name": "Basalt", "hardness": 1.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:blackstone", "name": "Blackstone", "hardness": 1.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:ancient_debris", "name": "Ancient Debris", "hardness": 30.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:crying_obsidian", "name": "Crying Obsidian", "hardness": 50.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:respawn_anchor", "name": "Respawn Anchor", "hardness": 5.0, "tool": "pickaxe", "light": 15, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:lodestone", "name": "Lodestone", "hardness": 3.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:target_block", "name": "Target Block", "hardness": 2.0, "tool": "any", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:chain", "name": "Chain", "hardness": 5.0, "tool": "pickaxe", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:snow", "name": "Snow Block", "hardness": 0.5, "tool": "shovel", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:ice", "name": "Ice", "hardness": 0.5, "tool": "pickaxe", "light": 0, "opaque": false, "layer": "translucent"},
-    {"id": "minecraft:clay", "name": "Clay", "hardness": 0.6, "tool": "shovel", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:terracotta", "name": "Terracotta", "hardness": 1.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:concrete", "name": "White Concrete", "hardness": 1.8, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:wool", "name": "White Wool", "hardness": 0.8, "tool": "shears", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:ladder", "name": "Ladder", "hardness": 0.4, "tool": "axe", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:vine", "name": "Vine", "hardness": 0.2, "tool": "any", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:slime_block", "name": "Slime Block", "hardness": 0.0, "tool": "any", "light": 0, "opaque": false, "layer": "translucent"},
-    {"id": "minecraft:honey_block", "name": "Honey Block", "hardness": 0.0, "tool": "any", "light": 0, "opaque": false, "layer": "translucent"},
-    {"id": "minecraft:campfire", "name": "Campfire", "hardness": 2.0, "tool": "axe", "light": 15, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:beehive", "name": "Beehive", "hardness": 3.0, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:composter", "name": "Composter", "hardness": 0.6, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:lectern", "name": "Lectern", "hardness": 2.0, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:grindstone", "name": "Grindstone", "hardness": 2.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:stonecutter", "name": "Stonecutter", "hardness": 1.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:smithing_table", "name": "Smithing Table", "hardness": 2.0, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:cartography_table", "name": "Cartography Table", "hardness": 2.0, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:fletching_table", "name": "Fletching Table", "hardness": 2.0, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:smoker", "name": "Smoker", "hardness": 3.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:blast_furnace", "name": "Blast Furnace", "hardness": 3.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:brewing_stand", "name": "Brewing Stand", "hardness": 0.5, "tool": "any", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:hopper", "name": "Hopper", "hardness": 3.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:dispenser", "name": "Dispenser", "hardness": 3.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:dropper", "name": "Dropper", "hardness": 3.5, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:shulker_box", "name": "Shulker Box", "hardness": 2.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:barrel", "name": "Barrel", "hardness": 2.0, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:lantern", "name": "Lantern", "hardness": 3.5, "tool": "pickaxe", "light": 15, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:soul_lantern", "name": "Soul Lantern", "hardness": 3.5, "tool": "pickaxe", "light": 10, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:soul_torch", "name": "Soul Torch", "hardness": 0.0, "tool": "any", "light": 10, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:soul_fire", "name": "Soul Fire", "hardness": -1, "tool": "none", "light": 10, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:cauldron", "name": "Cauldron", "hardness": 2.0, "tool": "pickaxe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:jukebox", "name": "Jukebox", "hardness": 2.0, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:note_block", "name": "Note Block", "hardness": 0.8, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:daylight_detector", "name": "Daylight Detector", "hardness": 0.2, "tool": "axe", "light": 0, "opaque": true, "layer": "solid"},
-    {"id": "minecraft:rail", "name": "Rail", "hardness": 0.7, "tool": "pickaxe", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:powered_rail", "name": "Powered Rail", "hardness": 0.7, "tool": "pickaxe", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:detector_rail", "name": "Detector Rail", "hardness": 0.7, "tool": "pickaxe", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:activator_rail", "name": "Activator Rail", "hardness": 0.7, "tool": "pickaxe", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:boat", "name": "Oak Boat", "hardness": 2.0, "tool": "axe", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:minecart", "name": "Minecart", "hardness": 2.0, "tool": "any", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:armor_stand", "name": "Armor Stand", "hardness": 1.6, "tool": "any", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:banner", "name": "White Banner", "hardness": 1.0, "tool": "any", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:painting", "name": "Painting", "hardness": 1.0, "tool": "any", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:item_frame", "name": "Item Frame", "hardness": 2.0, "tool": "any", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:flower_pot", "name": "Flower Pot", "hardness": 0.0, "tool": "any", "light": 0, "opaque": false, "layer": "cutout"},
-    {"id": "minecraft:bedrock_ceiling", "name": "Bedrock", "hardness": -1, "tool": "none", "light": 0, "opaque": true, "layer": "solid"}
-  ]
+ "blocks": [
+  {
+   "id": "minecraft:air",
+   "name": "Air",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "none",
+   "shape": "none",
+   "sound": "stone",
+   "textures": {
+    "top": "stone",
+    "side": "stone",
+    "bottom": "stone",
+    "front": "stone"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": false
+  },
+  {
+   "id": "minecraft:stone",
+   "name": "Stone",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "stone",
+    "side": "stone",
+    "bottom": "stone",
+    "front": "stone"
+   },
+   "drops": [
+    {
+     "item": "minecraft:cobblestone"
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:granite",
+   "name": "Granite",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "granite",
+    "side": "granite",
+    "bottom": "granite",
+    "front": "granite"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:polished_granite",
+   "name": "Polished Granite",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "polished_granite",
+    "side": "polished_granite",
+    "bottom": "polished_granite",
+    "front": "polished_granite"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:diorite",
+   "name": "Diorite",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "diorite",
+    "side": "diorite",
+    "bottom": "diorite",
+    "front": "diorite"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:polished_diorite",
+   "name": "Polished Diorite",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "polished_diorite",
+    "side": "polished_diorite",
+    "bottom": "polished_diorite",
+    "front": "polished_diorite"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:andesite",
+   "name": "Andesite",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "andesite",
+    "side": "andesite",
+    "bottom": "andesite",
+    "front": "andesite"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:polished_andesite",
+   "name": "Polished Andesite",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "polished_andesite",
+    "side": "polished_andesite",
+    "bottom": "polished_andesite",
+    "front": "polished_andesite"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:grass_block",
+   "name": "Grass Block",
+   "hardness": 0.6,
+   "blast_resistance": 0.6,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "grass",
+   "textures": {
+    "top": "grass_block_top",
+    "side": "grass_block_side",
+    "bottom": "dirt",
+    "front": "grass_block_side"
+   },
+   "drops": [
+    {
+     "item": "minecraft:dirt"
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "tint": "grass_top",
+   "random_tick": "grass_spread"
+  },
+  {
+   "id": "minecraft:dirt",
+   "name": "Dirt",
+   "hardness": 0.5,
+   "blast_resistance": 0.5,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "gravel",
+   "textures": {
+    "top": "dirt",
+    "side": "dirt",
+    "bottom": "dirt",
+    "front": "dirt"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:coarse_dirt",
+   "name": "Coarse Dirt",
+   "hardness": 0.5,
+   "blast_resistance": 0.5,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "gravel",
+   "textures": {
+    "top": "coarse_dirt",
+    "side": "coarse_dirt",
+    "bottom": "coarse_dirt",
+    "front": "coarse_dirt"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:podzol",
+   "name": "Podzol",
+   "hardness": 0.5,
+   "blast_resistance": 0.5,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "gravel",
+   "textures": {
+    "top": "podzol_top",
+    "side": "grass_block_side",
+    "bottom": "dirt",
+    "front": "grass_block_side"
+   },
+   "drops": [
+    {
+     "item": "minecraft:dirt"
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:mycelium",
+   "name": "Mycelium",
+   "hardness": 0.6,
+   "blast_resistance": 0.6,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "grass",
+   "textures": {
+    "top": "mycelium_top",
+    "side": "mycelium_side",
+    "bottom": "dirt",
+    "front": "mycelium_side"
+   },
+   "drops": [
+    {
+     "item": "minecraft:dirt"
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:cobblestone",
+   "name": "Cobblestone",
+   "hardness": 2.0,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "cobblestone",
+    "side": "cobblestone",
+    "bottom": "cobblestone",
+    "front": "cobblestone"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:mossy_cobblestone",
+   "name": "Mossy Cobblestone",
+   "hardness": 2.0,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "mossy_cobblestone",
+    "side": "mossy_cobblestone",
+    "bottom": "mossy_cobblestone",
+    "front": "mossy_cobblestone"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:oak_planks",
+   "name": "Oak Planks",
+   "hardness": 2.0,
+   "blast_resistance": 3,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "oak_planks",
+    "side": "oak_planks",
+    "bottom": "oak_planks",
+    "front": "oak_planks"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    20
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:oak_log",
+   "name": "Oak Log",
+   "hardness": 2.0,
+   "blast_resistance": 2.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "oak_log_top",
+    "side": "oak_log",
+    "bottom": "oak_log_top",
+    "front": "oak_log"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    5
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "axis": [
+     "y",
+     "x",
+     "z"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:oak_leaves",
+   "name": "Oak Leaves",
+   "hardness": 0.2,
+   "blast_resistance": 0.2,
+   "tool": "hoe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 1,
+   "layer": "cutout",
+   "shape": "cube",
+   "sound": "grass",
+   "textures": {
+    "top": "oak_leaves",
+    "side": "oak_leaves",
+    "bottom": "oak_leaves",
+    "front": "oak_leaves"
+   },
+   "drops": [
+    {
+     "item": "minecraft:oak_sapling",
+     "chance": 0.05
+    },
+    {
+     "item": "minecraft:stick",
+     "chance": 0.02,
+     "min": 1,
+     "max": 2
+    },
+    {
+     "item": "minecraft:apple",
+     "chance": 0.005
+    }
+   ],
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "tint": "foliage",
+   "random_tick": "leaf_decay"
+  },
+  {
+   "id": "minecraft:oak_sapling",
+   "name": "Oak Sapling",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "oak_sapling",
+    "side": "oak_sapling",
+    "bottom": "oak_sapling",
+    "front": "oak_sapling"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "random_tick": "sapling_grow",
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:spruce_planks",
+   "name": "Spruce Planks",
+   "hardness": 2.0,
+   "blast_resistance": 3,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "spruce_planks",
+    "side": "spruce_planks",
+    "bottom": "spruce_planks",
+    "front": "spruce_planks"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    20
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:spruce_log",
+   "name": "Spruce Log",
+   "hardness": 2.0,
+   "blast_resistance": 2.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "spruce_log_top",
+    "side": "spruce_log",
+    "bottom": "spruce_log_top",
+    "front": "spruce_log"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    5
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "axis": [
+     "y",
+     "x",
+     "z"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:spruce_leaves",
+   "name": "Spruce Leaves",
+   "hardness": 0.2,
+   "blast_resistance": 0.2,
+   "tool": "hoe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 1,
+   "layer": "cutout",
+   "shape": "cube",
+   "sound": "grass",
+   "textures": {
+    "top": "spruce_leaves",
+    "side": "spruce_leaves",
+    "bottom": "spruce_leaves",
+    "front": "spruce_leaves"
+   },
+   "drops": [
+    {
+     "item": "minecraft:spruce_sapling",
+     "chance": 0.05
+    },
+    {
+     "item": "minecraft:stick",
+     "chance": 0.02,
+     "min": 1,
+     "max": 2
+    }
+   ],
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "tint": "foliage",
+   "random_tick": "leaf_decay"
+  },
+  {
+   "id": "minecraft:spruce_sapling",
+   "name": "Spruce Sapling",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "spruce_sapling",
+    "side": "spruce_sapling",
+    "bottom": "spruce_sapling",
+    "front": "spruce_sapling"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "random_tick": "sapling_grow",
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:birch_planks",
+   "name": "Birch Planks",
+   "hardness": 2.0,
+   "blast_resistance": 3,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "birch_planks",
+    "side": "birch_planks",
+    "bottom": "birch_planks",
+    "front": "birch_planks"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    20
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:birch_log",
+   "name": "Birch Log",
+   "hardness": 2.0,
+   "blast_resistance": 2.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "birch_log_top",
+    "side": "birch_log",
+    "bottom": "birch_log_top",
+    "front": "birch_log"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    5
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "axis": [
+     "y",
+     "x",
+     "z"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:birch_leaves",
+   "name": "Birch Leaves",
+   "hardness": 0.2,
+   "blast_resistance": 0.2,
+   "tool": "hoe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 1,
+   "layer": "cutout",
+   "shape": "cube",
+   "sound": "grass",
+   "textures": {
+    "top": "birch_leaves",
+    "side": "birch_leaves",
+    "bottom": "birch_leaves",
+    "front": "birch_leaves"
+   },
+   "drops": [
+    {
+     "item": "minecraft:birch_sapling",
+     "chance": 0.05
+    },
+    {
+     "item": "minecraft:stick",
+     "chance": 0.02,
+     "min": 1,
+     "max": 2
+    }
+   ],
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "tint": "foliage",
+   "random_tick": "leaf_decay"
+  },
+  {
+   "id": "minecraft:birch_sapling",
+   "name": "Birch Sapling",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "birch_sapling",
+    "side": "birch_sapling",
+    "bottom": "birch_sapling",
+    "front": "birch_sapling"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "random_tick": "sapling_grow",
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:jungle_planks",
+   "name": "Jungle Planks",
+   "hardness": 2.0,
+   "blast_resistance": 3,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "jungle_planks",
+    "side": "jungle_planks",
+    "bottom": "jungle_planks",
+    "front": "jungle_planks"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    20
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:jungle_log",
+   "name": "Jungle Log",
+   "hardness": 2.0,
+   "blast_resistance": 2.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "jungle_log_top",
+    "side": "jungle_log",
+    "bottom": "jungle_log_top",
+    "front": "jungle_log"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    5
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "axis": [
+     "y",
+     "x",
+     "z"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:jungle_leaves",
+   "name": "Jungle Leaves",
+   "hardness": 0.2,
+   "blast_resistance": 0.2,
+   "tool": "hoe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 1,
+   "layer": "cutout",
+   "shape": "cube",
+   "sound": "grass",
+   "textures": {
+    "top": "jungle_leaves",
+    "side": "jungle_leaves",
+    "bottom": "jungle_leaves",
+    "front": "jungle_leaves"
+   },
+   "drops": [
+    {
+     "item": "minecraft:jungle_sapling",
+     "chance": 0.05
+    },
+    {
+     "item": "minecraft:stick",
+     "chance": 0.02,
+     "min": 1,
+     "max": 2
+    }
+   ],
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "tint": "foliage",
+   "random_tick": "leaf_decay"
+  },
+  {
+   "id": "minecraft:jungle_sapling",
+   "name": "Jungle Sapling",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "jungle_sapling",
+    "side": "jungle_sapling",
+    "bottom": "jungle_sapling",
+    "front": "jungle_sapling"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "random_tick": "sapling_grow",
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:acacia_planks",
+   "name": "Acacia Planks",
+   "hardness": 2.0,
+   "blast_resistance": 3,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "acacia_planks",
+    "side": "acacia_planks",
+    "bottom": "acacia_planks",
+    "front": "acacia_planks"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    20
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:acacia_log",
+   "name": "Acacia Log",
+   "hardness": 2.0,
+   "blast_resistance": 2.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "acacia_log_top",
+    "side": "acacia_log",
+    "bottom": "acacia_log_top",
+    "front": "acacia_log"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    5
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "axis": [
+     "y",
+     "x",
+     "z"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:acacia_leaves",
+   "name": "Acacia Leaves",
+   "hardness": 0.2,
+   "blast_resistance": 0.2,
+   "tool": "hoe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 1,
+   "layer": "cutout",
+   "shape": "cube",
+   "sound": "grass",
+   "textures": {
+    "top": "acacia_leaves",
+    "side": "acacia_leaves",
+    "bottom": "acacia_leaves",
+    "front": "acacia_leaves"
+   },
+   "drops": [
+    {
+     "item": "minecraft:acacia_sapling",
+     "chance": 0.05
+    },
+    {
+     "item": "minecraft:stick",
+     "chance": 0.02,
+     "min": 1,
+     "max": 2
+    }
+   ],
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "tint": "foliage",
+   "random_tick": "leaf_decay"
+  },
+  {
+   "id": "minecraft:acacia_sapling",
+   "name": "Acacia Sapling",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "acacia_sapling",
+    "side": "acacia_sapling",
+    "bottom": "acacia_sapling",
+    "front": "acacia_sapling"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "random_tick": "sapling_grow",
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:dark_oak_planks",
+   "name": "Dark Oak Planks",
+   "hardness": 2.0,
+   "blast_resistance": 3,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "dark_oak_planks",
+    "side": "dark_oak_planks",
+    "bottom": "dark_oak_planks",
+    "front": "dark_oak_planks"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    20
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:dark_oak_log",
+   "name": "Dark Oak Log",
+   "hardness": 2.0,
+   "blast_resistance": 2.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "dark_oak_log_top",
+    "side": "dark_oak_log",
+    "bottom": "dark_oak_log_top",
+    "front": "dark_oak_log"
+   },
+   "drops": "self",
+   "flammable": [
+    5,
+    5
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "axis": [
+     "y",
+     "x",
+     "z"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:dark_oak_leaves",
+   "name": "Dark Oak Leaves",
+   "hardness": 0.2,
+   "blast_resistance": 0.2,
+   "tool": "hoe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 1,
+   "layer": "cutout",
+   "shape": "cube",
+   "sound": "grass",
+   "textures": {
+    "top": "dark_oak_leaves",
+    "side": "dark_oak_leaves",
+    "bottom": "dark_oak_leaves",
+    "front": "dark_oak_leaves"
+   },
+   "drops": [
+    {
+     "item": "minecraft:dark_oak_sapling",
+     "chance": 0.05
+    },
+    {
+     "item": "minecraft:stick",
+     "chance": 0.02,
+     "min": 1,
+     "max": 2
+    },
+    {
+     "item": "minecraft:apple",
+     "chance": 0.005
+    }
+   ],
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "tint": "foliage",
+   "random_tick": "leaf_decay"
+  },
+  {
+   "id": "minecraft:dark_oak_sapling",
+   "name": "Dark Oak Sapling",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "dark_oak_sapling",
+    "side": "dark_oak_sapling",
+    "bottom": "dark_oak_sapling",
+    "front": "dark_oak_sapling"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "random_tick": "sapling_grow",
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:crimson_stem",
+   "name": "Crimson Stem",
+   "hardness": 2.0,
+   "blast_resistance": 2.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "nether_wood",
+   "textures": {
+    "top": "crimson_log_top",
+    "side": "crimson_log",
+    "bottom": "crimson_log_top",
+    "front": "crimson_log"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "axis": [
+     "y",
+     "x",
+     "z"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:crimson_planks",
+   "name": "Crimson Planks",
+   "hardness": 2.0,
+   "blast_resistance": 3,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "nether_wood",
+   "textures": {
+    "top": "crimson_planks",
+    "side": "crimson_planks",
+    "bottom": "crimson_planks",
+    "front": "crimson_planks"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:warped_stem",
+   "name": "Warped Stem",
+   "hardness": 2.0,
+   "blast_resistance": 2.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "nether_wood",
+   "textures": {
+    "top": "warped_log_top",
+    "side": "warped_log",
+    "bottom": "warped_log_top",
+    "front": "warped_log"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "axis": [
+     "y",
+     "x",
+     "z"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:warped_planks",
+   "name": "Warped Planks",
+   "hardness": 2.0,
+   "blast_resistance": 3,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "nether_wood",
+   "textures": {
+    "top": "warped_planks",
+    "side": "warped_planks",
+    "bottom": "warped_planks",
+    "front": "warped_planks"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:sand",
+   "name": "Sand",
+   "hardness": 0.5,
+   "blast_resistance": 0.5,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "sand",
+   "textures": {
+    "top": "sand",
+    "side": "sand",
+    "bottom": "sand",
+    "front": "sand"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": true,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:red_sand",
+   "name": "Red Sand",
+   "hardness": 0.5,
+   "blast_resistance": 0.5,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "sand",
+   "textures": {
+    "top": "red_sand",
+    "side": "red_sand",
+    "bottom": "red_sand",
+    "front": "red_sand"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": true,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:gravel",
+   "name": "Gravel",
+   "hardness": 0.6,
+   "blast_resistance": 0.6,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "gravel",
+   "textures": {
+    "top": "gravel",
+    "side": "gravel",
+    "bottom": "gravel",
+    "front": "gravel"
+   },
+   "drops": [
+    {
+     "item": "minecraft:flint",
+     "chance": 0.1,
+     "else": "minecraft:gravel"
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": true,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:bedrock",
+   "name": "Bedrock",
+   "hardness": -1,
+   "blast_resistance": 3600000,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "bedrock",
+    "side": "bedrock",
+    "bottom": "bedrock",
+    "front": "bedrock"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:coal_ore",
+   "name": "Coal Ore",
+   "hardness": 3.0,
+   "blast_resistance": 3,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "coal_ore",
+    "side": "coal_ore",
+    "bottom": "coal_ore",
+    "front": "coal_ore"
+   },
+   "drops": [
+    {
+     "item": "minecraft:coal",
+     "min": 1,
+     "max": 1
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "xp": [
+    0,
+    2
+   ]
+  },
+  {
+   "id": "minecraft:iron_ore",
+   "name": "Iron Ore",
+   "hardness": 3.0,
+   "blast_resistance": 3,
+   "tool": "pickaxe",
+   "min_tier": 2,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "iron_ore",
+    "side": "iron_ore",
+    "bottom": "iron_ore",
+    "front": "iron_ore"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "xp": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "minecraft:gold_ore",
+   "name": "Gold Ore",
+   "hardness": 3.0,
+   "blast_resistance": 3,
+   "tool": "pickaxe",
+   "min_tier": 3,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "gold_ore",
+    "side": "gold_ore",
+    "bottom": "gold_ore",
+    "front": "gold_ore"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "xp": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "minecraft:redstone_ore",
+   "name": "Redstone Ore",
+   "hardness": 3.0,
+   "blast_resistance": 3,
+   "tool": "pickaxe",
+   "min_tier": 3,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "redstone_ore",
+    "side": "redstone_ore",
+    "bottom": "redstone_ore",
+    "front": "redstone_ore"
+   },
+   "drops": [
+    {
+     "item": "minecraft:redstone",
+     "min": 4,
+     "max": 5
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "xp": [
+    1,
+    5
+   ]
+  },
+  {
+   "id": "minecraft:lapis_ore",
+   "name": "Lapis Ore",
+   "hardness": 3.0,
+   "blast_resistance": 3,
+   "tool": "pickaxe",
+   "min_tier": 2,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "lapis_ore",
+    "side": "lapis_ore",
+    "bottom": "lapis_ore",
+    "front": "lapis_ore"
+   },
+   "drops": [
+    {
+     "item": "minecraft:lapis_lazuli",
+     "min": 4,
+     "max": 9
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "xp": [
+    2,
+    5
+   ]
+  },
+  {
+   "id": "minecraft:diamond_ore",
+   "name": "Diamond Ore",
+   "hardness": 3.0,
+   "blast_resistance": 3,
+   "tool": "pickaxe",
+   "min_tier": 3,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "diamond_ore",
+    "side": "diamond_ore",
+    "bottom": "diamond_ore",
+    "front": "diamond_ore"
+   },
+   "drops": [
+    {
+     "item": "minecraft:diamond",
+     "min": 1,
+     "max": 1
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "xp": [
+    3,
+    7
+   ]
+  },
+  {
+   "id": "minecraft:emerald_ore",
+   "name": "Emerald Ore",
+   "hardness": 3.0,
+   "blast_resistance": 3,
+   "tool": "pickaxe",
+   "min_tier": 3,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "emerald_ore",
+    "side": "emerald_ore",
+    "bottom": "emerald_ore",
+    "front": "emerald_ore"
+   },
+   "drops": [
+    {
+     "item": "minecraft:emerald",
+     "min": 1,
+     "max": 1
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "xp": [
+    3,
+    7
+   ]
+  },
+  {
+   "id": "minecraft:nether_gold_ore",
+   "name": "Nether Gold Ore",
+   "hardness": 3.0,
+   "blast_resistance": 3,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "netherrack",
+   "textures": {
+    "top": "nether_gold_ore",
+    "side": "nether_gold_ore",
+    "bottom": "nether_gold_ore",
+    "front": "nether_gold_ore"
+   },
+   "drops": [
+    {
+     "item": "minecraft:gold_nugget",
+     "min": 2,
+     "max": 6
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "xp": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "minecraft:nether_quartz_ore",
+   "name": "Nether Quartz Ore",
+   "hardness": 3.0,
+   "blast_resistance": 3,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "netherrack",
+   "textures": {
+    "top": "nether_quartz_ore",
+    "side": "nether_quartz_ore",
+    "bottom": "nether_quartz_ore",
+    "front": "nether_quartz_ore"
+   },
+   "drops": [
+    {
+     "item": "minecraft:quartz"
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "xp": [
+    2,
+    5
+   ]
+  },
+  {
+   "id": "minecraft:ancient_debris",
+   "name": "Ancient Debris",
+   "hardness": 30.0,
+   "blast_resistance": 1200,
+   "tool": "pickaxe",
+   "min_tier": 4,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "ancient_debris",
+   "textures": {
+    "top": "ancient_debris_top",
+    "side": "ancient_debris_side",
+    "bottom": "ancient_debris_top",
+    "front": "ancient_debris_side"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:coal_block",
+   "name": "Block of Coal",
+   "hardness": 5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "coal_block",
+    "side": "coal_block",
+    "bottom": "coal_block",
+    "front": "coal_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:iron_block",
+   "name": "Block of Iron",
+   "hardness": 5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 2,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "metal",
+   "textures": {
+    "top": "iron_block",
+    "side": "iron_block",
+    "bottom": "iron_block",
+    "front": "iron_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:gold_block",
+   "name": "Block of Gold",
+   "hardness": 3,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 3,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "metal",
+   "textures": {
+    "top": "gold_block",
+    "side": "gold_block",
+    "bottom": "gold_block",
+    "front": "gold_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:diamond_block",
+   "name": "Block of Diamond",
+   "hardness": 5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 3,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "metal",
+   "textures": {
+    "top": "diamond_block",
+    "side": "diamond_block",
+    "bottom": "diamond_block",
+    "front": "diamond_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:emerald_block",
+   "name": "Block of Emerald",
+   "hardness": 5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 3,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "metal",
+   "textures": {
+    "top": "emerald_block",
+    "side": "emerald_block",
+    "bottom": "emerald_block",
+    "front": "emerald_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:lapis_block",
+   "name": "Block of Lapis",
+   "hardness": 3,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 2,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "lapis_block",
+    "side": "lapis_block",
+    "bottom": "lapis_block",
+    "front": "lapis_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:redstone_block",
+   "name": "Block of Redstone",
+   "hardness": 5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "metal",
+   "textures": {
+    "top": "redstone_block",
+    "side": "redstone_block",
+    "bottom": "redstone_block",
+    "front": "redstone_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:netherite_block",
+   "name": "Block of Netherite",
+   "hardness": 50,
+   "blast_resistance": 1200,
+   "tool": "pickaxe",
+   "min_tier": 4,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "netherite_block",
+   "textures": {
+    "top": "netherite_block",
+    "side": "netherite_block",
+    "bottom": "netherite_block",
+    "front": "netherite_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:obsidian",
+   "name": "Obsidian",
+   "hardness": 50,
+   "blast_resistance": 1200,
+   "tool": "pickaxe",
+   "min_tier": 4,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "obsidian",
+    "side": "obsidian",
+    "bottom": "obsidian",
+    "front": "obsidian"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:crying_obsidian",
+   "name": "Crying Obsidian",
+   "hardness": 50,
+   "blast_resistance": 1200,
+   "tool": "pickaxe",
+   "min_tier": 4,
+   "requires_tool": true,
+   "light": 10,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "crying_obsidian",
+    "side": "crying_obsidian",
+    "bottom": "crying_obsidian",
+    "front": "crying_obsidian"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:glass",
+   "name": "Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "glass",
+    "side": "glass",
+    "bottom": "glass",
+    "front": "glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:white_wool",
+   "name": "White Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "white_wool",
+    "side": "white_wool",
+    "bottom": "white_wool",
+    "front": "white_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:orange_wool",
+   "name": "Orange Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "orange_wool",
+    "side": "orange_wool",
+    "bottom": "orange_wool",
+    "front": "orange_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:magenta_wool",
+   "name": "Magenta Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "magenta_wool",
+    "side": "magenta_wool",
+    "bottom": "magenta_wool",
+    "front": "magenta_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:light_blue_wool",
+   "name": "Light Blue Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "light_blue_wool",
+    "side": "light_blue_wool",
+    "bottom": "light_blue_wool",
+    "front": "light_blue_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:yellow_wool",
+   "name": "Yellow Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "yellow_wool",
+    "side": "yellow_wool",
+    "bottom": "yellow_wool",
+    "front": "yellow_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:lime_wool",
+   "name": "Lime Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "lime_wool",
+    "side": "lime_wool",
+    "bottom": "lime_wool",
+    "front": "lime_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:pink_wool",
+   "name": "Pink Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "pink_wool",
+    "side": "pink_wool",
+    "bottom": "pink_wool",
+    "front": "pink_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:gray_wool",
+   "name": "Gray Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "gray_wool",
+    "side": "gray_wool",
+    "bottom": "gray_wool",
+    "front": "gray_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:light_gray_wool",
+   "name": "Light Gray Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "light_gray_wool",
+    "side": "light_gray_wool",
+    "bottom": "light_gray_wool",
+    "front": "light_gray_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:cyan_wool",
+   "name": "Cyan Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "cyan_wool",
+    "side": "cyan_wool",
+    "bottom": "cyan_wool",
+    "front": "cyan_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:purple_wool",
+   "name": "Purple Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "purple_wool",
+    "side": "purple_wool",
+    "bottom": "purple_wool",
+    "front": "purple_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:blue_wool",
+   "name": "Blue Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "blue_wool",
+    "side": "blue_wool",
+    "bottom": "blue_wool",
+    "front": "blue_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:brown_wool",
+   "name": "Brown Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "brown_wool",
+    "side": "brown_wool",
+    "bottom": "brown_wool",
+    "front": "brown_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:green_wool",
+   "name": "Green Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "green_wool",
+    "side": "green_wool",
+    "bottom": "green_wool",
+    "front": "green_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:red_wool",
+   "name": "Red Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "red_wool",
+    "side": "red_wool",
+    "bottom": "red_wool",
+    "front": "red_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:black_wool",
+   "name": "Black Wool",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "shears",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wool",
+   "textures": {
+    "top": "black_wool",
+    "side": "black_wool",
+    "bottom": "black_wool",
+    "front": "black_wool"
+   },
+   "drops": "self",
+   "flammable": [
+    30,
+    60
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:white_concrete",
+   "name": "White Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "white_concrete",
+    "side": "white_concrete",
+    "bottom": "white_concrete",
+    "front": "white_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:white_terracotta",
+   "name": "White Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "white_terracotta",
+    "side": "white_terracotta",
+    "bottom": "white_terracotta",
+    "front": "white_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:white_stained_glass",
+   "name": "White Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "white_stained_glass",
+    "side": "white_stained_glass",
+    "bottom": "white_stained_glass",
+    "front": "white_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:orange_concrete",
+   "name": "Orange Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "orange_concrete",
+    "side": "orange_concrete",
+    "bottom": "orange_concrete",
+    "front": "orange_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:orange_terracotta",
+   "name": "Orange Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "orange_terracotta",
+    "side": "orange_terracotta",
+    "bottom": "orange_terracotta",
+    "front": "orange_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:orange_stained_glass",
+   "name": "Orange Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "orange_stained_glass",
+    "side": "orange_stained_glass",
+    "bottom": "orange_stained_glass",
+    "front": "orange_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:magenta_concrete",
+   "name": "Magenta Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "magenta_concrete",
+    "side": "magenta_concrete",
+    "bottom": "magenta_concrete",
+    "front": "magenta_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:magenta_terracotta",
+   "name": "Magenta Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "magenta_terracotta",
+    "side": "magenta_terracotta",
+    "bottom": "magenta_terracotta",
+    "front": "magenta_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:magenta_stained_glass",
+   "name": "Magenta Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "magenta_stained_glass",
+    "side": "magenta_stained_glass",
+    "bottom": "magenta_stained_glass",
+    "front": "magenta_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:light_blue_concrete",
+   "name": "Light Blue Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "light_blue_concrete",
+    "side": "light_blue_concrete",
+    "bottom": "light_blue_concrete",
+    "front": "light_blue_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:light_blue_terracotta",
+   "name": "Light Blue Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "light_blue_terracotta",
+    "side": "light_blue_terracotta",
+    "bottom": "light_blue_terracotta",
+    "front": "light_blue_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:light_blue_stained_glass",
+   "name": "Light Blue Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "light_blue_stained_glass",
+    "side": "light_blue_stained_glass",
+    "bottom": "light_blue_stained_glass",
+    "front": "light_blue_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:yellow_concrete",
+   "name": "Yellow Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "yellow_concrete",
+    "side": "yellow_concrete",
+    "bottom": "yellow_concrete",
+    "front": "yellow_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:yellow_terracotta",
+   "name": "Yellow Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "yellow_terracotta",
+    "side": "yellow_terracotta",
+    "bottom": "yellow_terracotta",
+    "front": "yellow_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:yellow_stained_glass",
+   "name": "Yellow Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "yellow_stained_glass",
+    "side": "yellow_stained_glass",
+    "bottom": "yellow_stained_glass",
+    "front": "yellow_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:lime_concrete",
+   "name": "Lime Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "lime_concrete",
+    "side": "lime_concrete",
+    "bottom": "lime_concrete",
+    "front": "lime_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:lime_terracotta",
+   "name": "Lime Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "lime_terracotta",
+    "side": "lime_terracotta",
+    "bottom": "lime_terracotta",
+    "front": "lime_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:lime_stained_glass",
+   "name": "Lime Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "lime_stained_glass",
+    "side": "lime_stained_glass",
+    "bottom": "lime_stained_glass",
+    "front": "lime_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:pink_concrete",
+   "name": "Pink Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "pink_concrete",
+    "side": "pink_concrete",
+    "bottom": "pink_concrete",
+    "front": "pink_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:pink_terracotta",
+   "name": "Pink Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "pink_terracotta",
+    "side": "pink_terracotta",
+    "bottom": "pink_terracotta",
+    "front": "pink_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:pink_stained_glass",
+   "name": "Pink Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "pink_stained_glass",
+    "side": "pink_stained_glass",
+    "bottom": "pink_stained_glass",
+    "front": "pink_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:gray_concrete",
+   "name": "Gray Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "gray_concrete",
+    "side": "gray_concrete",
+    "bottom": "gray_concrete",
+    "front": "gray_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:gray_terracotta",
+   "name": "Gray Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "gray_terracotta",
+    "side": "gray_terracotta",
+    "bottom": "gray_terracotta",
+    "front": "gray_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:gray_stained_glass",
+   "name": "Gray Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "gray_stained_glass",
+    "side": "gray_stained_glass",
+    "bottom": "gray_stained_glass",
+    "front": "gray_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:light_gray_concrete",
+   "name": "Light Gray Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "light_gray_concrete",
+    "side": "light_gray_concrete",
+    "bottom": "light_gray_concrete",
+    "front": "light_gray_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:light_gray_terracotta",
+   "name": "Light Gray Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "light_gray_terracotta",
+    "side": "light_gray_terracotta",
+    "bottom": "light_gray_terracotta",
+    "front": "light_gray_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:light_gray_stained_glass",
+   "name": "Light Gray Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "light_gray_stained_glass",
+    "side": "light_gray_stained_glass",
+    "bottom": "light_gray_stained_glass",
+    "front": "light_gray_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:cyan_concrete",
+   "name": "Cyan Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "cyan_concrete",
+    "side": "cyan_concrete",
+    "bottom": "cyan_concrete",
+    "front": "cyan_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:cyan_terracotta",
+   "name": "Cyan Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "cyan_terracotta",
+    "side": "cyan_terracotta",
+    "bottom": "cyan_terracotta",
+    "front": "cyan_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:cyan_stained_glass",
+   "name": "Cyan Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "cyan_stained_glass",
+    "side": "cyan_stained_glass",
+    "bottom": "cyan_stained_glass",
+    "front": "cyan_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:purple_concrete",
+   "name": "Purple Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "purple_concrete",
+    "side": "purple_concrete",
+    "bottom": "purple_concrete",
+    "front": "purple_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:purple_terracotta",
+   "name": "Purple Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "purple_terracotta",
+    "side": "purple_terracotta",
+    "bottom": "purple_terracotta",
+    "front": "purple_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:purple_stained_glass",
+   "name": "Purple Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "purple_stained_glass",
+    "side": "purple_stained_glass",
+    "bottom": "purple_stained_glass",
+    "front": "purple_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:blue_concrete",
+   "name": "Blue Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "blue_concrete",
+    "side": "blue_concrete",
+    "bottom": "blue_concrete",
+    "front": "blue_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:blue_terracotta",
+   "name": "Blue Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "blue_terracotta",
+    "side": "blue_terracotta",
+    "bottom": "blue_terracotta",
+    "front": "blue_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:blue_stained_glass",
+   "name": "Blue Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "blue_stained_glass",
+    "side": "blue_stained_glass",
+    "bottom": "blue_stained_glass",
+    "front": "blue_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:brown_concrete",
+   "name": "Brown Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "brown_concrete",
+    "side": "brown_concrete",
+    "bottom": "brown_concrete",
+    "front": "brown_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:brown_terracotta",
+   "name": "Brown Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "brown_terracotta",
+    "side": "brown_terracotta",
+    "bottom": "brown_terracotta",
+    "front": "brown_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:brown_stained_glass",
+   "name": "Brown Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "brown_stained_glass",
+    "side": "brown_stained_glass",
+    "bottom": "brown_stained_glass",
+    "front": "brown_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:green_concrete",
+   "name": "Green Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "green_concrete",
+    "side": "green_concrete",
+    "bottom": "green_concrete",
+    "front": "green_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:green_terracotta",
+   "name": "Green Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "green_terracotta",
+    "side": "green_terracotta",
+    "bottom": "green_terracotta",
+    "front": "green_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:green_stained_glass",
+   "name": "Green Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "green_stained_glass",
+    "side": "green_stained_glass",
+    "bottom": "green_stained_glass",
+    "front": "green_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:red_concrete",
+   "name": "Red Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "red_concrete",
+    "side": "red_concrete",
+    "bottom": "red_concrete",
+    "front": "red_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:red_terracotta",
+   "name": "Red Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "red_terracotta",
+    "side": "red_terracotta",
+    "bottom": "red_terracotta",
+    "front": "red_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:red_stained_glass",
+   "name": "Red Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "red_stained_glass",
+    "side": "red_stained_glass",
+    "bottom": "red_stained_glass",
+    "front": "red_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:black_concrete",
+   "name": "Black Concrete",
+   "hardness": 1.8,
+   "blast_resistance": 1.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "black_concrete",
+    "side": "black_concrete",
+    "bottom": "black_concrete",
+    "front": "black_concrete"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:black_terracotta",
+   "name": "Black Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "black_terracotta",
+    "side": "black_terracotta",
+    "bottom": "black_terracotta",
+    "front": "black_terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:black_stained_glass",
+   "name": "Black Stained Glass",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "black_stained_glass",
+    "side": "black_stained_glass",
+    "bottom": "black_stained_glass",
+    "front": "black_stained_glass"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:terracotta",
+   "name": "Terracotta",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "terracotta",
+    "side": "terracotta",
+    "bottom": "terracotta",
+    "front": "terracotta"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:bricks",
+   "name": "Bricks",
+   "hardness": 2.0,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "bricks",
+    "side": "bricks",
+    "bottom": "bricks",
+    "front": "bricks"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:stone_bricks",
+   "name": "Stone Bricks",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "stone_bricks",
+    "side": "stone_bricks",
+    "bottom": "stone_bricks",
+    "front": "stone_bricks"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:mossy_stone_bricks",
+   "name": "Mossy Stone Bricks",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "mossy_stone_bricks",
+    "side": "mossy_stone_bricks",
+    "bottom": "mossy_stone_bricks",
+    "front": "mossy_stone_bricks"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:cracked_stone_bricks",
+   "name": "Cracked Stone Bricks",
+   "hardness": 2.0,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "cracked_stone_bricks",
+    "side": "cracked_stone_bricks",
+    "bottom": "cracked_stone_bricks",
+    "front": "cracked_stone_bricks"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:smooth_stone",
+   "name": "Smooth Stone",
+   "hardness": 2.0,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "smooth_stone",
+    "side": "smooth_stone",
+    "bottom": "smooth_stone",
+    "front": "smooth_stone"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:stone_slab",
+   "name": "Stone Slab",
+   "hardness": 2.0,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 0,
+   "layer": "solid",
+   "shape": "slab",
+   "sound": "stone",
+   "textures": {
+    "top": "smooth_stone",
+    "side": "smooth_stone",
+    "bottom": "smooth_stone",
+    "front": "smooth_stone"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:cobblestone_slab",
+   "name": "Cobblestone Slab",
+   "hardness": 2.0,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 0,
+   "layer": "solid",
+   "shape": "slab",
+   "sound": "stone",
+   "textures": {
+    "top": "cobblestone",
+    "side": "cobblestone",
+    "bottom": "cobblestone",
+    "front": "cobblestone"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:oak_slab",
+   "name": "Oak Slab",
+   "hardness": 2.0,
+   "blast_resistance": 3,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "solid",
+   "shape": "slab",
+   "sound": "wood",
+   "textures": {
+    "top": "oak_planks",
+    "side": "oak_planks",
+    "bottom": "oak_planks",
+    "front": "oak_planks"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:sandstone",
+   "name": "Sandstone",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "sandstone_top",
+    "side": "sandstone",
+    "bottom": "sandstone_top",
+    "front": "sandstone"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:red_sandstone",
+   "name": "Red Sandstone",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "red_sand",
+    "side": "red_sandstone",
+    "bottom": "red_sand",
+    "front": "red_sandstone"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:clay",
+   "name": "Clay",
+   "hardness": 0.6,
+   "blast_resistance": 0.6,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "gravel",
+   "textures": {
+    "top": "clay",
+    "side": "clay",
+    "bottom": "clay",
+    "front": "clay"
+   },
+   "drops": [
+    {
+     "item": "minecraft:clay_ball",
+     "min": 4,
+     "max": 4
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:snow_block",
+   "name": "Snow Block",
+   "hardness": 0.2,
+   "blast_resistance": 0.2,
+   "tool": "shovel",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "snow",
+   "textures": {
+    "top": "snow",
+    "side": "snow",
+    "bottom": "snow",
+    "front": "snow"
+   },
+   "drops": [
+    {
+     "item": "minecraft:snowball",
+     "min": 4,
+     "max": 4
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:snow",
+   "name": "Snow",
+   "hardness": 0.1,
+   "blast_resistance": 0.1,
+   "tool": "shovel",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 0,
+   "layer": "solid",
+   "shape": "snow_layer",
+   "sound": "snow",
+   "textures": {
+    "top": "snow",
+    "side": "snow",
+    "bottom": "snow",
+    "front": "snow"
+   },
+   "drops": [
+    {
+     "item": "minecraft:snowball"
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true
+  },
+  {
+   "id": "minecraft:ice",
+   "name": "Ice",
+   "hardness": 0.5,
+   "blast_resistance": 0.5,
+   "tool": "pickaxe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 1,
+   "layer": "translucent",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "ice",
+    "side": "ice",
+    "bottom": "ice",
+    "front": "ice"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.98,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:packed_ice",
+   "name": "Packed Ice",
+   "hardness": 0.5,
+   "blast_resistance": 0.5,
+   "tool": "pickaxe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "packed_ice",
+    "side": "packed_ice",
+    "bottom": "packed_ice",
+    "front": "packed_ice"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.98,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:netherrack",
+   "name": "Netherrack",
+   "hardness": 0.4,
+   "blast_resistance": 0.4,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "netherrack",
+   "textures": {
+    "top": "netherrack",
+    "side": "netherrack",
+    "bottom": "netherrack",
+    "front": "netherrack"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:soul_sand",
+   "name": "Soul Sand",
+   "hardness": 0.5,
+   "blast_resistance": 0.5,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "soul_sand",
+   "textures": {
+    "top": "soul_sand",
+    "side": "soul_sand",
+    "bottom": "soul_sand",
+    "front": "soul_sand"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "speed_factor": 0.4
+  },
+  {
+   "id": "minecraft:soul_soil",
+   "name": "Soul Soil",
+   "hardness": 0.5,
+   "blast_resistance": 0.5,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "soul_soil",
+   "textures": {
+    "top": "soul_soil",
+    "side": "soul_soil",
+    "bottom": "soul_soil",
+    "front": "soul_soil"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:glowstone",
+   "name": "Glowstone",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 15,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "glowstone",
+    "side": "glowstone",
+    "bottom": "glowstone",
+    "front": "glowstone"
+   },
+   "drops": [
+    {
+     "item": "minecraft:glowstone_dust",
+     "min": 2,
+     "max": 4
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:crimson_nylium",
+   "name": "Crimson Nylium",
+   "hardness": 0.4,
+   "blast_resistance": 0.4,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "nylium",
+   "textures": {
+    "top": "crimson_nylium_top",
+    "side": "crimson_nylium",
+    "bottom": "netherrack",
+    "front": "crimson_nylium"
+   },
+   "drops": [
+    {
+     "item": "minecraft:netherrack"
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:warped_nylium",
+   "name": "Warped Nylium",
+   "hardness": 0.4,
+   "blast_resistance": 0.4,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "nylium",
+   "textures": {
+    "top": "warped_nylium_top",
+    "side": "warped_nylium",
+    "bottom": "netherrack",
+    "front": "warped_nylium"
+   },
+   "drops": [
+    {
+     "item": "minecraft:netherrack"
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:nether_wart_block",
+   "name": "Nether Wart Block",
+   "hardness": 1.0,
+   "blast_resistance": 1.0,
+   "tool": "hoe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "nether_wart",
+   "textures": {
+    "top": "nether_wart_block",
+    "side": "nether_wart_block",
+    "bottom": "nether_wart_block",
+    "front": "nether_wart_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:warped_wart_block",
+   "name": "Warped Wart Block",
+   "hardness": 1.0,
+   "blast_resistance": 1.0,
+   "tool": "hoe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "nether_wart",
+   "textures": {
+    "top": "warped_wart_block",
+    "side": "warped_wart_block",
+    "bottom": "warped_wart_block",
+    "front": "warped_wart_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:shroomlight",
+   "name": "Shroomlight",
+   "hardness": 1.0,
+   "blast_resistance": 1.0,
+   "tool": "hoe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 15,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "shroomlight",
+   "textures": {
+    "top": "shroomlight",
+    "side": "shroomlight",
+    "bottom": "shroomlight",
+    "front": "shroomlight"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:basalt",
+   "name": "Basalt",
+   "hardness": 1.25,
+   "blast_resistance": 4.2,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "basalt",
+   "textures": {
+    "top": "basalt_top",
+    "side": "basalt_side",
+    "bottom": "basalt_top",
+    "front": "basalt_side"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "axis": [
+     "y",
+     "x",
+     "z"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:blackstone",
+   "name": "Blackstone",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "blackstone",
+   "textures": {
+    "top": "blackstone",
+    "side": "blackstone",
+    "bottom": "blackstone",
+    "front": "blackstone"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:nether_bricks",
+   "name": "Nether Bricks",
+   "hardness": 2.0,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "nether_bricks",
+   "textures": {
+    "top": "nether_bricks",
+    "side": "nether_bricks",
+    "bottom": "nether_bricks",
+    "front": "nether_bricks"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:quartz_block",
+   "name": "Block of Quartz",
+   "hardness": 0.8,
+   "blast_resistance": 0.8,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "quartz_block",
+    "side": "quartz_block",
+    "bottom": "quartz_block",
+    "front": "quartz_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:end_stone",
+   "name": "End Stone",
+   "hardness": 3.0,
+   "blast_resistance": 9,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "end_stone",
+    "side": "end_stone",
+    "bottom": "end_stone",
+    "front": "end_stone"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:purpur_block",
+   "name": "Purpur Block",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "purpur_block",
+    "side": "purpur_block",
+    "bottom": "purpur_block",
+    "front": "purpur_block"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:prismarine",
+   "name": "Prismarine",
+   "hardness": 1.5,
+   "blast_resistance": 6,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "prismarine",
+    "side": "prismarine",
+    "bottom": "prismarine",
+    "front": "prismarine"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:sea_lantern",
+   "name": "Sea Lantern",
+   "hardness": 0.3,
+   "blast_resistance": 0.3,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 15,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "glass",
+   "textures": {
+    "top": "sea_lantern",
+    "side": "sea_lantern",
+    "bottom": "sea_lantern",
+    "front": "sea_lantern"
+   },
+   "drops": [
+    {
+     "item": "minecraft:prismarine_crystals",
+     "min": 2,
+     "max": 3
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:sponge",
+   "name": "Sponge",
+   "hardness": 0.6,
+   "blast_resistance": 0.6,
+   "tool": "hoe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "grass",
+   "textures": {
+    "top": "sponge",
+    "side": "sponge",
+    "bottom": "sponge",
+    "front": "sponge"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:crafting_table",
+   "name": "Crafting Table",
+   "hardness": 2.5,
+   "blast_resistance": 2.5,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "crafting_table_top",
+    "side": "crafting_table_side",
+    "bottom": "crafting_table_top",
+    "front": "crafting_table_front"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "interact": "crafting"
+  },
+  {
+   "id": "minecraft:furnace",
+   "name": "Furnace",
+   "hardness": 3.5,
+   "blast_resistance": 3.5,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "furnace_top",
+    "side": "furnace_side",
+    "bottom": "furnace_top",
+    "front": "furnace_front"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "facing": [
+     "north",
+     "south",
+     "west",
+     "east"
+    ],
+    "lit": [
+     "false",
+     "true"
+    ]
+   },
+   "interact": "furnace",
+   "lit_light": 13,
+   "lit_front": "furnace_front_on"
+  },
+  {
+   "id": "minecraft:chest",
+   "name": "Chest",
+   "hardness": 2.5,
+   "blast_resistance": 2.5,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "chest_top",
+    "side": "chest_side",
+    "bottom": "chest_top",
+    "front": "chest_front"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "facing": [
+     "north",
+     "south",
+     "west",
+     "east"
+    ]
+   },
+   "interact": "chest"
+  },
+  {
+   "id": "minecraft:bookshelf",
+   "name": "Bookshelf",
+   "hardness": 1.5,
+   "blast_resistance": 1.5,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "oak_planks",
+    "side": "bookshelf",
+    "bottom": "oak_planks",
+    "front": "bookshelf"
+   },
+   "drops": [
+    {
+     "item": "minecraft:book",
+     "min": 3,
+     "max": 3
+    }
+   ],
+   "flammable": [
+    30,
+    20
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:tnt",
+   "name": "TNT",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "grass",
+   "textures": {
+    "top": "tnt_top",
+    "side": "tnt_side",
+    "bottom": "tnt_top",
+    "front": "tnt_side"
+   },
+   "drops": "self",
+   "flammable": [
+    15,
+    100
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "interact": "tnt"
+  },
+  {
+   "id": "minecraft:pumpkin",
+   "name": "Pumpkin",
+   "hardness": 1.0,
+   "blast_resistance": 1.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "pumpkin_top",
+    "side": "pumpkin_side",
+    "bottom": "pumpkin_top",
+    "front": "pumpkin_side"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:carved_pumpkin",
+   "name": "Carved Pumpkin",
+   "hardness": 1.0,
+   "blast_resistance": 1.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "pumpkin_top",
+    "side": "pumpkin_side",
+    "bottom": "pumpkin_top",
+    "front": "carved_pumpkin"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "facing": [
+     "north",
+     "south",
+     "west",
+     "east"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:jack_o_lantern",
+   "name": "Jack o'Lantern",
+   "hardness": 1.0,
+   "blast_resistance": 1.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 15,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "pumpkin_top",
+    "side": "pumpkin_side",
+    "bottom": "pumpkin_top",
+    "front": "jack_o_lantern"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "facing": [
+     "north",
+     "south",
+     "west",
+     "east"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:melon",
+   "name": "Melon",
+   "hardness": 1.0,
+   "blast_resistance": 1.0,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 15,
+   "layer": "solid",
+   "shape": "cube",
+   "sound": "wood",
+   "textures": {
+    "top": "melon_top",
+    "side": "melon_side",
+    "bottom": "melon_top",
+    "front": "melon_side"
+   },
+   "drops": [
+    {
+     "item": "minecraft:melon_slice",
+     "min": 3,
+     "max": 7
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true
+  },
+  {
+   "id": "minecraft:cactus",
+   "name": "Cactus",
+   "hardness": 0.4,
+   "blast_resistance": 0.4,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cactus",
+   "sound": "wool",
+   "textures": {
+    "top": "cactus_top",
+    "side": "cactus_side",
+    "bottom": "cactus_top",
+    "front": "cactus_side"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "contact_damage": 1,
+   "random_tick": "cactus_grow",
+   "support": "sand"
+  },
+  {
+   "id": "minecraft:farmland",
+   "name": "Farmland",
+   "hardness": 0.6,
+   "blast_resistance": 0.6,
+   "tool": "shovel",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "solid",
+   "shape": "farmland",
+   "sound": "gravel",
+   "textures": {
+    "top": "farmland",
+    "side": "dirt",
+    "bottom": "dirt",
+    "front": "dirt"
+   },
+   "drops": [
+    {
+     "item": "minecraft:dirt"
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "moisture": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7"
+    ]
+   },
+   "random_tick": "farmland"
+  },
+  {
+   "id": "minecraft:wheat",
+   "name": "Wheat Crops",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "crop",
+   "sound": "grass",
+   "textures": {
+    "top": "wheat_stage0",
+    "side": "wheat_stage0",
+    "bottom": "wheat_stage0",
+    "front": "wheat_stage0"
+   },
+   "drops": [
+    {
+     "item": "minecraft:wheat_seeds",
+     "min": 1,
+     "max": 1
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": false,
+   "properties": {
+    "age": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7"
+    ]
+   },
+   "random_tick": "crop_grow",
+   "support": "farmland",
+   "ripe_drops": [
+    {
+     "item": "minecraft:wheat"
+    },
+    {
+     "item": "minecraft:wheat_seeds",
+     "min": 1,
+     "max": 3
+    }
+   ]
+  },
+  {
+   "id": "minecraft:torch",
+   "name": "Torch",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 14,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "torch",
+   "sound": "wood",
+   "textures": {
+    "top": "torch",
+    "side": "torch",
+    "bottom": "torch",
+    "front": "torch"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "solid_below"
+  },
+  {
+   "id": "minecraft:soul_torch",
+   "name": "Soul Torch",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 10,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "torch",
+   "sound": "wood",
+   "textures": {
+    "top": "soul_torch",
+    "side": "soul_torch",
+    "bottom": "soul_torch",
+    "front": "soul_torch"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "solid_below"
+  },
+  {
+   "id": "minecraft:ladder",
+   "name": "Ladder",
+   "hardness": 0.4,
+   "blast_resistance": 0.4,
+   "tool": "axe",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "ladder",
+   "sound": "ladder",
+   "textures": {
+    "top": "ladder",
+    "side": "ladder",
+    "bottom": "ladder",
+    "front": "ladder"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "facing": [
+     "north",
+     "south",
+     "west",
+     "east"
+    ]
+   },
+   "climbable": true
+  },
+  {
+   "id": "minecraft:cobweb",
+   "name": "Cobweb",
+   "hardness": 4.0,
+   "blast_resistance": 4.0,
+   "tool": "sword",
+   "min_tier": 0,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 1,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "stone",
+   "textures": {
+    "top": "cobweb",
+    "side": "cobweb",
+    "bottom": "cobweb",
+    "front": "cobweb"
+   },
+   "drops": [
+    {
+     "item": "minecraft:string"
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "web": true
+  },
+  {
+   "id": "minecraft:grass",
+   "name": "Grass",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout_mipmap",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "grass",
+    "side": "grass",
+    "bottom": "grass",
+    "front": "grass"
+   },
+   "drops": [
+    {
+     "item": "minecraft:wheat_seeds",
+     "chance": 0.125
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "tint": "grass",
+   "support": "soil",
+   "replaceable": true
+  },
+  {
+   "id": "minecraft:fern",
+   "name": "Fern",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout_mipmap",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "fern",
+    "side": "fern",
+    "bottom": "fern",
+    "front": "fern"
+   },
+   "drops": [
+    {
+     "item": "minecraft:wheat_seeds",
+     "chance": 0.125
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "tint": "grass",
+   "support": "soil",
+   "replaceable": true
+  },
+  {
+   "id": "minecraft:dead_bush",
+   "name": "Dead Bush",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "dead_bush",
+    "side": "dead_bush",
+    "bottom": "dead_bush",
+    "front": "dead_bush"
+   },
+   "drops": [
+    {
+     "item": "minecraft:stick",
+     "min": 0,
+     "max": 2
+    }
+   ],
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "sand",
+   "replaceable": true
+  },
+  {
+   "id": "minecraft:dandelion",
+   "name": "Dandelion",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "dandelion",
+    "side": "dandelion",
+    "bottom": "dandelion",
+    "front": "dandelion"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:poppy",
+   "name": "Poppy",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "poppy",
+    "side": "poppy",
+    "bottom": "poppy",
+    "front": "poppy"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:blue_orchid",
+   "name": "Blue Orchid",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "blue_orchid",
+    "side": "blue_orchid",
+    "bottom": "blue_orchid",
+    "front": "blue_orchid"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:allium",
+   "name": "Allium",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "allium",
+    "side": "allium",
+    "bottom": "allium",
+    "front": "allium"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:azure_bluet",
+   "name": "Azure Bluet",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "azure_bluet",
+    "side": "azure_bluet",
+    "bottom": "azure_bluet",
+    "front": "azure_bluet"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:red_tulip",
+   "name": "Red Tulip",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "red_tulip",
+    "side": "red_tulip",
+    "bottom": "red_tulip",
+    "front": "red_tulip"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:orange_tulip",
+   "name": "Orange Tulip",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "orange_tulip",
+    "side": "orange_tulip",
+    "bottom": "orange_tulip",
+    "front": "orange_tulip"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:white_tulip",
+   "name": "White Tulip",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "white_tulip",
+    "side": "white_tulip",
+    "bottom": "white_tulip",
+    "front": "white_tulip"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:pink_tulip",
+   "name": "Pink Tulip",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "pink_tulip",
+    "side": "pink_tulip",
+    "bottom": "pink_tulip",
+    "front": "pink_tulip"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:oxeye_daisy",
+   "name": "Oxeye Daisy",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "oxeye_daisy",
+    "side": "oxeye_daisy",
+    "bottom": "oxeye_daisy",
+    "front": "oxeye_daisy"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:cornflower",
+   "name": "Cornflower",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "cornflower",
+    "side": "cornflower",
+    "bottom": "cornflower",
+    "front": "cornflower"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:lily_of_the_valley",
+   "name": "Lily Of The Valley",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "lily_of_the_valley",
+    "side": "lily_of_the_valley",
+    "bottom": "lily_of_the_valley",
+    "front": "lily_of_the_valley"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "support": "soil"
+  },
+  {
+   "id": "minecraft:red_mushroom",
+   "name": "Red Mushroom",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "red_mushroom",
+    "side": "red_mushroom",
+    "bottom": "red_mushroom",
+    "front": "red_mushroom"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true
+  },
+  {
+   "id": "minecraft:brown_mushroom",
+   "name": "Brown Mushroom",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 1,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "brown_mushroom",
+    "side": "brown_mushroom",
+    "bottom": "brown_mushroom",
+    "front": "brown_mushroom"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true
+  },
+  {
+   "id": "minecraft:sugar_cane",
+   "name": "Sugar Cane",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "grass",
+   "textures": {
+    "top": "sugar_cane",
+    "side": "sugar_cane",
+    "bottom": "sugar_cane",
+    "front": "sugar_cane"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": true,
+   "random_tick": "cane_grow",
+   "support": "cane"
+  },
+  {
+   "id": "minecraft:water",
+   "name": "Water",
+   "hardness": 100,
+   "blast_resistance": 100,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 1,
+   "layer": "translucent",
+   "shape": "fluid",
+   "sound": "stone",
+   "textures": {
+    "top": "water",
+    "side": "water",
+    "bottom": "water",
+    "front": "water"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": false,
+   "properties": {
+    "level": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
+     "13",
+     "14",
+     "15"
+    ]
+   },
+   "fluid": "water",
+   "tick_rate": 5,
+   "spread": 7,
+   "replaceable": true
+  },
+  {
+   "id": "minecraft:lava",
+   "name": "Lava",
+   "hardness": 100,
+   "blast_resistance": 100,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 15,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "fluid",
+   "sound": "stone",
+   "textures": {
+    "top": "lava",
+    "side": "lava",
+    "bottom": "lava",
+    "front": "lava"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": false,
+   "properties": {
+    "level": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
+     "13",
+     "14",
+     "15"
+    ]
+   },
+   "fluid": "lava",
+   "tick_rate": 30,
+   "spread": 3,
+   "nether_spread": 7,
+   "replaceable": true
+  },
+  {
+   "id": "minecraft:fire",
+   "name": "Fire",
+   "hardness": 0,
+   "blast_resistance": 0,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 15,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cross",
+   "sound": "wool",
+   "textures": {
+    "top": "lava",
+    "side": "lava",
+    "bottom": "lava",
+    "front": "lava"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": false,
+   "contact_damage": 1,
+   "replaceable": true
+  },
+  {
+   "id": "minecraft:nether_portal",
+   "name": "Nether Portal",
+   "hardness": -1,
+   "blast_resistance": -1,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 11,
+   "opacity": 0,
+   "layer": "translucent",
+   "shape": "portal",
+   "sound": "glass",
+   "textures": {
+    "top": "nether_portal",
+    "side": "nether_portal",
+    "bottom": "nether_portal",
+    "front": "nether_portal"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": false,
+   "item": false,
+   "properties": {
+    "axis": [
+     "x",
+     "z"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:red_bed",
+   "name": "Red Bed",
+   "hardness": 0.2,
+   "blast_resistance": 0.2,
+   "tool": "none",
+   "min_tier": 0,
+   "requires_tool": false,
+   "light": 0,
+   "opacity": 0,
+   "layer": "solid",
+   "shape": "bed",
+   "sound": "wood",
+   "textures": {
+    "top": "bed_top",
+    "side": "bed_side",
+    "bottom": "oak_planks",
+    "front": "bed_side"
+   },
+   "drops": "self",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "properties": {
+    "facing": [
+     "north",
+     "south",
+     "west",
+     "east"
+    ],
+    "part": [
+     "foot",
+     "head"
+    ]
+   },
+   "interact": "bed"
+  },
+  {
+   "id": "minecraft:spawner",
+   "name": "Spawner",
+   "hardness": 5.0,
+   "blast_resistance": 5.0,
+   "tool": "pickaxe",
+   "min_tier": 1,
+   "requires_tool": true,
+   "light": 0,
+   "opacity": 0,
+   "layer": "cutout",
+   "shape": "cube",
+   "sound": "stone",
+   "textures": {
+    "top": "spawner",
+    "side": "spawner",
+    "bottom": "spawner",
+    "front": "spawner"
+   },
+   "drops": "none",
+   "flammable": [
+    0,
+    0
+   ],
+   "gravity": false,
+   "slipperiness": 0.6,
+   "collision": true,
+   "item": true,
+   "xp": [
+    15,
+    43
+   ]
+  }
+ ]
 }

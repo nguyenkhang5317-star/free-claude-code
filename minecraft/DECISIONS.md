@@ -1,69 +1,93 @@
 # DECISIONS.md — Minecraft 1.16.5 Rebuild
 
-> Append-only decision log per Appendix L.2. Format: date, milestone, section, ambiguity/conflict, decision, rationale, affected test.
+> This is an append-only decision log (Appendix L.2). Each entry records the date, milestone and section, the ambiguity or conflict, the decision, its rationale, and the affected code or test.
+> Entries before the Java rewrite described a Python/Three.js web prototype. That prototype was removed at the user's request ("app, not web"; "use Java"). These entries supersede it.
 
-## Platform Decisions
+## Platform
 
-- **2026-11-22, M1, §1.4.1 — Stack: Python (server + data validators) + JavaScript/Three.js (client).**
-  Rationale: Python matches repo runtime (3.14, pytest) and keeps data pipeline testable; JS/Three.js gives immediate browser playability and LIVE PREVIEW without native builds. Hot loop (tick + meshing) runs in JS with fixed 20 TPS; Python owns registries, validation, and static serving. No asset copying — all textures procedurally generated from Appendix F palettes; all audio synthesized via WebAudio.
-  Affected: `minecraft/server.py`, `minecraft/client/js/*`, `minecraft/tests/*`.
+- **2026-11-22, M1, §1.4.1. Decision: stack is pure Java 17 (JDK only) with a software renderer.**
+  - Conflict: the spec allows any stack. The user requires a native desktop app with a Windows `.exe`, written in Java.
+  - Decision: no third-party libraries. Rendering uses a custom multi-threaded software rasteriser that blits into an AWT `BufferStrategy`, so there is no OpenGL/LWJGL dependency and nothing native to bundle beyond the JRE.
+  - Rationale: it builds anywhere with `javac` and runs on any Windows PC without GPU drivers. The cost is lower FPS than a GPU renderer, so render scale (default 50 %) and render distance (default 6) are exposed in Options.
+  - Affected: `mc.client.Raster`, `Renderer`, `GameClient`.
 
-- **2026-11-22, M1, §2.1 — Layering: data-first registries in `minecraft/data/*.json`, frozen at boot.**
-  Rationale: Spec §2.4 requires data-driven content. Client loads JSON registries; server validates them. Unknown identifiers fail loudly.
-  Affected: registry validators.
+- **2026-11-22, M1, §2.1. Decision: an integrated server runs on its own thread, separate from the client.**
+  - The server owns all world state. The client only sends `C2S` packets and renders `S2C` snapshots; the queue is in-process.
+  - All edits are server-authoritative. Reach is 4.5 blocks, or 5 in creative.
+  - Affected: `mc.net`, `mc.server.IntegratedServer`, `Actions`.
 
-- **2026-11-22, M1, §2.3 — Chunk storage: 16×16 columns, 16³ sections, palette-encoded in JS (Map + Uint16).**
-  Rationale: Full palette bit-packing deferred; JS Map per section is simpler and fast enough for 8-chunk render distance. Documented as deviation from §3.2 packed arrays; memory still < 2 GB at default distance.
-  Affected: `world.js`.
+- **2026-11-22, M1, §2.8. Decision: these interfaces exist at the seams: `IWorld`, `IChunkAccess`, `ISaveStore`, `IAudioBus` and `WorldListener` (the mesh/network sink).**
+  - Headless mode (`--headless`) runs with null sinks.
+  - The F3 overlay shows per-stage server timers (chunks, blocks, entities, spawning), render projection and raster times, and a frame-time chart.
 
-- **2026-11-22, M1, §1.4.5 — Fixed tick 20 TPS with render interpolation.**
-  Rationale: Server tick decoupled from rAF; player physics stepped at fixed dt.
-  Affected: `main.js`.
+- **2026-11-22, M1, §1.2. Decision: assets are generated, never copied.**
+  - Textures (237) are drawn at startup from palette and pattern descriptions in `data/textures.json`. Item icons are derived from them, and block items render as isometric cubes.
+  - Sounds (181) are synthesised from `data/sounds.json` parameters (synth type, frequency, duration, volume).
+  - Consequence: `assets/` is intentionally empty and the data pack is the asset source. The art is original and only evokes vanilla's look.
 
-- **2026-11-22, M1, §1.2 Asset policy — Original procedural textures/audio only.**
-  Rationale: No Mojang assets. Textures generated on canvas from Appendix F hex ramps; sounds synthesized (oscillator + noise) per Appendix S durations.
-  Affected: `blocks.js`, `audio.js`.
+- **2026-11-22, M1, §17. Decision: Windows packaging works two ways.**
+  - (a) `build.bat` runs `jpackage --type app-image`, which produces `dist\Minecraft\Minecraft.exe`.
+  - (b) For the prebuilt download, `tools/package_release.py` takes a Windows JRE from the PyPI `jdk4py` wheel, plus a 200 KB native launcher (`tools/launcher/launcher.c`) cross-compiled with `zig cc`. The launcher is a GUI-subsystem exe with an embedded icon.
+  - Rationale: this produces a real `.exe` that needs no installed Java, and it can be built on any OS.
 
-## Ambiguities Resolved to Vanilla 1.16.5
+## Data & registries
 
-- **2026-11-22, M1, §4.1 — Noise: value-gradient Perlin with quintic interpolation, per-field salts.**
-  Rationale: Spec allows FastSimplex or improved Perlin. Chose seeded value noise for determinism and simplicity.
-  Affected: `worldgen.js` determinism test.
+- **2026-11-22, M1, §2.4. Decision: `tools/gen_data.py` is the single source of truth.** It emits `data/*.json`, which is loaded once at boot and frozen.
+  - Unknown ids fail loudly at load time (e.g. a texture or drop item missing from a block).
+  - External `data/` next to the jar overrides the copy embedded in the jar, so the data pack is editable.
 
-- **2026-11-22, M1, §5.4 — Portal search radius 128 blocks (Overworld→Nether scaled 8:1).**
-  Rationale: Spec gives 17×17 column search; widened to 128 for playability, noted as deviation.
-  Affected: `dimensions.js`.
+- **2026-11-22, M1, §3. Decision: block states are flattened into a global state id space.** Each block has a base id plus property strides (`Blocks.with/prop/value`).
+  - Sections are palette-encoded: 4–13 bits, then the global palette; a uniform section stores no index array.
 
-- **2026-11-22, M1, §12 — Animations as data (keyframes in `mobs.json`), interpolated in JS.**
-  Rationale: Spec §1.2 requires data, not hardcoded loops.
-  Affected: `mobs.js` animation validator.
+## World generation
 
-## Deviations (permitted where spec says best-effort)
+- **2026-11-22, M2, §4.1. Decision: improved-Perlin gradient noise with quintic fade.**
+  - Each field is seeded by `Hash.mix(worldSeed, salt)`, using a SplitMix64 finaliser.
+  - No `java.util.Random` is used anywhere in generation. Results are therefore bit-identical on every JVM and in any chunk order. Tests cover this: order independence and golden hashes.
 
-- Particle fidelity and shaders (§14) best-effort: simple Points-based particles, no post-processing.
-- Multiplayer beyond local integrated server (§1.4.3 Tier 4): single-player only; client-server split simulated in-process.
-- Region file persistence (§2.6): localStorage chunk snapshots, not Anvil format.
+- **2026-11-22, M2, Appendix BF. Decision: generation is staged as SHAPE → SURFACE → CARVE → FEATURES → DECORATE → STRUCTURES → LIGHT.**
+  - Trees and features that cross chunk borders are generated by their owning chunk and clipped, so neighbouring chunks agree regardless of load order.
+  - Known gap: the overworld stops at status 7 while `STATUS_FULL` is 8. The world promotes the chunk on load, so this is harmless.
 
-## Version Contract
+- **2026-11-22, M2, §4.3. Decision: terrain shape uses a 4×8×4 density control grid with trilinear interpolation.**
+  - It approximates 1.16's multi-noise rather than reproducing Mojang's exact noise router, so vanilla seeds do not reproduce vanilla terrain.
+  - Rationale: the spec asks for vanilla-faithful behaviour, not seed compatibility; exact seed parity would require copying Mojang code.
 
-- Target: Minecraft Java Edition 1.16.5 only. Post-1.16.5 content (deepslate, copper, frogs, etc.) omitted per Appendix AF.2. Registry manifest hash in `data/manifest.json`.
+## Rules (values in `data/tuning.json`)
 
-## Implementation status 2026-11-22
-- server.py: ThreadingHTTPServer, serves client/, /data/*.json, POST /api/save + /api/health. Port 8000.
-- client/js/world.js: seeded value-gradient Perlin (quintic), heightmap SEA=28, caves, ores, trees, village grid 34/8, raycast DDA, serialize.
-- client/js/main.js: Three.js voxel meshing (face culling, vertex colors), fixed tick 20 TPS decoupled render, player physics gravity 0.08/damping 0.98, mining/placing, inventory 36 + hotbar 9, crafting recipes, day/night, hunger/health, commands (/seed /time /give /tp /spawn /gamemode /kill /weather /help), death/respawn.
-- client/js/mobs.js: 15 spawn types, wander/hostile AI, box models, drops/XP.
-- client/js/audio.js: WebAudio synth, sound IDs block.*.break/place, entity.*.hurt, etc.
-- client/js/textures.js: procedural canvas atlas (original, Appendix F palettes).
-- tests/test_registry.py: validates 103 blocks / 165 items / 69 mobs + file existence.
-- Deviations: HEIGHT=64 (not 256) for browser perf; render distance 4 chunks; texture atlas fallback to stone for unmapped tiles; no Anvil persistence (localStorage/API save only).
+- **2026-11-22, M3, §6. Decision: ground movement follows 1.16 `LivingEntity.travel` exactly.**
+  - Acceleration is `speed × 0.21600002 / slipperiness³`, where slipperiness is the raw block value, not ×0.91. Horizontal velocity decays by `slipperiness × 0.91`.
+  - Input is scaled ×0.98; gravity is 0.08 and vertical drag 0.98.
+  - Fix found by test: an earlier build cubed `slipperiness × 0.91`, which gave a 5.73 b/s walk speed. It is now 4.317 b/s, and the test is `physics: walk / sprint / sneak speeds`.
 
-## 2026-11-22 — Remove web mode
-- User requested app-only, no web. Deleted minecraft/client/, minecraft/server.py, run-launcher scripts.
-- Kept: app.py (native Tkinter), launcher.py (native), data/, tests/, build-exe scripts.
-- Download via GitHub Release zip; .exe built on Windows via build-exe.bat.
+- **2026-11-22, M3, §5.2. Decision: mining progress per tick is `toolSpeed / hardness / 30` with the correct tool, otherwise `/100`.** Break ticks are `ceil(1/progress)`. Tests check vanilla times.
 
-## 2026-11-22 — Switch Python -> Java
-- User requested Java instead of Python. Replaced app.py/launcher.py (Tkinter) with java/src/MinecraftApp.java (Swing, pure JDK, no deps).
-- Build .exe via javac + jpackage (JDK 17+). Removed PyInstaller scripts.
-- Spec re-read: MASTER_PROMPT_FULL.md (4517 lines, identical to previous). Java version keeps deterministic worldgen, 20 TPS, mining/placing, crafting, day/night, health/hunger.
+- **2026-11-22, M3, §8.4. Decision on spawning:**
+  - Monsters spawn at block light ≤ 7. This follows 1.16, not the light 0 rule of 1.18.
+  - Caps are scaled by `loadedChunks / 289`.
+  - Despawn chance is 1/800 per tick beyond 32 blocks, and despawn is forced beyond 128.
+
+- **2026-11-22, M3, §5.4. Decision on fluids:** water spreads 7 blocks and lava 3 blocks in the overworld (7 in the Nether). Flow goes toward the nearest drop within the slope-find distance (4 for water, 2 for lava).
+
+## Persistence
+
+- **2026-11-22, M4, §2.6 / AZ. Decision: Anvil-like region files.**
+  - Layout: an 8 KiB header (locations + timestamps slot reused for CRC32), then 4 KiB sectors containing zlib payloads.
+  - On a CRC mismatch the chunk is quarantined (the file is copied to `*.corrupt`) and regenerated, instead of crashing. Test: `corrupt region chunk is regenerated`.
+  - `level.json` holds level and player data and is written atomically (temp file + move). Autosave runs every 45 s and on quit.
+
+## Client
+
+- **2026-11-22, M5, §13. Decision on rasteriser:**
+  - Screen bands are rasterised in parallel, with a 1/z depth buffer (cleared to 0, larger is nearer) and perspective-correct UVs.
+  - Passes: opaque, then cutout (alpha test), then translucent (back-to-front by section, alpha blend), then lines and overlays.
+  - Lighting uses a 61×61 LUT (sky × block, 0–60 for smooth interpolated light, gamma + day darkening) recomputed each frame, ambient occlusion factors {0.55, 0.7, 0.85, 1}, and per-face shading.
+
+- **2026-11-22, M5, §14. Decision on GUI:**
+  - The GUI is immediate-mode Java2D drawn in vanilla GUI pixels × the auto GUI scale.
+  - Container slot coordinates mirror the server `Menu` exactly (176×166 layouts).
+  - The F3 overlay is drawn at half the GUI scale so both columns fit.
+  - The launcher passes `-Dsun.java2d.uiScale=1` so that Robot mouse capture and pixel rendering are not distorted by Windows display scaling.
+
+- **2026-11-22, M5, §15. Decision on audio:** a 22.05 kHz stereo mixer thread with distance attenuation (16 blocks) and panning by listener yaw. PCM is synthesised lazily and cached per sound id.
+  - The sound audit found 2 dangling ids. `block.chest.place` was mapped to `block.wood.place` and `block.portal.break` to `block.glass.break`, matching vanilla's material groups.

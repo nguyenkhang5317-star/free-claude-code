@@ -1,169 +1,2025 @@
 {
-  "items": [
-    {"id": "minecraft:oak_log", "name": "Oak Log", "max_stack": 64},
-    {"id": "minecraft:oak_planks", "name": "Oak Planks", "max_stack": 64},
-    {"id": "minecraft:stick", "name": "Stick", "max_stack": 64},
-    {"id": "minecraft:crafting_table", "name": "Crafting Table", "max_stack": 64},
-    {"id": "minecraft:torch", "name": "Torch", "max_stack": 64},
-    {"id": "minecraft:wooden_pickaxe", "name": "Wooden Pickaxe", "max_stack": 1, "durability": 59, "damage": 2, "speed": 2},
-    {"id": "minecraft:stone_pickaxe", "name": "Stone Pickaxe", "max_stack": 1, "durability": 131, "damage": 3, "speed": 4},
-    {"id": "minecraft:iron_pickaxe", "name": "Iron Pickaxe", "max_stack": 1, "durability": 250, "damage": 3, "speed": 6},
-    {"id": "minecraft:diamond_pickaxe", "name": "Diamond Pickaxe", "max_stack": 1, "durability": 1561, "damage": 4, "speed": 8},
-    {"id": "minecraft:netherite_pickaxe", "name": "Netherite Pickaxe", "max_stack": 1, "durability": 2031, "damage": 5, "speed": 9},
-    {"id": "minecraft:wooden_sword", "name": "Wooden Sword", "max_stack": 1, "durability": 59, "damage": 4},
-    {"id": "minecraft:stone_sword", "name": "Stone Sword", "max_stack": 1, "durability": 131, "damage": 5},
-    {"id": "minecraft:iron_sword", "name": "Iron Sword", "max_stack": 1, "durability": 250, "damage": 6},
-    {"id": "minecraft:diamond_sword", "name": "Diamond Sword", "max_stack": 1, "durability": 1561, "damage": 7},
-    {"id": "minecraft:netherite_sword", "name": "Netherite Sword", "max_stack": 1, "durability": 2031, "damage": 8},
-    {"id": "minecraft:wooden_axe", "name": "Wooden Axe", "max_stack": 1, "durability": 59, "damage": 7, "speed": 2},
-    {"id": "minecraft:iron_axe", "name": "Iron Axe", "max_stack": 1, "durability": 250, "damage": 9, "speed": 6},
-    {"id": "minecraft:diamond_axe", "name": "Diamond Axe", "max_stack": 1, "durability": 1561, "damage": 9, "speed": 8},
-    {"id": "minecraft:wooden_shovel", "name": "Wooden Shovel", "max_stack": 1, "durability": 59, "damage": 2},
-    {"id": "minecraft:iron_shovel", "name": "Iron Shovel", "max_stack": 1, "durability": 250, "damage": 3},
-    {"id": "minecraft:diamond_shovel", "name": "Diamond Shovel", "max_stack": 1, "durability": 1561, "damage": 4},
-    {"id": "minecraft:wooden_hoe", "name": "Wooden Hoe", "max_stack": 1, "durability": 59, "damage": 1},
-    {"id": "minecraft:iron_hoe", "name": "Iron Hoe", "max_stack": 1, "durability": 250, "damage": 1},
-    {"id": "minecraft:diamond_hoe", "name": "Diamond Hoe", "max_stack": 1, "durability": 1561, "damage": 1},
-    {"id": "minecraft:bow", "name": "Bow", "max_stack": 1, "durability": 384},
-    {"id": "minecraft:arrow", "name": "Arrow", "max_stack": 64},
-    {"id": "minecraft:shield", "name": "Shield", "max_stack": 1, "durability": 336},
-    {"id": "minecraft:trident", "name": "Trident", "max_stack": 1, "durability": 250, "damage": 8},
-    {"id": "minecraft:flint_and_steel", "name": "Flint and Steel", "max_stack": 1, "durability": 64},
-    {"id": "minecraft:bucket", "name": "Bucket", "max_stack": 16},
-    {"id": "minecraft:water_bucket", "name": "Water Bucket", "max_stack": 16},
-    {"id": "minecraft:lava_bucket", "name": "Lava Bucket", "max_stack": 1},
-    {"id": "minecraft:milk_bucket", "name": "Milk Bucket", "max_stack": 16},
-    {"id": "minecraft:apple", "name": "Apple", "max_stack": 64, "food": 4, "saturation": 2.4},
-    {"id": "minecraft:golden_apple", "name": "Golden Apple", "max_stack": 64, "food": 4, "saturation": 9.6},
-    {"id": "minecraft:enchanted_golden_apple", "name": "Enchanted Golden Apple", "max_stack": 1, "food": 4, "saturation": 9.6},
-    {"id": "minecraft:bread", "name": "Bread", "max_stack": 64, "food": 5, "saturation": 6.0},
-    {"id": "minecraft:cooked_beef", "name": "Cooked Beef", "max_stack": 64, "food": 8, "saturation": 12.8},
-    {"id": "minecraft:raw_beef", "name": "Raw Beef", "max_stack": 64, "food": 3, "saturation": 1.8},
-    {"id": "minecraft:cooked_porkchop", "name": "Cooked Porkchop", "max_stack": 64, "food": 8, "saturation": 12.8},
-    {"id": "minecraft:raw_porkchop", "name": "Raw Porkchop", "max_stack": 64, "food": 3, "saturation": 1.8},
-    {"id": "minecraft:cooked_chicken", "name": "Cooked Chicken", "max_stack": 64, "food": 6, "saturation": 7.2},
-    {"id": "minecraft:raw_chicken", "name": "Raw Chicken", "max_stack": 64, "food": 2, "saturation": 0.8},
-    {"id": "minecraft:cooked_mutton", "name": "Cooked Mutton", "max_stack": 64, "food": 6, "saturation": 9.6},
-    {"id": "minecraft:raw_mutton", "name": "Raw Mutton", "max_stack": 64, "food": 2, "saturation": 1.2},
-    {"id": "minecraft:cooked_cod", "name": "Cooked Cod", "max_stack": 64, "food": 5, "saturation": 6.0},
-    {"id": "minecraft:raw_cod", "name": "Raw Cod", "max_stack": 64, "food": 2, "saturation": 0.4},
-    {"id": "minecraft:cooked_salmon", "name": "Cooked Salmon", "max_stack": 64, "food": 6, "saturation": 9.6},
-    {"id": "minecraft:raw_salmon", "name": "Raw Salmon", "max_stack": 64, "food": 2, "saturation": 0.8},
-    {"id": "minecraft:carrot", "name": "Carrot", "max_stack": 64, "food": 3, "saturation": 3.6},
-    {"id": "minecraft:golden_carrot", "name": "Golden Carrot", "max_stack": 64, "food": 6, "saturation": 14.4},
-    {"id": "minecraft:potato", "name": "Potato", "max_stack": 64, "food": 1, "saturation": 0.6},
-    {"id": "minecraft:baked_potato", "name": "Baked Potato", "max_stack": 64, "food": 5, "saturation": 6.0},
-    {"id": "minecraft:beetroot", "name": "Beetroot", "max_stack": 64, "food": 1, "saturation": 1.2},
-    {"id": "minecraft:melon_slice", "name": "Melon Slice", "max_stack": 64, "food": 2, "saturation": 1.2},
-    {"id": "minecraft:sweet_berries", "name": "Sweet Berries", "max_stack": 64, "food": 2, "saturation": 0.4},
-    {"id": "minecraft:cookie", "name": "Cookie", "max_stack": 64, "food": 2, "saturation": 0.4},
-    {"id": "minecraft:pumpkin_pie", "name": "Pumpkin Pie", "max_stack": 64, "food": 8, "saturation": 4.8},
-    {"id": "minecraft:mushroom_stew", "name": "Mushroom Stew", "max_stack": 1, "food": 6, "saturation": 7.2},
-    {"id": "minecraft:rabbit_stew", "name": "Rabbit Stew", "max_stack": 1, "food": 10, "saturation": 12.0},
-    {"id": "minecraft:rotten_flesh", "name": "Rotten Flesh", "max_stack": 64, "food": 4, "saturation": 0.8},
-    {"id": "minecraft:spider_eye", "name": "Spider Eye", "max_stack": 64, "food": 2, "saturation": 3.2},
-    {"id": "minecraft:pufferfish", "name": "Pufferfish", "max_stack": 64, "food": 1, "saturation": 0.2},
-    {"id": "minecraft:dried_kelp", "name": "Dried Kelp", "max_stack": 64, "food": 1, "saturation": 0.2},
-    {"id": "minecraft:honey_bottle", "name": "Honey Bottle", "max_stack": 16},
-    {"id": "minecraft:coal", "name": "Coal", "max_stack": 64},
-    {"id": "minecraft:charcoal", "name": "Charcoal", "max_stack": 64},
-    {"id": "minecraft:iron_ingot", "name": "Iron Ingot", "max_stack": 64},
-    {"id": "minecraft:raw_iron", "name": "Raw Iron", "max_stack": 64},
-    {"id": "minecraft:gold_ingot", "name": "Gold Ingot", "max_stack": 64},
-    {"id": "minecraft:raw_gold", "name": "Raw Gold", "max_stack": 64},
-    {"id": "minecraft:gold_nugget", "name": "Gold Nugget", "max_stack": 64},
-    {"id": "minecraft:diamond", "name": "Diamond", "max_stack": 64},
-    {"id": "minecraft:emerald", "name": "Emerald", "max_stack": 64},
-    {"id": "minecraft:lapis_lazuli", "name": "Lapis Lazuli", "max_stack": 64},
-    {"id": "minecraft:redstone", "name": "Redstone", "max_stack": 64},
-    {"id": "minecraft:quartz", "name": "Nether Quartz", "max_stack": 64},
-    {"id": "minecraft:netherite_scrap", "name": "Netherite Scrap", "max_stack": 64},
-    {"id": "minecraft:netherite_ingot", "name": "Netherite Ingot", "max_stack": 64},
-    {"id": "minecraft:ancient_debris", "name": "Ancient Debris", "max_stack": 64},
-    {"id": "minecraft:leather", "name": "Leather", "max_stack": 64},
-    {"id": "minecraft:bone", "name": "Bone", "max_stack": 64},
-    {"id": "minecraft:bone_meal", "name": "Bone Meal", "max_stack": 64},
-    {"id": "minecraft:feather", "name": "Feather", "max_stack": 64},
-    {"id": "minecraft:egg", "name": "Egg", "max_stack": 64},
-    {"id": "minecraft:string", "name": "String", "max_stack": 64},
-    {"id": "minecraft:gunpowder", "name": "Gunpowder", "max_stack": 64},
-    {"id": "minecraft:ender_pearl", "name": "Ender Pearl", "max_stack": 16},
-    {"id": "minecraft:ender_eye", "name": "Eye of Ender", "max_stack": 64},
-    {"id": "minecraft:blaze_rod", "name": "Blaze Rod", "max_stack": 64},
-    {"id": "minecraft:blaze_powder", "name": "Blaze Powder", "max_stack": 64},
-    {"id": "minecraft:ghast_tear", "name": "Ghast Tear", "max_stack": 64},
-    {"id": "minecraft:slime_ball", "name": "Slime Ball", "max_stack": 64},
-    {"id": "minecraft:magma_cream", "name": "Magma Cream", "max_stack": 64},
-    {"id": "minecraft:shulker_shell", "name": "Shulker Shell", "max_stack": 64},
-    {"id": "minecraft:totem_of_undying", "name": "Totem of Undying", "max_stack": 1},
-    {"id": "minecraft:nether_star", "name": "Nether Star", "max_stack": 64},
-    {"id": "minecraft:dragon_egg", "name": "Dragon Egg", "max_stack": 64},
-    {"id": "minecraft:elytra", "name": "Elytra", "max_stack": 1, "durability": 432},
-    {"id": "minecraft:leather_helmet", "name": "Leather Helmet", "max_stack": 1, "durability": 55, "armor": 1},
-    {"id": "minecraft:leather_chestplate", "name": "Leather Chestplate", "max_stack": 1, "durability": 80, "armor": 3},
-    {"id": "minecraft:leather_leggings", "name": "Leather Leggings", "max_stack": 1, "durability": 75, "armor": 2},
-    {"id": "minecraft:leather_boots", "name": "Leather Boots", "max_stack": 1, "durability": 65, "armor": 1},
-    {"id": "minecraft:iron_helmet", "name": "Iron Helmet", "max_stack": 1, "durability": 165, "armor": 2},
-    {"id": "minecraft:iron_chestplate", "name": "Iron Chestplate", "max_stack": 1, "durability": 240, "armor": 6},
-    {"id": "minecraft:iron_leggings", "name": "Iron Leggings", "max_stack": 1, "durability": 225, "armor": 5},
-    {"id": "minecraft:iron_boots", "name": "Iron Boots", "max_stack": 1, "durability": 195, "armor": 2},
-    {"id": "minecraft:diamond_helmet", "name": "Diamond Helmet", "max_stack": 1, "durability": 363, "armor": 3},
-    {"id": "minecraft:diamond_chestplate", "name": "Diamond Chestplate", "max_stack": 1, "durability": 528, "armor": 8},
-    {"id": "minecraft:diamond_leggings", "name": "Diamond Leggings", "max_stack": 1, "durability": 495, "armor": 6},
-    {"id": "minecraft:diamond_boots", "name": "Diamond Boots", "max_stack": 1, "durability": 429, "armor": 3},
-    {"id": "minecraft:netherite_helmet", "name": "Netherite Helmet", "max_stack": 1, "durability": 407, "armor": 3},
-    {"id": "minecraft:netherite_chestplate", "name": "Netherite Chestplate", "max_stack": 1, "durability": 592, "armor": 8},
-    {"id": "minecraft:netherite_leggings", "name": "Netherite Leggings", "max_stack": 1, "durability": 555, "armor": 6},
-    {"id": "minecraft:netherite_boots", "name": "Netherite Boots", "max_stack": 1, "durability": 481, "armor": 3},
-    {"id": "minecraft:golden_helmet", "name": "Golden Helmet", "max_stack": 1, "durability": 77, "armor": 2},
-    {"id": "minecraft:golden_chestplate", "name": "Golden Chestplate", "max_stack": 1, "durability": 112, "armor": 5},
-    {"id": "minecraft:golden_leggings", "name": "Golden Leggings", "max_stack": 1, "durability": 105, "armor": 3},
-    {"id": "minecraft:golden_boots", "name": "Golden Boots", "max_stack": 1, "durability": 91, "armor": 1},
-    {"id": "minecraft:chainmail_helmet", "name": "Chainmail Helmet", "max_stack": 1, "durability": 165, "armor": 2},
-    {"id": "minecraft:chainmail_chestplate", "name": "Chainmail Chestplate", "max_stack": 1, "durability": 240, "armor": 5},
-    {"id": "minecraft:chainmail_leggings", "name": "Chainmail Leggings", "max_stack": 1, "durability": 225, "armor": 4},
-    {"id": "minecraft:chainmail_boots", "name": "Chainmail Boots", "max_stack": 1, "durability": 195, "armor": 1},
-    {"id": "minecraft:turtle_helmet", "name": "Turtle Shell", "max_stack": 1, "durability": 275, "armor": 2},
-    {"id": "minecraft:book", "name": "Book", "max_stack": 64},
-    {"id": "minecraft:enchanted_book", "name": "Enchanted Book", "max_stack": 1},
-    {"id": "minecraft:paper", "name": "Paper", "max_stack": 64},
-    {"id": "minecraft:compass", "name": "Compass", "max_stack": 64},
-    {"id": "minecraft:lodestone_compass", "name": "Lodestone Compass", "max_stack": 64},
-    {"id": "minecraft:clock", "name": "Clock", "max_stack": 64},
-    {"id": "minecraft:map", "name": "Map", "max_stack": 64},
-    {"id": "minecraft:saddle", "name": "Saddle", "max_stack": 1},
-    {"id": "minecraft:name_tag", "name": "Name Tag", "max_stack": 64},
-    {"id": "minecraft:lead", "name": "Lead", "max_stack": 64},
-    {"id": "minecraft:carrot_on_a_stick", "name": "Carrot on a Stick", "max_stack": 1},
-    {"id": "minecraft:warped_fungus_on_a_stick", "name": "Warped Fungus on a Stick", "max_stack": 1},
-    {"id": "minecraft:firework_rocket", "name": "Firework Rocket", "max_stack": 64},
-    {"id": "minecraft:music_disc_13", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_cat", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_blocks", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_chirp", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_far", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_mall", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_mellohi", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_stal", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_strad", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_ward", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_11", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_wait", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:music_disc_otherside", "name": "Music Disc", "max_stack": 1},
-    {"id": "minecraft:potion", "name": "Potion", "max_stack": 1},
-    {"id": "minecraft:splash_potion", "name": "Splash Potion", "max_stack": 1},
-    {"id": "minecraft:lingering_potion", "name": "Lingering Potion", "max_stack": 1},
-    {"id": "minecraft:tipped_arrow", "name": "Tipped Arrow", "max_stack": 64},
-    {"id": "minecraft:glass_bottle", "name": "Glass Bottle", "max_stack": 64},
-    {"id": "minecraft:chorus_fruit", "name": "Chorus Fruit", "max_stack": 64, "food": 4, "saturation": 0.3},
-    {"id": "minecraft:popped_chorus_fruit", "name": "Popped Chorus Fruit", "max_stack": 64, "food": 4, "saturation": 0.3},
-    {"id": "minecraft:honeycomb", "name": "Honeycomb", "max_stack": 64},
-    {"id": "minecraft:scute", "name": "Turtle Scute", "max_stack": 64},
-    {"id": "minecraft:rabbit_hide", "name": "Rabbit Hide", "max_stack": 64},
-    {"id": "minecraft:rabbit_foot", "name": "Rabbit Foot", "max_stack": 64},
-    {"id": "minecraft:phantom_membrane", "name": "Phantom Membrane", "max_stack": 64},
-    {"id": "minecraft:nautilus_shell", "name": "Nautilus Shell", "max_stack": 64},
-    {"id": "minecraft:heart_of_the_sea", "name": "Heart of the Sea", "max_stack": 64},
-    {"id": "minecraft:crossbow", "name": "Crossbow", "max_stack": 1, "durability": 326}
-  ]
+ "items": [
+  {
+   "id": "minecraft:wooden_pickaxe",
+   "name": "Wooden Pickaxe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "pickaxe",
+    "colors": [
+     "#9A7A48"
+    ]
+   },
+   "tool": {
+    "kind": "pickaxe",
+    "tier": 1,
+    "speed": 2,
+    "material": "wooden"
+   },
+   "durability": 59,
+   "attack_damage": 2,
+   "attack_speed": 1.2
+  },
+  {
+   "id": "minecraft:wooden_axe",
+   "name": "Wooden Axe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "axe",
+    "colors": [
+     "#9A7A48"
+    ]
+   },
+   "tool": {
+    "kind": "axe",
+    "tier": 1,
+    "speed": 2,
+    "material": "wooden"
+   },
+   "durability": 59,
+   "attack_damage": 7,
+   "attack_speed": 0.8
+  },
+  {
+   "id": "minecraft:wooden_shovel",
+   "name": "Wooden Shovel",
+   "max_stack": 1,
+   "icon": {
+    "shape": "shovel",
+    "colors": [
+     "#9A7A48"
+    ]
+   },
+   "tool": {
+    "kind": "shovel",
+    "tier": 1,
+    "speed": 2,
+    "material": "wooden"
+   },
+   "durability": 59,
+   "attack_damage": 2,
+   "attack_speed": 1.0
+  },
+  {
+   "id": "minecraft:wooden_sword",
+   "name": "Wooden Sword",
+   "max_stack": 1,
+   "icon": {
+    "shape": "sword",
+    "colors": [
+     "#9A7A48"
+    ]
+   },
+   "tool": {
+    "kind": "sword",
+    "tier": 1,
+    "speed": 2,
+    "material": "wooden"
+   },
+   "durability": 59,
+   "attack_damage": 4,
+   "attack_speed": 1.6
+  },
+  {
+   "id": "minecraft:wooden_hoe",
+   "name": "Wooden Hoe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "hoe",
+    "colors": [
+     "#9A7A48"
+    ]
+   },
+   "tool": {
+    "kind": "hoe",
+    "tier": 1,
+    "speed": 2,
+    "material": "wooden"
+   },
+   "durability": 59,
+   "attack_damage": 1,
+   "attack_speed": 1.0
+  },
+  {
+   "id": "minecraft:stone_pickaxe",
+   "name": "Stone Pickaxe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "pickaxe",
+    "colors": [
+     "#8C8C8C"
+    ]
+   },
+   "tool": {
+    "kind": "pickaxe",
+    "tier": 2,
+    "speed": 4,
+    "material": "stone"
+   },
+   "durability": 131,
+   "attack_damage": 3,
+   "attack_speed": 1.2
+  },
+  {
+   "id": "minecraft:stone_axe",
+   "name": "Stone Axe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "axe",
+    "colors": [
+     "#8C8C8C"
+    ]
+   },
+   "tool": {
+    "kind": "axe",
+    "tier": 2,
+    "speed": 4,
+    "material": "stone"
+   },
+   "durability": 131,
+   "attack_damage": 9,
+   "attack_speed": 0.8
+  },
+  {
+   "id": "minecraft:stone_shovel",
+   "name": "Stone Shovel",
+   "max_stack": 1,
+   "icon": {
+    "shape": "shovel",
+    "colors": [
+     "#8C8C8C"
+    ]
+   },
+   "tool": {
+    "kind": "shovel",
+    "tier": 2,
+    "speed": 4,
+    "material": "stone"
+   },
+   "durability": 131,
+   "attack_damage": 3,
+   "attack_speed": 1.0
+  },
+  {
+   "id": "minecraft:stone_sword",
+   "name": "Stone Sword",
+   "max_stack": 1,
+   "icon": {
+    "shape": "sword",
+    "colors": [
+     "#8C8C8C"
+    ]
+   },
+   "tool": {
+    "kind": "sword",
+    "tier": 2,
+    "speed": 4,
+    "material": "stone"
+   },
+   "durability": 131,
+   "attack_damage": 5,
+   "attack_speed": 1.6
+  },
+  {
+   "id": "minecraft:stone_hoe",
+   "name": "Stone Hoe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "hoe",
+    "colors": [
+     "#8C8C8C"
+    ]
+   },
+   "tool": {
+    "kind": "hoe",
+    "tier": 2,
+    "speed": 4,
+    "material": "stone"
+   },
+   "durability": 131,
+   "attack_damage": 1,
+   "attack_speed": 2.0
+  },
+  {
+   "id": "minecraft:iron_pickaxe",
+   "name": "Iron Pickaxe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "pickaxe",
+    "colors": [
+     "#E6E6E6"
+    ]
+   },
+   "tool": {
+    "kind": "pickaxe",
+    "tier": 3,
+    "speed": 6,
+    "material": "iron"
+   },
+   "durability": 250,
+   "attack_damage": 3,
+   "attack_speed": 1.2
+  },
+  {
+   "id": "minecraft:iron_axe",
+   "name": "Iron Axe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "axe",
+    "colors": [
+     "#E6E6E6"
+    ]
+   },
+   "tool": {
+    "kind": "axe",
+    "tier": 3,
+    "speed": 6,
+    "material": "iron"
+   },
+   "durability": 250,
+   "attack_damage": 9,
+   "attack_speed": 0.9
+  },
+  {
+   "id": "minecraft:iron_shovel",
+   "name": "Iron Shovel",
+   "max_stack": 1,
+   "icon": {
+    "shape": "shovel",
+    "colors": [
+     "#E6E6E6"
+    ]
+   },
+   "tool": {
+    "kind": "shovel",
+    "tier": 3,
+    "speed": 6,
+    "material": "iron"
+   },
+   "durability": 250,
+   "attack_damage": 3,
+   "attack_speed": 1.0
+  },
+  {
+   "id": "minecraft:iron_sword",
+   "name": "Iron Sword",
+   "max_stack": 1,
+   "icon": {
+    "shape": "sword",
+    "colors": [
+     "#E6E6E6"
+    ]
+   },
+   "tool": {
+    "kind": "sword",
+    "tier": 3,
+    "speed": 6,
+    "material": "iron"
+   },
+   "durability": 250,
+   "attack_damage": 6,
+   "attack_speed": 1.6
+  },
+  {
+   "id": "minecraft:iron_hoe",
+   "name": "Iron Hoe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "hoe",
+    "colors": [
+     "#E6E6E6"
+    ]
+   },
+   "tool": {
+    "kind": "hoe",
+    "tier": 3,
+    "speed": 6,
+    "material": "iron"
+   },
+   "durability": 250,
+   "attack_damage": 1,
+   "attack_speed": 3.0
+  },
+  {
+   "id": "minecraft:diamond_pickaxe",
+   "name": "Diamond Pickaxe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "pickaxe",
+    "colors": [
+     "#5DECE7"
+    ]
+   },
+   "tool": {
+    "kind": "pickaxe",
+    "tier": 4,
+    "speed": 8,
+    "material": "diamond"
+   },
+   "durability": 1561,
+   "attack_damage": 4,
+   "attack_speed": 1.2
+  },
+  {
+   "id": "minecraft:diamond_axe",
+   "name": "Diamond Axe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "axe",
+    "colors": [
+     "#5DECE7"
+    ]
+   },
+   "tool": {
+    "kind": "axe",
+    "tier": 4,
+    "speed": 8,
+    "material": "diamond"
+   },
+   "durability": 1561,
+   "attack_damage": 9,
+   "attack_speed": 1.0
+  },
+  {
+   "id": "minecraft:diamond_shovel",
+   "name": "Diamond Shovel",
+   "max_stack": 1,
+   "icon": {
+    "shape": "shovel",
+    "colors": [
+     "#5DECE7"
+    ]
+   },
+   "tool": {
+    "kind": "shovel",
+    "tier": 4,
+    "speed": 8,
+    "material": "diamond"
+   },
+   "durability": 1561,
+   "attack_damage": 4,
+   "attack_speed": 1.0
+  },
+  {
+   "id": "minecraft:diamond_sword",
+   "name": "Diamond Sword",
+   "max_stack": 1,
+   "icon": {
+    "shape": "sword",
+    "colors": [
+     "#5DECE7"
+    ]
+   },
+   "tool": {
+    "kind": "sword",
+    "tier": 4,
+    "speed": 8,
+    "material": "diamond"
+   },
+   "durability": 1561,
+   "attack_damage": 7,
+   "attack_speed": 1.6
+  },
+  {
+   "id": "minecraft:diamond_hoe",
+   "name": "Diamond Hoe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "hoe",
+    "colors": [
+     "#5DECE7"
+    ]
+   },
+   "tool": {
+    "kind": "hoe",
+    "tier": 4,
+    "speed": 8,
+    "material": "diamond"
+   },
+   "durability": 1561,
+   "attack_damage": 1,
+   "attack_speed": 4.0
+  },
+  {
+   "id": "minecraft:golden_pickaxe",
+   "name": "Golden Pickaxe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "pickaxe",
+    "colors": [
+     "#FCEE4B"
+    ]
+   },
+   "tool": {
+    "kind": "pickaxe",
+    "tier": 1,
+    "speed": 12,
+    "material": "golden"
+   },
+   "durability": 32,
+   "attack_damage": 2,
+   "attack_speed": 1.2
+  },
+  {
+   "id": "minecraft:golden_axe",
+   "name": "Golden Axe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "axe",
+    "colors": [
+     "#FCEE4B"
+    ]
+   },
+   "tool": {
+    "kind": "axe",
+    "tier": 1,
+    "speed": 12,
+    "material": "golden"
+   },
+   "durability": 32,
+   "attack_damage": 7,
+   "attack_speed": 0.8
+  },
+  {
+   "id": "minecraft:golden_shovel",
+   "name": "Golden Shovel",
+   "max_stack": 1,
+   "icon": {
+    "shape": "shovel",
+    "colors": [
+     "#FCEE4B"
+    ]
+   },
+   "tool": {
+    "kind": "shovel",
+    "tier": 1,
+    "speed": 12,
+    "material": "golden"
+   },
+   "durability": 32,
+   "attack_damage": 2,
+   "attack_speed": 1.0
+  },
+  {
+   "id": "minecraft:golden_sword",
+   "name": "Golden Sword",
+   "max_stack": 1,
+   "icon": {
+    "shape": "sword",
+    "colors": [
+     "#FCEE4B"
+    ]
+   },
+   "tool": {
+    "kind": "sword",
+    "tier": 1,
+    "speed": 12,
+    "material": "golden"
+   },
+   "durability": 32,
+   "attack_damage": 4,
+   "attack_speed": 1.6
+  },
+  {
+   "id": "minecraft:golden_hoe",
+   "name": "Golden Hoe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "hoe",
+    "colors": [
+     "#FCEE4B"
+    ]
+   },
+   "tool": {
+    "kind": "hoe",
+    "tier": 1,
+    "speed": 12,
+    "material": "golden"
+   },
+   "durability": 32,
+   "attack_damage": 1,
+   "attack_speed": 1.0
+  },
+  {
+   "id": "minecraft:netherite_pickaxe",
+   "name": "Netherite Pickaxe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "pickaxe",
+    "colors": [
+     "#4A4446"
+    ]
+   },
+   "tool": {
+    "kind": "pickaxe",
+    "tier": 4,
+    "speed": 9,
+    "material": "netherite"
+   },
+   "durability": 2031,
+   "attack_damage": 5,
+   "attack_speed": 1.2
+  },
+  {
+   "id": "minecraft:netherite_axe",
+   "name": "Netherite Axe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "axe",
+    "colors": [
+     "#4A4446"
+    ]
+   },
+   "tool": {
+    "kind": "axe",
+    "tier": 4,
+    "speed": 9,
+    "material": "netherite"
+   },
+   "durability": 2031,
+   "attack_damage": 10,
+   "attack_speed": 1.0
+  },
+  {
+   "id": "minecraft:netherite_shovel",
+   "name": "Netherite Shovel",
+   "max_stack": 1,
+   "icon": {
+    "shape": "shovel",
+    "colors": [
+     "#4A4446"
+    ]
+   },
+   "tool": {
+    "kind": "shovel",
+    "tier": 4,
+    "speed": 9,
+    "material": "netherite"
+   },
+   "durability": 2031,
+   "attack_damage": 5,
+   "attack_speed": 1.0
+  },
+  {
+   "id": "minecraft:netherite_sword",
+   "name": "Netherite Sword",
+   "max_stack": 1,
+   "icon": {
+    "shape": "sword",
+    "colors": [
+     "#4A4446"
+    ]
+   },
+   "tool": {
+    "kind": "sword",
+    "tier": 4,
+    "speed": 9,
+    "material": "netherite"
+   },
+   "durability": 2031,
+   "attack_damage": 8,
+   "attack_speed": 1.6
+  },
+  {
+   "id": "minecraft:netherite_hoe",
+   "name": "Netherite Hoe",
+   "max_stack": 1,
+   "icon": {
+    "shape": "hoe",
+    "colors": [
+     "#4A4446"
+    ]
+   },
+   "tool": {
+    "kind": "hoe",
+    "tier": 4,
+    "speed": 9,
+    "material": "netherite"
+   },
+   "durability": 2031,
+   "attack_damage": 1,
+   "attack_speed": 4.0
+  },
+  {
+   "id": "minecraft:leather_helmet",
+   "name": "Leather Helmet",
+   "max_stack": 1,
+   "icon": {
+    "shape": "helmet",
+    "colors": [
+     "#9A5A32"
+    ]
+   },
+   "armor": {
+    "slot": 0,
+    "points": 1,
+    "toughness": 0
+   },
+   "durability": 55
+  },
+  {
+   "id": "minecraft:leather_chestplate",
+   "name": "Leather Chestplate",
+   "max_stack": 1,
+   "icon": {
+    "shape": "chestplate",
+    "colors": [
+     "#9A5A32"
+    ]
+   },
+   "armor": {
+    "slot": 1,
+    "points": 3,
+    "toughness": 0
+   },
+   "durability": 80
+  },
+  {
+   "id": "minecraft:leather_leggings",
+   "name": "Leather Leggings",
+   "max_stack": 1,
+   "icon": {
+    "shape": "leggings",
+    "colors": [
+     "#9A5A32"
+    ]
+   },
+   "armor": {
+    "slot": 2,
+    "points": 2,
+    "toughness": 0
+   },
+   "durability": 75
+  },
+  {
+   "id": "minecraft:leather_boots",
+   "name": "Leather Boots",
+   "max_stack": 1,
+   "icon": {
+    "shape": "boots",
+    "colors": [
+     "#9A5A32"
+    ]
+   },
+   "armor": {
+    "slot": 3,
+    "points": 1,
+    "toughness": 0
+   },
+   "durability": 65
+  },
+  {
+   "id": "minecraft:iron_helmet",
+   "name": "Iron Helmet",
+   "max_stack": 1,
+   "icon": {
+    "shape": "helmet",
+    "colors": [
+     "#E6E6E6"
+    ]
+   },
+   "armor": {
+    "slot": 0,
+    "points": 2,
+    "toughness": 0
+   },
+   "durability": 165
+  },
+  {
+   "id": "minecraft:iron_chestplate",
+   "name": "Iron Chestplate",
+   "max_stack": 1,
+   "icon": {
+    "shape": "chestplate",
+    "colors": [
+     "#E6E6E6"
+    ]
+   },
+   "armor": {
+    "slot": 1,
+    "points": 6,
+    "toughness": 0
+   },
+   "durability": 240
+  },
+  {
+   "id": "minecraft:iron_leggings",
+   "name": "Iron Leggings",
+   "max_stack": 1,
+   "icon": {
+    "shape": "leggings",
+    "colors": [
+     "#E6E6E6"
+    ]
+   },
+   "armor": {
+    "slot": 2,
+    "points": 5,
+    "toughness": 0
+   },
+   "durability": 225
+  },
+  {
+   "id": "minecraft:iron_boots",
+   "name": "Iron Boots",
+   "max_stack": 1,
+   "icon": {
+    "shape": "boots",
+    "colors": [
+     "#E6E6E6"
+    ]
+   },
+   "armor": {
+    "slot": 3,
+    "points": 2,
+    "toughness": 0
+   },
+   "durability": 195
+  },
+  {
+   "id": "minecraft:golden_helmet",
+   "name": "Golden Helmet",
+   "max_stack": 1,
+   "icon": {
+    "shape": "helmet",
+    "colors": [
+     "#FCEE4B"
+    ]
+   },
+   "armor": {
+    "slot": 0,
+    "points": 2,
+    "toughness": 0
+   },
+   "durability": 77
+  },
+  {
+   "id": "minecraft:golden_chestplate",
+   "name": "Golden Chestplate",
+   "max_stack": 1,
+   "icon": {
+    "shape": "chestplate",
+    "colors": [
+     "#FCEE4B"
+    ]
+   },
+   "armor": {
+    "slot": 1,
+    "points": 5,
+    "toughness": 0
+   },
+   "durability": 112
+  },
+  {
+   "id": "minecraft:golden_leggings",
+   "name": "Golden Leggings",
+   "max_stack": 1,
+   "icon": {
+    "shape": "leggings",
+    "colors": [
+     "#FCEE4B"
+    ]
+   },
+   "armor": {
+    "slot": 2,
+    "points": 3,
+    "toughness": 0
+   },
+   "durability": 105
+  },
+  {
+   "id": "minecraft:golden_boots",
+   "name": "Golden Boots",
+   "max_stack": 1,
+   "icon": {
+    "shape": "boots",
+    "colors": [
+     "#FCEE4B"
+    ]
+   },
+   "armor": {
+    "slot": 3,
+    "points": 1,
+    "toughness": 0
+   },
+   "durability": 91
+  },
+  {
+   "id": "minecraft:diamond_helmet",
+   "name": "Diamond Helmet",
+   "max_stack": 1,
+   "icon": {
+    "shape": "helmet",
+    "colors": [
+     "#5DECE7"
+    ]
+   },
+   "armor": {
+    "slot": 0,
+    "points": 3,
+    "toughness": 2
+   },
+   "durability": 363
+  },
+  {
+   "id": "minecraft:diamond_chestplate",
+   "name": "Diamond Chestplate",
+   "max_stack": 1,
+   "icon": {
+    "shape": "chestplate",
+    "colors": [
+     "#5DECE7"
+    ]
+   },
+   "armor": {
+    "slot": 1,
+    "points": 8,
+    "toughness": 2
+   },
+   "durability": 528
+  },
+  {
+   "id": "minecraft:diamond_leggings",
+   "name": "Diamond Leggings",
+   "max_stack": 1,
+   "icon": {
+    "shape": "leggings",
+    "colors": [
+     "#5DECE7"
+    ]
+   },
+   "armor": {
+    "slot": 2,
+    "points": 6,
+    "toughness": 2
+   },
+   "durability": 495
+  },
+  {
+   "id": "minecraft:diamond_boots",
+   "name": "Diamond Boots",
+   "max_stack": 1,
+   "icon": {
+    "shape": "boots",
+    "colors": [
+     "#5DECE7"
+    ]
+   },
+   "armor": {
+    "slot": 3,
+    "points": 3,
+    "toughness": 2
+   },
+   "durability": 429
+  },
+  {
+   "id": "minecraft:netherite_helmet",
+   "name": "Netherite Helmet",
+   "max_stack": 1,
+   "icon": {
+    "shape": "helmet",
+    "colors": [
+     "#4A4446"
+    ]
+   },
+   "armor": {
+    "slot": 0,
+    "points": 3,
+    "toughness": 3
+   },
+   "durability": 407
+  },
+  {
+   "id": "minecraft:netherite_chestplate",
+   "name": "Netherite Chestplate",
+   "max_stack": 1,
+   "icon": {
+    "shape": "chestplate",
+    "colors": [
+     "#4A4446"
+    ]
+   },
+   "armor": {
+    "slot": 1,
+    "points": 8,
+    "toughness": 3
+   },
+   "durability": 592
+  },
+  {
+   "id": "minecraft:netherite_leggings",
+   "name": "Netherite Leggings",
+   "max_stack": 1,
+   "icon": {
+    "shape": "leggings",
+    "colors": [
+     "#4A4446"
+    ]
+   },
+   "armor": {
+    "slot": 2,
+    "points": 6,
+    "toughness": 3
+   },
+   "durability": 555
+  },
+  {
+   "id": "minecraft:netherite_boots",
+   "name": "Netherite Boots",
+   "max_stack": 1,
+   "icon": {
+    "shape": "boots",
+    "colors": [
+     "#4A4446"
+    ]
+   },
+   "armor": {
+    "slot": 3,
+    "points": 3,
+    "toughness": 3
+   },
+   "durability": 481
+  },
+  {
+   "id": "minecraft:apple",
+   "name": "Apple",
+   "max_stack": 64,
+   "icon": {
+    "shape": "apple",
+    "colors": [
+     "#D81E1E"
+    ]
+   },
+   "food": {
+    "hunger": 4,
+    "saturation": 2.4,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:golden_apple",
+   "name": "Golden Apple",
+   "max_stack": 64,
+   "icon": {
+    "shape": "apple",
+    "colors": [
+     "#F8D93A"
+    ]
+   },
+   "food": {
+    "hunger": 4,
+    "saturation": 9.6,
+    "eat_ticks": 32,
+    "effects": [
+     {
+      "effect": "regeneration",
+      "seconds": 5,
+      "chance": 1.0,
+      "amp": 1
+     },
+     {
+      "effect": "absorption",
+      "seconds": 120,
+      "chance": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "minecraft:bread",
+   "name": "Bread",
+   "max_stack": 64,
+   "icon": {
+    "shape": "bread",
+    "colors": [
+     "#B8862E"
+    ]
+   },
+   "food": {
+    "hunger": 5,
+    "saturation": 6.0,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:cookie",
+   "name": "Cookie",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ball",
+    "colors": [
+     "#B8762E"
+    ]
+   },
+   "food": {
+    "hunger": 2,
+    "saturation": 0.4,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:melon_slice",
+   "name": "Melon Slice",
+   "max_stack": 64,
+   "icon": {
+    "shape": "slice",
+    "colors": [
+     "#E83A3A"
+    ]
+   },
+   "food": {
+    "hunger": 2,
+    "saturation": 1.2,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:sweet_berries",
+   "name": "Sweet Berries",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ball",
+    "colors": [
+     "#B81E3A"
+    ]
+   },
+   "food": {
+    "hunger": 2,
+    "saturation": 0.4,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:beef",
+   "name": "Beef",
+   "max_stack": 64,
+   "icon": {
+    "shape": "meat",
+    "colors": [
+     "#C83A3A"
+    ]
+   },
+   "food": {
+    "hunger": 3,
+    "saturation": 1.8,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:cooked_beef",
+   "name": "Cooked Beef",
+   "max_stack": 64,
+   "icon": {
+    "shape": "meat",
+    "colors": [
+     "#7A4A2A"
+    ]
+   },
+   "food": {
+    "hunger": 8,
+    "saturation": 12.8,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:porkchop",
+   "name": "Porkchop",
+   "max_stack": 64,
+   "icon": {
+    "shape": "meat",
+    "colors": [
+     "#F0A0A0"
+    ]
+   },
+   "food": {
+    "hunger": 3,
+    "saturation": 1.8,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:cooked_porkchop",
+   "name": "Cooked Porkchop",
+   "max_stack": 64,
+   "icon": {
+    "shape": "meat",
+    "colors": [
+     "#C8885A"
+    ]
+   },
+   "food": {
+    "hunger": 8,
+    "saturation": 12.8,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:chicken",
+   "name": "Chicken",
+   "max_stack": 64,
+   "icon": {
+    "shape": "drumstick",
+    "colors": [
+     "#F0C8B0"
+    ]
+   },
+   "food": {
+    "hunger": 2,
+    "saturation": 1.2,
+    "eat_ticks": 32,
+    "effects": [
+     {
+      "effect": "hunger",
+      "seconds": 30,
+      "chance": 0.3
+     }
+    ]
+   }
+  },
+  {
+   "id": "minecraft:cooked_chicken",
+   "name": "Cooked Chicken",
+   "max_stack": 64,
+   "icon": {
+    "shape": "drumstick",
+    "colors": [
+     "#C8884A"
+    ]
+   },
+   "food": {
+    "hunger": 6,
+    "saturation": 7.2,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:mutton",
+   "name": "Mutton",
+   "max_stack": 64,
+   "icon": {
+    "shape": "meat",
+    "colors": [
+     "#D04A4A"
+    ]
+   },
+   "food": {
+    "hunger": 2,
+    "saturation": 1.2,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:cooked_mutton",
+   "name": "Cooked Mutton",
+   "max_stack": 64,
+   "icon": {
+    "shape": "meat",
+    "colors": [
+     "#8A5A3A"
+    ]
+   },
+   "food": {
+    "hunger": 6,
+    "saturation": 9.6,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:cod",
+   "name": "Cod",
+   "max_stack": 64,
+   "icon": {
+    "shape": "fish",
+    "colors": [
+     "#B8A888"
+    ]
+   },
+   "food": {
+    "hunger": 2,
+    "saturation": 0.4,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:cooked_cod",
+   "name": "Cooked Cod",
+   "max_stack": 64,
+   "icon": {
+    "shape": "fish",
+    "colors": [
+     "#D8B888"
+    ]
+   },
+   "food": {
+    "hunger": 5,
+    "saturation": 6.0,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:carrot",
+   "name": "Carrot",
+   "max_stack": 64,
+   "icon": {
+    "shape": "carrot",
+    "colors": [
+     "#F08A1E"
+    ]
+   },
+   "food": {
+    "hunger": 3,
+    "saturation": 3.6,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:potato",
+   "name": "Potato",
+   "max_stack": 64,
+   "icon": {
+    "shape": "potato",
+    "colors": [
+     "#D8B868"
+    ]
+   },
+   "food": {
+    "hunger": 1,
+    "saturation": 0.6,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:baked_potato",
+   "name": "Baked Potato",
+   "max_stack": 64,
+   "icon": {
+    "shape": "potato",
+    "colors": [
+     "#C8983A"
+    ]
+   },
+   "food": {
+    "hunger": 5,
+    "saturation": 6.0,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:rotten_flesh",
+   "name": "Rotten Flesh",
+   "max_stack": 64,
+   "icon": {
+    "shape": "meat",
+    "colors": [
+     "#6A8A3A"
+    ]
+   },
+   "food": {
+    "hunger": 4,
+    "saturation": 0.8,
+    "eat_ticks": 32,
+    "effects": [
+     {
+      "effect": "hunger",
+      "seconds": 30,
+      "chance": 0.8
+     }
+    ]
+   }
+  },
+  {
+   "id": "minecraft:spider_eye",
+   "name": "Spider Eye",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ball",
+    "colors": [
+     "#8A1E3A"
+    ]
+   },
+   "food": {
+    "hunger": 2,
+    "saturation": 3.2,
+    "eat_ticks": 32,
+    "effects": [
+     {
+      "effect": "poison",
+      "seconds": 5,
+      "chance": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "minecraft:pumpkin_pie",
+   "name": "Pumpkin Pie",
+   "max_stack": 64,
+   "icon": {
+    "shape": "bread",
+    "colors": [
+     "#D8882A"
+    ]
+   },
+   "food": {
+    "hunger": 8,
+    "saturation": 4.8,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:mushroom_stew",
+   "name": "Mushroom Stew",
+   "max_stack": 1,
+   "icon": {
+    "shape": "bowl",
+    "colors": [
+     "#B88A5A"
+    ]
+   },
+   "food": {
+    "hunger": 6,
+    "saturation": 7.2,
+    "eat_ticks": 32
+   }
+  },
+  {
+   "id": "minecraft:stick",
+   "name": "Stick",
+   "max_stack": 64,
+   "icon": {
+    "shape": "stick",
+    "colors": [
+     "#8A6A3A"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:coal",
+   "name": "Coal",
+   "max_stack": 64,
+   "icon": {
+    "shape": "lump",
+    "colors": [
+     "#2A2A2A"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:charcoal",
+   "name": "Charcoal",
+   "max_stack": 64,
+   "icon": {
+    "shape": "lump",
+    "colors": [
+     "#3A2E22"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:iron_ingot",
+   "name": "Iron Ingot",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ingot",
+    "colors": [
+     "#E6E6E6"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:gold_ingot",
+   "name": "Gold Ingot",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ingot",
+    "colors": [
+     "#FCEE4B"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:netherite_ingot",
+   "name": "Netherite Ingot",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ingot",
+    "colors": [
+     "#4A4446"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:iron_nugget",
+   "name": "Iron Nugget",
+   "max_stack": 64,
+   "icon": {
+    "shape": "nugget",
+    "colors": [
+     "#E6E6E6"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:gold_nugget",
+   "name": "Gold Nugget",
+   "max_stack": 64,
+   "icon": {
+    "shape": "nugget",
+    "colors": [
+     "#FCEE4B"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:netherite_scrap",
+   "name": "Netherite Scrap",
+   "max_stack": 64,
+   "icon": {
+    "shape": "lump",
+    "colors": [
+     "#5E4238"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:diamond",
+   "name": "Diamond",
+   "max_stack": 64,
+   "icon": {
+    "shape": "gem",
+    "colors": [
+     "#5DECE7"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:emerald",
+   "name": "Emerald",
+   "max_stack": 64,
+   "icon": {
+    "shape": "gem",
+    "colors": [
+     "#17DD62"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:lapis_lazuli",
+   "name": "Lapis Lazuli",
+   "max_stack": 64,
+   "icon": {
+    "shape": "gem",
+    "colors": [
+     "#2A4FC4"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:quartz",
+   "name": "Quartz",
+   "max_stack": 64,
+   "icon": {
+    "shape": "gem",
+    "colors": [
+     "#EEE8E0"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:prismarine_crystals",
+   "name": "Prismarine Crystals",
+   "max_stack": 64,
+   "icon": {
+    "shape": "gem",
+    "colors": [
+     "#A6D7C8"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:redstone",
+   "name": "Redstone",
+   "max_stack": 64,
+   "icon": {
+    "shape": "dust",
+    "colors": [
+     "#E01E1E"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:glowstone_dust",
+   "name": "Glowstone Dust",
+   "max_stack": 64,
+   "icon": {
+    "shape": "dust",
+    "colors": [
+     "#F2C86E"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:gunpowder",
+   "name": "Gunpowder",
+   "max_stack": 64,
+   "icon": {
+    "shape": "dust",
+    "colors": [
+     "#5A5A5A"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:sugar",
+   "name": "Sugar",
+   "max_stack": 64,
+   "icon": {
+    "shape": "dust",
+    "colors": [
+     "#F5F5F5"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:bone_meal",
+   "name": "Bone Meal",
+   "max_stack": 64,
+   "icon": {
+    "shape": "dust",
+    "colors": [
+     "#E8E8E0"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:flint",
+   "name": "Flint",
+   "max_stack": 64,
+   "icon": {
+    "shape": "lump",
+    "colors": [
+     "#3A3A3A"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:string",
+   "name": "String",
+   "max_stack": 64,
+   "icon": {
+    "shape": "string",
+    "colors": [
+     "#EEEEEE"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:feather",
+   "name": "Feather",
+   "max_stack": 64,
+   "icon": {
+    "shape": "feather",
+    "colors": [
+     "#F5F5F5"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:bone",
+   "name": "Bone",
+   "max_stack": 64,
+   "icon": {
+    "shape": "bone",
+    "colors": [
+     "#E8E8D8"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:leather",
+   "name": "Leather",
+   "max_stack": 64,
+   "icon": {
+    "shape": "lump",
+    "colors": [
+     "#9A5A32"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:wheat",
+   "name": "Wheat",
+   "max_stack": 64,
+   "icon": {
+    "shape": "wheat",
+    "colors": [
+     "#DCC04A"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:wheat_seeds",
+   "name": "Wheat Seeds",
+   "max_stack": 64,
+   "icon": {
+    "shape": "seeds",
+    "colors": [
+     "#5E9A2A"
+    ]
+   },
+   "places": "minecraft:wheat"
+  },
+  {
+   "id": "minecraft:clay_ball",
+   "name": "Clay Ball",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ball",
+    "colors": [
+     "#A4A9B6"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:brick",
+   "name": "Brick",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ingot",
+    "colors": [
+     "#A9604E"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:nether_brick",
+   "name": "Nether Brick",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ingot",
+    "colors": [
+     "#4D262D"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:paper",
+   "name": "Paper",
+   "max_stack": 64,
+   "icon": {
+    "shape": "paper",
+    "colors": [
+     "#F0F0E8"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:book",
+   "name": "Book",
+   "max_stack": 64,
+   "icon": {
+    "shape": "book",
+    "colors": [
+     "#9A5A32"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:snowball",
+   "name": "Snowball",
+   "max_stack": 16,
+   "icon": {
+    "shape": "ball",
+    "colors": [
+     "#F8FFFF"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:egg",
+   "name": "Egg",
+   "max_stack": 16,
+   "icon": {
+    "shape": "egg",
+    "colors": [
+     "#E8D8B8"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:slime_ball",
+   "name": "Slime Ball",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ball",
+    "colors": [
+     "#7AC85A"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:ender_pearl",
+   "name": "Ender Pearl",
+   "max_stack": 16,
+   "icon": {
+    "shape": "ball",
+    "colors": [
+     "#1E6A5A"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:blaze_rod",
+   "name": "Blaze Rod",
+   "max_stack": 64,
+   "icon": {
+    "shape": "stick",
+    "colors": [
+     "#F8C83A"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:bowl",
+   "name": "Bowl",
+   "max_stack": 64,
+   "icon": {
+    "shape": "bowl",
+    "colors": [
+     "#8A6A3A"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:green_dye",
+   "name": "Green Dye",
+   "max_stack": 64,
+   "icon": {
+    "shape": "dust",
+    "colors": [
+     "#546D1B"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:red_dye",
+   "name": "Red Dye",
+   "max_stack": 64,
+   "icon": {
+    "shape": "dust",
+    "colors": [
+     "#A12722"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:white_dye",
+   "name": "White Dye",
+   "max_stack": 64,
+   "icon": {
+    "shape": "dust",
+    "colors": [
+     "#E9ECEC"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:arrow",
+   "name": "Arrow",
+   "max_stack": 64,
+   "icon": {
+    "shape": "arrow",
+    "colors": [
+     "#CCCCCC"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:bow",
+   "name": "Bow",
+   "max_stack": 1,
+   "icon": {
+    "shape": "bow",
+    "colors": [
+     "#8A6A3A"
+    ]
+   },
+   "durability": 384,
+   "ranged": {
+    "draw_ticks": 20,
+    "max_damage": 9
+   }
+  },
+  {
+   "id": "minecraft:shears",
+   "name": "Shears",
+   "max_stack": 1,
+   "icon": {
+    "shape": "shears",
+    "colors": [
+     "#E6E6E6"
+    ]
+   },
+   "durability": 238,
+   "tool": {
+    "kind": "shears",
+    "tier": 0,
+    "speed": 1.5,
+    "material": "iron"
+   }
+  },
+  {
+   "id": "minecraft:flint_and_steel",
+   "name": "Flint and Steel",
+   "max_stack": 1,
+   "icon": {
+    "shape": "flint_and_steel",
+    "colors": [
+     "#888888"
+    ]
+   },
+   "durability": 64,
+   "use": "ignite"
+  },
+  {
+   "id": "minecraft:bucket",
+   "name": "Bucket",
+   "max_stack": 16,
+   "icon": {
+    "shape": "bucket",
+    "colors": [
+     "#C8C8C8",
+     "#C8C8C8"
+    ]
+   },
+   "use": "bucket"
+  },
+  {
+   "id": "minecraft:water_bucket",
+   "name": "Water Bucket",
+   "max_stack": 1,
+   "icon": {
+    "shape": "bucket",
+    "colors": [
+     "#C8C8C8",
+     "#3C61DC"
+    ]
+   },
+   "use": "bucket",
+   "places": "minecraft:water"
+  },
+  {
+   "id": "minecraft:lava_bucket",
+   "name": "Lava Bucket",
+   "max_stack": 1,
+   "icon": {
+    "shape": "bucket",
+    "colors": [
+     "#C8C8C8",
+     "#F58A1E"
+    ]
+   },
+   "use": "bucket",
+   "places": "minecraft:lava"
+  },
+  {
+   "id": "minecraft:milk_bucket",
+   "name": "Milk Bucket",
+   "max_stack": 1,
+   "icon": {
+    "shape": "bucket",
+    "colors": [
+     "#C8C8C8",
+     "#FAFAFA"
+    ]
+   },
+   "use": "drink_milk"
+  },
+  {
+   "id": "minecraft:compass",
+   "name": "Compass",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ball",
+    "colors": [
+     "#C8C8C8"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:clock",
+   "name": "Clock",
+   "max_stack": 64,
+   "icon": {
+    "shape": "ball",
+    "colors": [
+     "#FCEE4B"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:cow_spawn_egg",
+   "name": "Cow Spawn Egg",
+   "max_stack": 64,
+   "icon": {
+    "shape": "egg2",
+    "colors": [
+     "#443626",
+     "#A1A1A1"
+    ]
+   },
+   "spawns": "minecraft:cow"
+  },
+  {
+   "id": "minecraft:pig_spawn_egg",
+   "name": "Pig Spawn Egg",
+   "max_stack": 64,
+   "icon": {
+    "shape": "egg2",
+    "colors": [
+     "#F0A5A2",
+     "#DB635F"
+    ]
+   },
+   "spawns": "minecraft:pig"
+  },
+  {
+   "id": "minecraft:sheep_spawn_egg",
+   "name": "Sheep Spawn Egg",
+   "max_stack": 64,
+   "icon": {
+    "shape": "egg2",
+    "colors": [
+     "#E7E7E7",
+     "#FFB5B5"
+    ]
+   },
+   "spawns": "minecraft:sheep"
+  },
+  {
+   "id": "minecraft:chicken_spawn_egg",
+   "name": "Chicken Spawn Egg",
+   "max_stack": 64,
+   "icon": {
+    "shape": "egg2",
+    "colors": [
+     "#A1A1A1",
+     "#FF0000"
+    ]
+   },
+   "spawns": "minecraft:chicken"
+  },
+  {
+   "id": "minecraft:zombie_spawn_egg",
+   "name": "Zombie Spawn Egg",
+   "max_stack": 64,
+   "icon": {
+    "shape": "egg2",
+    "colors": [
+     "#00AFAF",
+     "#799C65"
+    ]
+   },
+   "spawns": "minecraft:zombie"
+  },
+  {
+   "id": "minecraft:skeleton_spawn_egg",
+   "name": "Skeleton Spawn Egg",
+   "max_stack": 64,
+   "icon": {
+    "shape": "egg2",
+    "colors": [
+     "#C1C1C1",
+     "#494949"
+    ]
+   },
+   "spawns": "minecraft:skeleton"
+  },
+  {
+   "id": "minecraft:creeper_spawn_egg",
+   "name": "Creeper Spawn Egg",
+   "max_stack": 64,
+   "icon": {
+    "shape": "egg2",
+    "colors": [
+     "#0DA70B",
+     "#000000"
+    ]
+   },
+   "spawns": "minecraft:creeper"
+  },
+  {
+   "id": "minecraft:spider_spawn_egg",
+   "name": "Spider Spawn Egg",
+   "max_stack": 64,
+   "icon": {
+    "shape": "egg2",
+    "colors": [
+     "#342D27",
+     "#A80E0E"
+    ]
+   },
+   "spawns": "minecraft:spider"
+  }
+ ]
 }

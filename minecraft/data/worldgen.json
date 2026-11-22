@@ -1,0 +1,123 @@
+{
+ "ores": [
+  {
+   "block": "minecraft:coal_ore",
+   "min_y": 0,
+   "max_y": 127,
+   "size": 17,
+   "attempts": 20
+  },
+  {
+   "block": "minecraft:iron_ore",
+   "min_y": 0,
+   "max_y": 63,
+   "size": 9,
+   "attempts": 20
+  },
+  {
+   "block": "minecraft:gold_ore",
+   "min_y": 0,
+   "max_y": 31,
+   "size": 9,
+   "attempts": 2
+  },
+  {
+   "block": "minecraft:redstone_ore",
+   "min_y": 0,
+   "max_y": 15,
+   "size": 8,
+   "attempts": 4
+  },
+  {
+   "block": "minecraft:diamond_ore",
+   "min_y": 1,
+   "max_y": 15,
+   "size": 8,
+   "attempts": 1
+  },
+  {
+   "block": "minecraft:lapis_ore",
+   "min_y": 0,
+   "max_y": 30,
+   "size": 7,
+   "attempts": 1
+  },
+  {
+   "block": "minecraft:emerald_ore",
+   "min_y": 4,
+   "max_y": 31,
+   "size": 1,
+   "attempts": 11,
+   "biomes": [
+    "minecraft:mountains",
+    "minecraft:gravelly_mountains",
+    "minecraft:snowy_mountains"
+   ]
+  },
+  {
+   "block": "minecraft:gravel",
+   "min_y": 0,
+   "max_y": 255,
+   "size": 33,
+   "attempts": 8
+  },
+  {
+   "block": "minecraft:dirt",
+   "min_y": 0,
+   "max_y": 255,
+   "size": 33,
+   "attempts": 10
+  },
+  {
+   "block": "minecraft:andesite",
+   "min_y": 0,
+   "max_y": 79,
+   "size": 33,
+   "attempts": 10
+  },
+  {
+   "block": "minecraft:diorite",
+   "min_y": 0,
+   "max_y": 79,
+   "size": 33,
+   "attempts": 10
+  },
+  {
+   "block": "minecraft:granite",
+   "min_y": 0,
+   "max_y": 79,
+   "size": 33,
+   "attempts": 10
+  }
+ ],
+ "nether_ores": [
+  {
+   "block": "minecraft:nether_quartz_ore",
+   "min_y": 10,
+   "max_y": 117,
+   "size": 14,
+   "attempts": 16
+  },
+  {
+   "block": "minecraft:nether_gold_ore",
+   "min_y": 10,
+   "max_y": 117,
+   "size": 10,
+   "attempts": 10
+  },
+  {
+   "block": "minecraft:ancient_debris",
+   "min_y": 8,
+   "max_y": 22,
+   "size": 3,
+   "attempts": 1
+  },
+  {
+   "block": "minecraft:gravel",
+   "min_y": 5,
+   "max_y": 41,
+   "size": 33,
+   "attempts": 2
+  }
+ ]
+}

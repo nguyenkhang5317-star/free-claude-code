@@ -31,7 +31,7 @@ int WINAPI wWinMain(HINSTANCE inst, HINSTANCE prev, PWSTR args, int show) {
     }
     int bundled = exists(java);
     static wchar_t cmd[32768];
-    swprintf(cmd, 32768, L"\"%ls\" -Xms256m -Xmx2g -XX:+UseG1GC -Dsun.java2d.d3d=true -Dsun.java2d.uiScale=1 -Dmc.data=\"%ls\" -jar \"%ls\" %ls",
+    swprintf(cmd, 32768, L"\"%ls\" -Xms256m -Xmx2g -XX:+UseG1GC -Dsun.java2d.d3d=false -Dsun.java2d.noddraw=true -Dsun.awt.noerasebackground=true -Dsun.java2d.uiScale=1 -Dmc.data=\"%ls\" -jar \"%ls\" %ls",
              bundled ? java : L"javaw.exe", data, jar, args ? args : L"");
     STARTUPINFOW si; PROCESS_INFORMATION pi;
     ZeroMemory(&si, sizeof si); si.cb = sizeof si; ZeroMemory(&pi, sizeof pi);

@@ -64,6 +64,8 @@ public final class Renderer {
         return e + (d - e) / 3;
     }
 
+    public final FirstPerson hand = new FirstPerson();
+
     public void render(GameClient g, float partial) {
         Raster r = raster;
         ClientWorld w = g.world;
@@ -93,7 +95,7 @@ public final class Renderer {
         float fov = (float) s.fov;
         if (g.ps != null && g.ps.sprinting()) fov *= 1.1f;
         if (g.ps != null && g.ps.usingBow()) fov *= 1 - Math.min(1, g.ps.useTicks() / 20f) * 0.15f;
-        r.setCamera(ex, ey, ez, g.camYaw, g.camPitch, fov);
+        r.setCamera(ex, ey, ez, g.camYaw, g.camPitch, g.camRoll, fov);
         // fog & sky colours
         int skyTop, fog;
         if (w.hasSky) {
@@ -210,6 +212,7 @@ public final class Renderer {
         polys = 0;
         for (Raster.PolyBuf pb : all) polys += pb.np;
         r.rasterize(all);
+        hand.render(this, g, partial);
         rasterNanos = System.nanoTime() - t1;
         post(g);
     }
@@ -342,15 +345,18 @@ public final class Renderer {
             } else if (t == EntityTypes.ARROW) {
                 arrow(r, x, y, z, yaw, f.pitch(), light);
             } else {
-                float swing = f.swing() > 0 ? 1 - f.swing() / 6f : 0;
+                float swing = f.swing() > 0 ? Math.max(0, Math.min(1, 1 - (f.swing() - partial) / 6f)) : 0;
                 EntityModels.render(r, entBuf, t, x, y, z, yaw, hy, f.pitch(), limb, amt, f.hurtTime(), f.dead() ? f.deathTime() + partial : 0, f.data(), f.data2(),
                         swing, light, g.clientTicks + partial);
             }
         }
         // the local player in third person
         if (g.perspective != 0 && g.ps != null && !g.ps.dead()) {
-            float swing = g.ps.swing() > 0 ? 1 - g.ps.swing() / 6f : 0;
-            EntityModels.render(r, entBuf, EntityTypes.PLAYER, g.plX, g.plY, g.plZ, g.yaw, g.yaw, g.pitch, g.ps.limbSwing(), g.ps.limbAmount(), g.ps.hurtTime(), 0, 0, 0,
+            S2C.PlayerState a = g.prevPs == null ? g.ps : g.prevPs, b = g.ps;
+            float swing = b.swing() > 0 ? Math.max(0, Math.min(1, 1 - (b.swing() - partial) / 6f)) : 0;
+            float limb = a.limbSwing() + (b.limbSwing() - a.limbSwing()) * partial, amt = a.limbAmount() + (b.limbAmount() - a.limbAmount()) * partial;
+            float body = lerpAngle(g.bodyYawO, g.bodyYawC, partial);
+            EntityModels.render(r, entBuf, EntityTypes.PLAYER, g.plX, g.plY, g.plZ, body, g.yaw, g.pitch, limb, amt, b.hurtTime(), 0, 0, 0,
                     swing, lightAt(w, g.plX, g.plY + 0.5, g.plZ), g.clientTicks + partial);
         }
     }
@@ -461,7 +467,6 @@ public final class Renderer {
         int overlay = -1;
         double k = 0;
         if (g.ps.inPortal()) { overlay = 0x9020F0; k = 0.35 + Math.sin(g.clientTicks * 0.2) * 0.05; }
-        if (g.ps.hurtTime() > 0) { overlay = 0xC00000; k = g.ps.hurtTime() / 10.0 * 0.3; }
         if (overlay >= 0 && k > 0) for (int i = 0; i < c.length; i++) c[i] = mix(c[i], overlay, k);
         if (g.ps.onFire() && g.perspective == 0) {
             int W = r.w, H = r.h;

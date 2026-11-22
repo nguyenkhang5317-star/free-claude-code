@@ -140,7 +140,7 @@ public final class Player extends LivingEntity {
             }
         } else portalTime = Math.max(0, portalTime - 4);
         // footsteps (block family step sound)
-        if (onGround && !sneaking && walkDist - lastStepDist > 2.0) {
+        if (onGround && !sneaking && walkDist - lastStepDist > 1.0 / 0.6) { // vanilla: one step per 1/0.6 blocks
             lastStepDist = walkDist;
             int below = world.getBlock((int) Math.floor(x), (int) Math.floor(y - 0.2), (int) Math.floor(z));
             if (below != Blocks.AIR) world.playSound("block." + Blocks.block(below).sound + ".step", x, y, z, 0.15f, 1f);

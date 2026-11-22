@@ -46,7 +46,10 @@ public final class Raster {
         depth = new float[w * h];
     }
 
-    public void setCamera(double x, double y, double z, float yawDeg, float pitchDeg, float fovDeg) {
+    public void setCamera(double x, double y, double z, float yawDeg, float pitchDeg, float fovDeg) { setCamera(x, y, z, yawDeg, pitchDeg, 0, fovDeg); }
+
+    /** Camera with an additional roll (degrees, positive tilts the view clockwise) used by view bobbing / hurt tilt. */
+    public void setCamera(double x, double y, double z, float yawDeg, float pitchDeg, float rollDeg, float fovDeg) {
         camX = x; camY = y; camZ = z;
         double yaw = Math.toRadians(yawDeg), pitch = Math.toRadians(pitchDeg);
         fx = (float) (-Math.sin(yaw) * Math.cos(pitch));
@@ -57,6 +60,12 @@ public final class Raster {
         ux = ry * fz - rz * fy;
         uy = rz * fx - rx * fz;
         uz = rx * fy - ry * fx;
+        if (rollDeg != 0) {
+            float cr = (float) Math.cos(Math.toRadians(rollDeg)), sr = (float) Math.sin(Math.toRadians(rollDeg));
+            float nrx = rx * cr + ux * sr, nry = ry * cr + uy * sr, nrz = rz * cr + uz * sr;
+            float nux = ux * cr - rx * sr, nuy = uy * cr - ry * sr, nuz = uz * cr - rz * sr;
+            rx = nrx; ry = nry; rz = nrz; ux = nux; uy = nuy; uz = nuz;
+        }
         focal = (float) ((h / 2.0) / Math.tan(Math.toRadians(fovDeg) / 2));
     }
 

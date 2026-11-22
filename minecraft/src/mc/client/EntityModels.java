@@ -12,6 +12,9 @@ public final class EntityModels {
     static final class RPart {
         EntityType.Part p;
         int side, front, top;
+        int hSide, hFront, hTop;   // red hurt-overlay variants (vanilla: 70% texture + 30% red)
+        int wSide, wFront, wTop;   // white flash variants (creeper fuse)
+        int legPair = -1, legSide;
         EntityType.Anim anim;
         boolean followsHead, isHead, isRightArm, isLeftArm;
     }
@@ -29,6 +32,16 @@ public final class EntityModels {
                 r.side = TexTable.add(skin(p, rng, false));
                 r.top = TexTable.add(skin(p, rng, false));
                 r.front = p.face != null && !p.face.isEmpty() ? TexTable.add(skin(p, rng, true)) : r.side;
+                int[][] all = TexTable.array();
+                r.hSide = TexTable.add(overlay(all[r.side], 0xFF0000, 0.3)); r.hTop = TexTable.add(overlay(all[r.top], 0xFF0000, 0.3));
+                r.hFront = r.front == r.side ? r.hSide : TexTable.add(overlay(all[r.front], 0xFF0000, 0.3));
+                r.wSide = TexTable.add(overlay(all[r.side], 0xFFFFFF, 0.55)); r.wTop = TexTable.add(overlay(all[r.top], 0xFFFFFF, 0.55));
+                r.wFront = r.front == r.side ? r.wSide : TexTable.add(overlay(all[r.front], 0xFFFFFF, 0.55));
+                if (t.id.equals("minecraft:spider") && p.name.startsWith("leg")) {
+                    int i = Integer.parseInt(p.name.substring(3));
+                    r.legPair = i / 2;
+                    r.legSide = i % 2 == 0 ? -1 : 1;
+                }
                 if (t.walk != null) for (EntityType.Anim a : t.walk) if (a.part.equals(p.name)) r.anim = a;
                 r.isHead = p.name.equals("head");
                 r.followsHead = r.isHead || (t.attachments != null && "head".equals(t.attachments.get(p.name)));
@@ -41,6 +54,17 @@ public final class EntityModels {
     }
 
     static int hex(String s) { return Textures.hex(s); }
+
+    static int[] overlay(int[] src, int rgb, double k) {
+        int[] o = new int[src.length];
+        int R = (rgb >> 16) & 255, G = (rgb >> 8) & 255, B = rgb & 255;
+        for (int i = 0; i < src.length; i++) {
+            int c = src[i];
+            int r = (int) (((c >> 16) & 255) * (1 - k) + R * k), g = (int) (((c >> 8) & 255) * (1 - k) + G * k), b = (int) ((c & 255) * (1 - k) + B * k);
+            o[i] = (c & 0xFF000000) | r << 16 | g << 8 | b;
+        }
+        return o;
+    }
 
     /** Original 16x16 skin for a part face from its colour/pattern; front faces get the face features. */
     static int[] skin(EntityType.Part p, SplitMix r, boolean front) {
@@ -57,7 +81,7 @@ public final class EntityModels {
                     case "creeper": col = n < 0.2 ? Textures.shade(c, 0.7) : n > 0.85 ? Textures.shade(c, 1.25) : (n > 0.6 ? 0xFFDDDDDD & Textures.shade(c, 1.05) | 0xFF000000 : c); break;
                     default: col = Textures.shade(c, 0.9 + n * 0.18);
                 }
-                px[y * 16 + x] = col;
+                px[y * 16 + x] = col | 0xFF000000; // part colours from data carry no alpha
             }
         if (front && p.face != null) {
             for (Map.Entry<String, Object> e : p.face.entrySet()) {
@@ -99,69 +123,82 @@ public final class EntityModels {
         List<RPart> parts = MODELS.get(t.index);
         if (parts == null) return;
         double by = Math.toRadians(bodyYaw), hy = Math.toRadians(headYaw), hp = Math.toRadians(pitch);
-        double cb = Math.cos(by), sb = Math.sin(by), ch = Math.cos(hy), sh = Math.sin(hy);
-        double scale = 1, sxz = 1;
-        if (t.category.equals("creature") && (data & 1) != 0) scale = 0.5;
-        if (t.id.equals("minecraft:creeper") && data > 0) sxz = 1 + data2 * 0.25;
-        int tint = BlockColors.IDENTITY;
-        if (hurt > 0 || deathTicks > 0) tint = 0xFF804040 | 0x800000;
-        if (t.id.equals("minecraft:creeper") && data > 0 && ((int) (data2 * 10)) % 2 == 1) tint = 0xFFFFFFFF;
+        double cb = Math.cos(by), sb = Math.sin(by);
+        boolean creeper = t.id.equals("minecraft:creeper");
+        boolean baby = t.category.equals("creature") && (data & 1) != 0;
+        double scale = baby ? 0.5 : 1, sxz = 1, sy = 1;
+        if (creeper && data > 0) { double[] cs = Animations.creeperScale(data2); sxz = cs[0]; sy = cs[1]; }
+        boolean hurtTint = hurt > 0 || deathTicks > 0;
+        boolean flash = creeper && data > 0 && ((int) (data2 * 10)) % 2 == 1;
         double roll = Animations.deathRoll(deathTicks);
-        boolean zombieArms = t.id.equals("minecraft:zombie");
+        boolean zombie = t.id.equals("minecraft:zombie");
+        boolean biped = t.part("arm0") != null && t.part("arm1") != null;
         boolean bowAim = t.id.equals("minecraft:skeleton") && (data & 1) != 0;
         boolean sheared = t.id.equals("minecraft:sheep") && (data & 2) != 0;
+        boolean grazing = t.id.equals("minecraft:sheep") && (data & 4) != 0;
+        double amt = Math.min(1, limbAmount);
+        double[] atk = biped && !zombie && !bowAim ? Animations.attackPose(swing, hp) : new double[5];
+        double twist = atk[0];
+        if (grazing) hp = 0.9 + Math.sin(ticks * 0.9) * 0.12; // sheep lowers its head to eat grass
         for (RPart rp : parts) {
             EntityType.Part p = rp.p;
             double ox = p.ox, oy = p.oy, oz = p.oz, ex = p.sx, ey = p.sy, ez = p.sz;
             if (sheared && p.name.equals("body")) { ox += 0.06; oy += 0.06; oz += 0.06; ex -= 0.12; ey -= 0.12; ez -= 0.12; }
             double ax = 0, ay = 0, az = 0; // local rotation around pivot
-            if (rp.anim != null) {
-                double a = Animations.walk(rp.anim, limbSwing, limbAmount);
+            if (rp.legPair >= 0) {
+                double[] lg = Animations.spiderLeg(rp.legPair, rp.legSide, limbSwing, amt);
+                ay = lg[0]; az = lg[1];
+            } else if (rp.anim != null) {
+                double a = Animations.walk(rp.anim, limbSwing, amt);
                 if (rp.anim.axis == 0) ax = a; else if (rp.anim.axis == 1) ay = a; else az = a;
             }
+            boolean upper = biped && (p.name.equals("body") || rp.isRightArm || rp.isLeftArm);
             if (rp.isRightArm || rp.isLeftArm) {
                 int side = rp.isRightArm ? 1 : -1;
+                if (zombie) {
+                    double[] za = Animations.zombieArms(swing);
+                    ax = za[0]; ay = side * za[1]; az = 0;
+                } else if (bowAim) {
+                    ax = -Math.PI / 2 + hp; ay = rp.isRightArm ? 0.1 : -0.5; az = 0;
+                } else if (rp.isRightArm) {
+                    ax += atk[1]; ay += atk[2]; az += atk[3];
+                } else {
+                    ax += atk[4];
+                }
                 az += Animations.idleSway(ticks, side);
-                if (rp.isRightArm && swing > 0) ax += Animations.attackSwing(swing);
-                if (bowAim) { ax = -Math.PI / 2 + hp; ay = side * 0.1; }
-                if (zombieArms && swing > 0) ax += Animations.attackSwing(swing) * 0.5;
+                ax += Animations.idleSwayX(ticks, side);
             }
             boolean head = rp.followsHead;
             double pvx = p.px, pvy = p.py, pvz = p.pz;
             if (head) { EntityType.Part hpp = t.part("head"); if (hpp != null) { pvx = hpp.px; pvy = hpp.py; pvz = hpp.pz; } }
+            double local = head && baby ? 1.5 : 1; // baby heads are proportionally bigger (vanilla AgeableModel)
             int sideTex = rp.side, frontTex = rp.front, topTex = rp.top;
+            if (flash) { sideTex = rp.wSide; frontTex = rp.wFront; topTex = rp.wTop; }
+            else if (hurtTint) { sideTex = rp.hSide; frontTex = rp.hFront; topTex = rp.hTop; }
+            double cax = Math.cos(ax), sax = Math.sin(ax), cay = Math.cos(ay), say = Math.sin(ay), caz = Math.cos(az), saz = Math.sin(az);
+            double chp = Math.cos(hp), shp = Math.sin(hp), rel = hy - by, crl = Math.cos(rel), srl = Math.sin(rel);
+            double ctw = Math.cos(twist), stw = Math.sin(twist), cro = Math.cos(roll), sro = Math.sin(roll);
             for (int f = 0; f < 6; f++) {
                 float[][] q = Mesher.faceCorners(f, (float) ox, (float) oy, (float) oz, (float) (ox + ex), (float) (oy + ey), (float) (oz + ez));
                 for (int k = 0; k < 4; k++) {
-                    double mx = q[k][0] - pvx, my = q[k][1] - pvy, mz = q[k][2] - pvz;
+                    double mx = (q[k][0] - pvx) * local, my = (q[k][1] - pvy) * local, mz = (q[k][2] - pvz) * local;
                     // part rotation: x (pitch), y, z  (convention: negative x rotation swings forward, i.e. towards -z)
-                    if (head) {
-                        double cp = Math.cos(hp), sp = Math.sin(hp);
-                        double ny = my * cp + mz * sp, nz = -my * sp + mz * cp;
-                        my = ny; mz = nz;
-                    }
-                    if (ax != 0) { double c = Math.cos(ax), s = Math.sin(ax); double ny = my * c + mz * s, nz = -my * s + mz * c; my = ny; mz = nz; }
-                    if (ay != 0) { double c = Math.cos(ay), s = Math.sin(ay); double nx = mx * c + mz * s, nz = -mx * s + mz * c; mx = nx; mz = nz; }
-                    if (az != 0) { double c = Math.cos(az), s = Math.sin(az); double nx = mx * c - my * s, ny = mx * s + my * c; mx = nx; my = ny; }
-                    double wx, wz, wy;
-                    if (head) {
-                        // head rotates by (headYaw - bodyYaw) around the pivot, expressed in body space
-                        double rel = hy - by, c = Math.cos(rel), s = Math.sin(rel);
-                        double nx = mx * c - mz * s, nz = mx * s + mz * c;
-                        mx = nx; mz = nz;
-                    }
+                    if (head) { double ny = my * chp + mz * shp, nz = -my * shp + mz * chp; my = ny; mz = nz; }
+                    if (ax != 0) { double ny = my * cax + mz * sax, nz = -my * sax + mz * cax; my = ny; mz = nz; }
+                    if (ay != 0) { double nx = mx * cay + mz * say, nz = -mx * say + mz * cay; mx = nx; mz = nz; }
+                    if (az != 0) { double nx = mx * caz - my * saz, ny = mx * saz + my * caz; mx = nx; my = ny; }
+                    if (head) { double nx = mx * crl - mz * srl, nz = mx * srl + mz * crl; mx = nx; mz = nz; }
                     mx += pvx; my += pvy; mz += pvz;
-                    if (roll != 0) { double c = Math.cos(roll), s = Math.sin(roll); double nx = mx * c - my * s, ny = mx * s + my * c; mx = nx; my = ny; }
-                    mx *= scale * sxz; mz *= scale * sxz; my *= scale;
-                    wx = -cb * mx + sb * mz;
-                    wz = -sb * mx - cb * mz;
-                    wy = my;
-                    PX[k] = (float) (x + wx); PY[k] = (float) (y + wy); PZ[k] = (float) (z + wz);
+                    if (upper && twist != 0) { double nx = mx * ctw + mz * stw, nz = -mx * stw + mz * ctw; mx = nx; mz = nz; }
+                    if (roll != 0) { double nx = mx * cro - my * sro, ny = mx * sro + my * cro; mx = nx; my = ny; }
+                    mx *= scale * sxz; mz *= scale * sxz; my *= scale * sy;
+                    double wx = -cb * mx + sb * mz, wz = -sb * mx - cb * mz;
+                    PX[k] = (float) (x + wx); PY[k] = (float) (y + my); PZ[k] = (float) (z + wz);
                 }
                 float shade = f == 1 ? 1f : f == 0 ? 0.5f : (f == 2 || f == 3) ? 0.8f : 0.65f;
                 for (int k = 0; k < 4; k++) B[k] = light * shade;
                 int tex = f == 2 ? frontTex : f == 1 ? topTex : sideTex;
-                r.project(out, PX, PY, PZ, U, V, B, 4, tex, tint, Raster.MODE_OPAQUE);
+                r.project(out, PX, PY, PZ, U, V, B, 4, tex, BlockColors.IDENTITY, Raster.MODE_OPAQUE);
             }
         }
     }

@@ -55,7 +55,10 @@ public final class GameClient {
     long stateNanos, infoNanos;
     public float yaw, pitch;
     public double plX, plY, plZ, camX, camY, camZ;
-    public float camYaw, camPitch;
+    public float camYaw, camPitch, camRoll;
+    // client-side mirrors of vanilla walkDist / bob, updated per received player state (20 Hz)
+    double walkDistO, walkDistC;
+    float bobO, bobC, deathCam, bodyYawO, bodyYawC;
     public Raycast.Hit hit;
     public int hitEntity = -1;
     public int perspective;
@@ -73,6 +76,7 @@ public final class GameClient {
 
     // ---- input
     final boolean[] keys = new boolean[1024];
+    volatile long imeW; // last time an IME-synthesized W arrived (see installInput)
     final ConcurrentLinkedQueue<Object[]> events = new ConcurrentLinkedQueue<>();
     volatile int mouseX, mouseY;
     boolean lmb, rmb;
@@ -106,9 +110,19 @@ public final class GameClient {
         audio.setVolume((float) settings.volume);
         gui.audio = audio;
         frame = new JFrame(TITLE);
-        canvas = new Canvas();
+        // Active-rendered canvas: AWT must never repaint/erase it on its own (that erase is what flashes black on
+        // Windows), and IMEs (Unikey/EVKey/Telex) must not swallow WASD.
+        canvas = new Canvas() {
+            @Override public void paint(Graphics g) { }
+
+            @Override public void update(Graphics g) { }
+        };
         canvas.setPreferredSize(new Dimension(1280, 720));
         canvas.setBackground(Color.BLACK);
+        canvas.setIgnoreRepaint(true);
+        canvas.enableInputMethods(false);
+        frame.setIgnoreRepaint(true);
+        frame.getContentPane().setBackground(Color.BLACK);
         canvas.setFocusTraversalKeysEnabled(false);
         frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         frame.addWindowListener(new WindowAdapter() {
@@ -139,17 +153,28 @@ public final class GameClient {
         canvas.addKeyListener(new KeyAdapter() {
             @Override public void keyPressed(KeyEvent e) {
                 int k = e.getKeyCode();
+                if (k == KeyEvent.VK_UNDEFINED) {
+                    // Vietnamese IMEs in Telex mode turn W into a synthesized 'ư' (VK_PACKET); treat it as W while it repeats
+                    char ch = e.getKeyChar();
+                    if (ch == '\u01B0' || ch == '\u01AF') { imeW = System.currentTimeMillis(); keys[KeyEvent.VK_W] = true; }
+                    return;
+                }
                 if (k < keys.length) keys[k] = true;
                 events.add(new Object[]{"key", k, e.isShiftDown(), e.isControlDown()});
             }
 
             @Override public void keyReleased(KeyEvent e) {
                 int k = e.getKeyCode();
+                if (k == KeyEvent.VK_UNDEFINED) return;
                 if (k < keys.length) keys[k] = false;
                 events.add(new Object[]{"keyup", k});
             }
 
-            @Override public void keyTyped(KeyEvent e) { events.add(new Object[]{"char", e.getKeyChar()}); }
+            @Override public void keyTyped(KeyEvent e) {
+                char ch = e.getKeyChar();
+                if ((ch == '\u01B0' || ch == '\u01AF') && screen == Screen.NONE) { imeW = System.currentTimeMillis(); keys[KeyEvent.VK_W] = true; return; }
+                events.add(new Object[]{"char", ch});
+            }
         });
         MouseAdapter ma = new MouseAdapter() {
             @Override public void mousePressed(MouseEvent e) { canvas.requestFocus(); events.add(new Object[]{"down", e.getButton(), e.isShiftDown()}); }
@@ -398,9 +423,11 @@ public final class GameClient {
             if (full) { gd.setFullScreenWindow(null); frame.setVisible(true); frame.pack(); frame.setLocationRelativeTo(null); }
             else { frame.setVisible(true); gd.setFullScreenWindow(frame); }
             canvas.requestFocus();
-            canvas.createBufferStrategy(2);
+            rebuildStrategy = true; // recreated on the render thread, never while a frame is being shown
         });
     }
+
+    volatile boolean rebuildStrategy;
 
     void screenshot() {
         try {
@@ -441,6 +468,18 @@ public final class GameClient {
                 entities = ((S2C.Entities) p).frames();
             } else if (p instanceof S2C.PlayerState) {
                 S2C.PlayerState n = (S2C.PlayerState) p;
+                if (ps != null) {
+                    double hd = Math.hypot(n.x() - ps.x(), n.z() - ps.z());
+                    if (hd > 4) hd = 0; // teleport
+                    walkDistO = walkDistC;
+                    walkDistC += hd * 0.6;
+                    bobO = bobC;
+                    float target = n.onGround() && !n.dead() && !n.submerged() ? (float) Math.min(0.1, hd) : 0;
+                    bobC += (target - bobC) * 0.4f;
+                    deathCam = n.dead() ? deathCam + 1 : 0;
+                    bodyYawO = bodyYawC;
+                    bodyYawC = Animations.followBodyYaw(bodyYawC, n.yaw(), hd);
+                }
                 prevPs = ps == null ? n : ps;
                 ps = n;
                 stateNanos = System.nanoTime();
@@ -550,6 +589,8 @@ public final class GameClient {
         entities = new ArrayList<>();
         prevEntities = new HashMap<>();
         ps = prevPs = null;
+        walkDistO = walkDistC = 0; bobO = bobC = 0; deathCam = 0;
+        if (renderer != null) renderer.hand.reset();
         info = prevInfo = null;
         menu = null;
         chat.clear();
@@ -633,12 +674,15 @@ public final class GameClient {
             return;
         }
         particles.tick(world);
+        if (renderer != null && ps != null) renderer.hand.tick(this);
         audio.setRain(world.hasSky && ps != null ? rainSmooth * Math.min(1, world.getSkyLight((int) Math.floor(ps.x()), (int) Math.floor(ps.y() + 1), (int) Math.floor(ps.z())) / 15f) : 0);
+        ambience();
         if (screen == Screen.PAUSE) return;
         // movement input
         boolean play = screen == Screen.NONE && ps != null && !ps.dead();
         float fwd = 0, str = 0;
         boolean jump = false, sneak = false, sprint = false;
+        if (imeW != 0 && System.currentTimeMillis() - imeW > 650) { imeW = 0; keys[KeyEvent.VK_W] = false; }
         if (play) {
             if (keys[KeyEvent.VK_W]) fwd += 1;
             if (keys[KeyEvent.VK_S]) fwd -= 1;
@@ -668,6 +712,35 @@ public final class GameClient {
         if (server != null && server.viewDistance != settings.renderDistance) send(new C2S.SetViewDistance(settings.renderDistance));
     }
 
+    // ------------------------------------------------------------------ ambience (cave mood, reverb, underwater)
+    float mood, reverbEnv;
+    final Random ambRnd = new Random();
+
+    void ambience() {
+        if (ps == null || world == null) return;
+        int px = (int) Math.floor(ps.x()), py = (int) Math.floor(ps.y() + ps.eyeHeight()), pz = (int) Math.floor(ps.z());
+        // enclosure estimate for reverb: no sky above the head and solid blocks around
+        int sky = world.getSkyLight(px, py, pz);
+        float target = world.hasSky ? (15 - sky) / 15f : 0.8f;
+        if (py > 62 && world.hasSky) target *= 0.5f;
+        reverbEnv += (target - reverbEnv) * 0.05f;
+        audio.setEnvironment(reverbEnv, ps.submerged() ? 1 : 0);
+        // vanilla-style cave mood: sample a random nearby air block; darkness builds mood, at 100% play ambient.cave
+        if (screen == Screen.PAUSE || ps.dead()) return;
+        int bx = px + ambRnd.nextInt(17) - 8, by = py + ambRnd.nextInt(17) - 8, bz = pz + ambRnd.nextInt(17) - 8;
+        if (by > 0 && by < 255 && world.getBlock(bx, by, bz) == Blocks.AIR && world.isLoaded(bx, bz)) {
+            int bsky = world.hasSky ? world.getSkyLight(bx, by, bz) : 0, bl = world.getBlockLight(bx, by, bz);
+            if (bsky <= 0) mood += (15 - bl) / 6000f;
+            else mood -= bsky / 6000f;
+        }
+        mood = Math.max(0, mood);
+        if (mood >= 1) {
+            mood = 0;
+            double dx = bx - ps.x(), dy = by - ps.y(), dz = bz - ps.z(), d = Math.max(0.5, Math.sqrt(dx * dx + dy * dy + dz * dz));
+            audio.play("ambient.cave", ps.x() + dx / d * 6, ps.y() + ps.eyeHeight() + dy / d * 6, ps.z() + dz / d * 6, 0.7f, 0.8f + ambRnd.nextFloat() * 0.2f);
+        }
+    }
+
     void updateLook() {
         double dx, dy;
         synchronized (this) {
@@ -685,17 +758,41 @@ public final class GameClient {
     }
 
     // ------------------------------------------------------------------ frame
+    BufferedImage frameImage;
+
+    /**
+     * Compose the whole frame (upscaled world + HUD) into one offscreen image first, then present it with a single blit.
+     * The back buffer therefore never contains a half-drawn frame, and lost/restored surfaces are re-blitted instead of
+     * being shown empty (black).
+     */
     void renderFrame() {
-        BufferStrategy bs = canvas.getBufferStrategy();
-        if (bs == null) return;
         int W = Math.max(1, canvas.getWidth()), H = Math.max(1, canvas.getHeight());
-        Graphics2D g;
-        try { g = (Graphics2D) bs.getDrawGraphics(); } catch (IllegalStateException e) { return; }
         Point mp = canvas.getMousePosition();
         if (mp != null) { mouseX = mp.x; mouseY = mp.y; }
-        drawFrame(g, W, H);
-        g.dispose();
-        try { bs.show(); } catch (IllegalStateException ignored) { }
+        if (frameImage == null || frameImage.getWidth() != W || frameImage.getHeight() != H)
+            frameImage = new BufferedImage(W, H, BufferedImage.TYPE_INT_RGB);
+        Graphics2D fg = frameImage.createGraphics();
+        drawFrame(fg, W, H);
+        fg.dispose();
+        if (rebuildStrategy && canvas.isDisplayable()) {
+            rebuildStrategy = false;
+            try { canvas.createBufferStrategy(2); } catch (Exception e) { rebuildStrategy = true; }
+        }
+        BufferStrategy bs = canvas.getBufferStrategy();
+        if (bs == null) { if (canvas.isDisplayable()) rebuildStrategy = true; return; }
+        try {
+            int guard = 0;
+            do {
+                do {
+                    Graphics2D g = (Graphics2D) bs.getDrawGraphics();
+                    g.drawImage(frameImage, 0, 0, null);
+                    g.dispose();
+                } while (bs.contentsRestored() && ++guard < 4);
+                bs.show();
+            } while (bs.contentsLost() && ++guard < 4);
+        } catch (IllegalStateException | NullPointerException ignored) {
+            // strategy is being recreated (F11 / resize); next frame will present
+        }
         Toolkit.getDefaultToolkit().sync();
     }
 
@@ -746,15 +843,31 @@ public final class GameClient {
         camZ = plZ;
         camYaw = yaw;
         camPitch = pitch;
-        if (settings.viewBobbing && perspective == 0 && b.onGround() && !b.flying()) {
-            float limb = a.limbSwing() + (b.limbSwing() - a.limbSwing()) * partial;
-            float amt = Math.min(1, a.limbAmount() + (b.limbAmount() - a.limbAmount()) * partial);
-            double bob = Math.sin(limb * 0.6662) * 0.05 * amt;
-            camY += Math.abs(Math.cos(limb * 0.6662)) * 0.06 * amt;
-            camX += -Math.cos(Math.toRadians(yaw)) * bob;
-            camZ += -Math.sin(Math.toRadians(yaw)) * bob;
+        camRoll = 0;
+        if (perspective == 0) {
+            // hurt / death camera tilt (vanilla bobHurt)
+            if (b.dead()) {
+                camRoll += (float) (40 - 8000 / (Math.min(20, deathCam + partial) + 200));
+            } else if (b.hurtTime() > 0) {
+                double f = (b.hurtTime() - partial) / 10.0;
+                if (f > 0) { f = Math.sin(f * f * f * f * Math.PI); camRoll -= (float) (f * 14); }
+            }
+            // view bobbing (vanilla bobView): driven by distance walked, amplitude by the smoothed speed
+            if (settings.viewBobbing && !b.flying()) {
+                double wd = -(walkDistO + (walkDistC - walkDistO) * partial);
+                double bb = bobO + (bobC - bobO) * partial;
+                double tx = Math.sin(wd * Math.PI) * bb * 0.5, ty = -Math.abs(Math.cos(wd * Math.PI) * bb);
+                double yr = Math.toRadians(yaw), pr = Math.toRadians(pitch);
+                double rx = -Math.cos(yr), rz = -Math.sin(yr);
+                double fx = -Math.sin(yr) * Math.cos(pr), fy = -Math.sin(pr), fz = Math.cos(yr) * Math.cos(pr);
+                double ux = -rz * fy, uy = rz * fx - rx * fz, uz = rx * fy; // up = right x forward
+                camX -= rx * tx + ux * ty;
+                camY -= uy * ty;
+                camZ -= rz * tx + uz * ty;
+                camRoll += (float) (Math.sin(wd * Math.PI) * bb * 3);
+                camPitch += (float) (Math.abs(Math.cos(wd * Math.PI - 0.2) * bb) * 5);
+            }
         }
-        if (b.hurtTime() > 0 && perspective == 0) camPitch += 0; // tilt handled in post
         if (perspective != 0) {
             double yr = Math.toRadians(yaw), pr = Math.toRadians(pitch);
             double lx = -Math.sin(yr) * Math.cos(pr), ly = -Math.sin(pr), lz = Math.cos(yr) * Math.cos(pr);

@@ -113,7 +113,9 @@ public class Mob extends LivingEntity {
             if (s != null) world.playSound(s, x, y, z, 1f, voicePitch());
         }
         // footsteps
-        if (onGround && (Math.abs(x - prevX) + Math.abs(z - prevZ)) > 0.01 && age % 8 == 0) {
+        stepDist += Math.sqrt((x - prevX) * (x - prevX) + (z - prevZ) * (z - prevZ)) * 0.6;
+        if (onGround && stepDist > nextStep) {
+            nextStep = stepDist + 1; // vanilla Entity#nextStep cadence
             String st = type.sound("step");
             if (st != null) world.playSound(st, x, y, z, 0.15f, 1f);
         }
@@ -386,6 +388,8 @@ public class Mob extends LivingEntity {
     }
 
     public int swingTime;
+
+    double stepDist, nextStep = 1;
 
     public void swing() { swingTime = 6; }
 

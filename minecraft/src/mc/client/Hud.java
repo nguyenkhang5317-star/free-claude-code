@@ -36,7 +36,6 @@ public final class Hud {
         S2C.PlayerState ps = c.ps;
         if (ps == null) return;
         int W = g.width, H = g.height;
-        if (c.perspective == 0) hand(g, ps, partial);
         // crosshair
         if (c.perspective == 0 && c.screen == GameClient.Screen.NONE) {
             int cx = W / 2, cy = H / 2;
@@ -241,37 +240,4 @@ public final class Hud {
         g.text("frame ms (60 = 50ms)", 4, base - 60, 0xE0E0E0, false);
     }
 
-    /** First-person arm / held item, drawn as a 2D overlay with swing and bob. */
-    void hand(Gui g, S2C.PlayerState ps, float partial) {
-        if (ps.dead() || ps.sleeping() || ps.gameMode() == 3 || c.screen == GameClient.Screen.CONTAINER) return;
-        ItemStack held = ps.main()[ps.selected()];
-        double swing = ps.swing() > 0 ? 1 - (ps.swing() - partial) / 6.0 : 0;
-        if (swing < 0) swing = 0;
-        double sw = Math.sin(Math.sqrt(swing) * Math.PI);
-        float limb = ps.limbSwing(), amt = Math.min(1, ps.limbAmount());
-        double bobX = Math.sin(limb * 0.6662) * 4 * amt, bobY = Math.abs(Math.cos(limb * 0.6662)) * 4 * amt;
-        int W = g.width, H = g.height;
-        double eat = ps.useTicks() > 0 && held != null && held.item.isFood() ? Math.sin(ps.useTicks() * 1.4) * 3 : 0;
-        if (held == null) {
-            int x = (int) (W - 70 + bobX - sw * 30), y = (int) (H - 60 + bobY + sw * 10);
-            int s = g.s;
-            java.awt.geom.AffineTransform old = g.g.getTransform();
-            g.g.rotate(Math.toRadians(-20 - sw * 30), (x + 20) * s, (y + 60) * s);
-            int skin = 0xFFC89A7A;
-            g.rect(x, y, 24, 70, skin);
-            g.rect(x, y, 3, 70, 0xFFB08060);
-            g.rect(x + 21, y, 3, 70, 0xFFA87858);
-            g.g.setTransform(old);
-        } else {
-            boolean block = held.item.block != null && held.item.iconShape != null && held.item.iconShape.equals("block");
-            int size = block ? 56 : 64;
-            int x = (int) (W - size - 30 + bobX - sw * 40), y = (int) (H - size - 10 + bobY + sw * 18 + eat);
-            if (ps.usingBow()) { x -= 60; y -= 20; }
-            java.awt.geom.AffineTransform old = g.g.getTransform();
-            int s = g.s;
-            g.g.rotate(Math.toRadians(block ? -sw * 25 : -10 - sw * 50), (x + size / 2.0) * s, (y + size) * s);
-            g.icon(held.item.index, x, y, size);
-            g.g.setTransform(old);
-        }
-    }
 }

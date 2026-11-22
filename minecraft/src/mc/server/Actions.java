@@ -33,8 +33,8 @@ public final class Actions {
         } else if (pk instanceof C2S.Dig) {
             C2S.Dig d = (C2S.Dig) pk;
             if (p.menu == p.invMenu || true) p.dig(d.x(), d.y(), d.z());
-            if (p.digProgress == 0 && p.age % 5 == 0) p.swing();
-            p.swingTime = Math.max(p.swingTime, 2);
+            // vanilla mining swing: restart the arm swing once it is past its first half -> continuous chopping motion
+            if (p.swingTime <= 2) p.swing();
         } else if (pk instanceof C2S.StopDig) {
             p.stopDig();
         } else if (pk instanceof C2S.UseOn) {

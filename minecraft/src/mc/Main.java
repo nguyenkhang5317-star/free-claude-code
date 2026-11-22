@@ -14,6 +14,14 @@ import java.nio.file.*;
  */
 public final class Main {
     public static void main(String[] args) throws Exception {
+        // Display pipeline: Direct3D + an active-rendered Canvas flickers black on many Windows GPUs/drivers, so the
+        // stable GDI path is the default (opt back in with -Dmc.gpu=true). Never let AWT erase the canvas background.
+        if (!Boolean.getBoolean("mc.gpu")) {
+            System.setProperty("sun.java2d.d3d", "false");
+            System.setProperty("sun.java2d.opengl", "false");
+            System.setProperty("sun.java2d.noddraw", "true");
+        }
+        System.setProperty("sun.awt.noerasebackground", "true");
         if (System.getProperty("mc.data") == null) {
             Path d = locateData();
             if (d != null) System.setProperty("mc.data", d.toString());

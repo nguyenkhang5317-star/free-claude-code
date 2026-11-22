@@ -62,3 +62,8 @@
 - User requested app-only, no web. Deleted minecraft/client/, minecraft/server.py, run-launcher scripts.
 - Kept: app.py (native Tkinter), launcher.py (native), data/, tests/, build-exe scripts.
 - Download via GitHub Release zip; .exe built on Windows via build-exe.bat.
+
+## 2026-11-22 — Switch Python -> Java
+- User requested Java instead of Python. Replaced app.py/launcher.py (Tkinter) with java/src/MinecraftApp.java (Swing, pure JDK, no deps).
+- Build .exe via javac + jpackage (JDK 17+). Removed PyInstaller scripts.
+- Spec re-read: MASTER_PROMPT_FULL.md (4517 lines, identical to previous). Java version keeps deterministic worldgen, 20 TPS, mining/placing, crafting, day/night, health/hunger.

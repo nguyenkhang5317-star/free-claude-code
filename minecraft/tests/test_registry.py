@@ -13,7 +13,10 @@ def test_mobs():
     d = json.loads((ROOT/"data/mobs.json").read_text())
     assert len(d["mobs"]) >= 40
     assert any(m["id"]=="minecraft:cow" for m in d["mobs"])
-def test_server_exists():
-    assert (ROOT/"server.py").exists()
-    assert (ROOT/"client/index.html").exists()
-    assert (ROOT/"client/js/main.js").exists()
+def test_app_exists():
+    assert (ROOT/"app.py").exists()
+    assert (ROOT/"launcher.py").exists()
+    assert (ROOT/"build-exe.bat").exists()
+    # web mode removed — app desktop only
+    assert not (ROOT/"server.py").exists()
+    assert not (ROOT/"client").exists()

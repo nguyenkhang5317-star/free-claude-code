@@ -57,3 +57,8 @@
 - client/js/textures.js: procedural canvas atlas (original, Appendix F palettes).
 - tests/test_registry.py: validates 103 blocks / 165 items / 69 mobs + file existence.
 - Deviations: HEIGHT=64 (not 256) for browser perf; render distance 4 chunks; texture atlas fallback to stone for unmapped tiles; no Anvil persistence (localStorage/API save only).
+
+## 2026-11-22 — Remove web mode
+- User requested app-only, no web. Deleted minecraft/client/, minecraft/server.py, run-launcher scripts.
+- Kept: app.py (native Tkinter), launcher.py (native), data/, tests/, build-exe scripts.
+- Download via GitHub Release zip; .exe built on Windows via build-exe.bat.

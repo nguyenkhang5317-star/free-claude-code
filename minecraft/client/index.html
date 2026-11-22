@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minecraft 1.16.5 — Web Edition</title>
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+</head><body>
+<div id="app">
+  <canvas id="game"></canvas>
+  <div id="hud">
+    <div id="crosshair">+</div>
+    <div id="topbar"><span id="seedLabel">Seed: —</span><span id="fps">60 FPS</span><span id="pos">0,0,0</span><span id="timeLabel">Day 1 06:00</span></div>
+    <div id="hearts"></div><div id="hunger"></div>
+    <div id="hotbar"></div>
+    <div id="msg"></div>
+    <div id="breakProgress"><div id="breakFill"></div></div>
+  </div>
+  <div id="menu">
+    <h1>MINECRAFT <small>1.16.5 Web Edition</small></h1>
+    <p>Voxel sandbox — deterministic worldgen, 20 TPS, day/night, mining, crafting, mobs.</p>
+    <label>Seed <input id="seedInput" value="12345"></label>
+    <label>World type <select id="worldType"><option value="overworld">Overworld</option><option value="nether">Nether</option><option value="end">End</option></select></label>
+    <button id="playBtn">▶ Play (click to lock mouse)</button>
+    <div class="controls">
+      <b>Controls:</b> WASD di chuyển · Space nhảy · Shift lén · Click trái đào · Click phải đặt block ·
+      1-9 chọn hotbar · E túi đồ · F ăn/uống · M mute · / lệnh · Esc mở menu<br>
+      <b>Lệnh:</b> /seed /time set day|night /gamemode /give /tp /spawn /weather /kill /help
+    </div>
+    <div id="loading"></div>
+  </div>
+  <div id="inventory" class="hidden">
+    <h2>Inventory & Crafting</h2>
+    <div id="invGrid"></div>
+    <h3>Crafting 3×3</h3><div id="craftGrid"></div>
+    <div id="craftOut"></div>
+    <button id="closeInv">Close (E)</button>
+  </div>
+  <div id="chat" class="hidden"><input id="chatInput" placeholder="/help — Enter gửi, Esc đóng"></div>
+  <div id="death" class="hidden"><h1>You died!</h1><p id="deathMsg"></p><button id="respawnBtn">Respawn</button></div>
+</div>
+<script type="module" src="js/main.js"></script>
+</body></html>

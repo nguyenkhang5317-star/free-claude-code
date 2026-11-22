@@ -294,7 +294,7 @@ public abstract class LivingEntity extends Entity {
         }
         if (!partial) {
             String snd = type.sound("hurt");
-            if (snd != null) world.playSound(snd, x, y, z, 1f, voicePitch());
+            if (snd != null) world.playSound(snd, x, y, z, voiceVolume(), voicePitch());
         }
         onHurt(src, amount);
         if (health <= 0) die(src);
@@ -305,7 +305,13 @@ public abstract class LivingEntity extends Entity {
 
     protected void onHurt(DamageSource src, float amount) { }
 
-    public float voicePitch() { return (rng.nextFloat() - rng.nextFloat()) * 0.2f + 1.0f; }
+    /** Vanilla LivingEntity#getSoundPitch: (r - r) * 0.2 + 1, babies + 0.5. */
+    public float voicePitch() { return (rng.nextFloat() - rng.nextFloat()) * 0.2f + (isBabyVoice() ? 1.5f : 1.0f); }
+
+    protected boolean isBabyVoice() { return false; }
+
+    /** Vanilla LivingEntity#getSoundVolume (cows talk at 0.4); data key "sound_volume". */
+    public float voiceVolume() { return (float) type.num("sound_volume", 1.0); }
 
     public void knockback(double strength, double dx, double dz) {
         double l = Math.sqrt(dx * dx + dz * dz);
@@ -322,7 +328,7 @@ public abstract class LivingEntity extends Entity {
         health = 0;
         deathTime = 0;
         String snd = type.sound("death");
-        if (snd != null) world.playSound(snd, x, y, z, 1f, voicePitch());
+        if (snd != null) world.playSound(snd, x, y, z, voiceVolume(), voicePitch());
         onDeath(src);
     }
 

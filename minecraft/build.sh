@@ -5,7 +5,7 @@ cd "$(dirname "$0")"
 JAVAC=${JAVAC:-javac}; JAVA=${JAVA:-java}
 rm -rf build && mkdir -p build/classes build/tests
 echo "[build] compiling sources"
-$JAVAC --release 17 -encoding UTF-8 -nowarn -d build/classes $(find src -name '*.java')
+$JAVAC --release 17 -encoding UTF-8 -nowarn -d build/classes $(find src third_party/jorbis/src -name '*.java')
 cp -r data build/classes/data
 echo "[build] packaging jar"
 if command -v jar >/dev/null; then

@@ -183,6 +183,7 @@ public final class Hud {
                 String.format(Locale.ROOT, "C: %d sections, %d quads, %d polys, meshing %d", r.sectionsDrawn, r.quadsDrawn, r.polys, c.world.meshQueue.get()),
                 String.format(Locale.ROOT, "E: %d/%d  P: %d", c.entities.size(), info == null ? 0 : info.entityCount(), c.particles.size()),
                 c.world.dimension,
+                "Sounds: " + (c.audio.usingPack() ? "original (" + c.audio.source() + ")" : "built-in") + (c.ambience.currentMusic != null ? "  music " + c.ambience.currentMusic : ""),
                 "",
                 String.format(Locale.ROOT, "XYZ: %.3f / %.5f / %.3f", ps.x(), ps.y(), ps.z()),
                 String.format("Block: %d %d %d", bx, by, bz),

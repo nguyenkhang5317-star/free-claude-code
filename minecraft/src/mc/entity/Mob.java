@@ -110,7 +110,7 @@ public class Mob extends LivingEntity {
         if (++ambientTimer > 80 && rng.nextInt(1000) < ambientTimer) {
             ambientTimer = -80;
             String s = type.sound("ambient");
-            if (s != null) world.playSound(s, x, y, z, 1f, voicePitch());
+            if (s != null) world.playSound(s, x, y, z, voiceVolume(), voicePitch());
         }
         // footsteps
         stepDist += Math.sqrt((x - prevX) * (x - prevX) + (z - prevZ) * (z - prevZ)) * 0.6;
@@ -118,6 +118,11 @@ public class Mob extends LivingEntity {
             nextStep = stepDist + 1; // vanilla Entity#nextStep cadence
             String st = type.sound("step");
             if (st != null) world.playSound(st, x, y, z, 0.15f, 1f);
+            else { // vanilla Entity#playStepSound: the block's own step sound (e.g. creepers)
+                int below = world.getBlock((int) Math.floor(x), (int) Math.floor(y - 0.2), (int) Math.floor(z));
+                if (below != mc.content.Blocks.AIR && mc.content.Blocks.block(below).sound != null)
+                    world.playSound("block." + mc.content.Blocks.block(below).sound + ".step", x, y, z, 0.15f, 1f);
+            }
         }
     }
 

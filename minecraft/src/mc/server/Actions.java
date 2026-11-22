@@ -68,6 +68,8 @@ public final class Actions {
             Menu m = c.windowId() == 0 ? p.invMenu : p.menu;
             if (m.windowId == c.windowId()) m.click(p, c.slot(), c.button(), c.shift());
         } else if (pk instanceof C2S.CloseMenu) {
+            if (p.menu != p.invMenu && p.menu.kind == Menu.CHEST && p.menu.be != null)
+                p.world.playSound("block.chest.close", p.menu.be.x + 0.5, p.menu.be.y + 0.5, p.menu.be.z + 0.5, 0.5f, p.world.rng.nextFloat() * 0.1f + 0.9f);
             if (p.menu != p.invMenu) p.closeMenu();
             else p.invMenu.close(p);
             s.playerInventoryOpen = false;
@@ -197,7 +199,7 @@ public final class Actions {
                 if (be == null) return false;
                 if (Blocks.opaqueCube[w.getBlock(x, y + 1, z)]) return true;
                 p.openMenu(Menu.chest(p, be));
-                w.playSound("block.wood.place", x + 0.5, y + 0.5, z + 0.5, 0.5f, 1.1f);
+                w.playSound("block.chest.open", x + 0.5, y + 0.5, z + 0.5, 0.5f, w.rng.nextFloat() * 0.1f + 0.9f); // vanilla ChestTileEntity
                 return true;
             }
             case "furnace": {

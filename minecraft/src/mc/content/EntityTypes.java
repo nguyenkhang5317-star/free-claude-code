@@ -13,7 +13,7 @@ public final class EntityTypes {
     public static EntityType PLAYER, ITEM, XP_ORB, ARROW, TNT, FALLING_BLOCK;
     private static final Set<String> ALLOWED = new HashSet<>(Arrays.asList("id", "name", "health", "damage", "speed", "width",
             "height", "eye", "category", "xp", "drops", "goals", "sounds", "model", "animations", "spawn", "breed_item", "interact",
-            "slow_fall", "lays_eggs", "undead", "burns_in_sun", "ranged", "fuse", "explosion", "climbs", "neutral_in_light"));
+            "slow_fall", "lays_eggs", "undead", "burns_in_sun", "ranged", "fuse", "explosion", "climbs", "neutral_in_light", "sound_volume"));
 
     static void load(Map<String, Object> root) {
         ALL.clear();

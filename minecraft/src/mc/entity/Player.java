@@ -469,7 +469,7 @@ public final class Player extends LivingEntity {
             xpProgress = (xpProgress - 1) * xpForLevel(xpLevel);
             xpLevel++;
             xpProgress /= xpForLevel(xpLevel);
-            if (xpLevel % 5 == 0) world.playSound("entity.player.levelup", x, y, z, 0.75f, 1f);
+            if (xpLevel % 5 == 0) world.playSound("entity.player.levelup", x, y, z, (xpLevel > 30 ? 1f : xpLevel / 30f) * 0.75f, 1f);
         }
     }
 

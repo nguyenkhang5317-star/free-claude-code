@@ -106,8 +106,9 @@ public final class GameClient {
     public void start() {
         Registries.load();
         TexTable.init();
-        audio = Audio.Synth.open();
+        audio = Audio.Synth.open(gameDir, !"builtin".equals(settings.soundSource));
         audio.setVolume((float) settings.volume);
+        audio.setMusicVolume((float) settings.musicVolume);
         gui.audio = audio;
         frame = new JFrame(TITLE);
         // Active-rendered canvas: AWT must never repaint/erase it on its own (that erase is what flashes black on
@@ -630,6 +631,7 @@ public final class GameClient {
     }
 
     public void quitWorld() {
+        ambience.reset();
         IntegratedServer s = server;
         if (s == null) return;
         serverRunning = false;
@@ -652,6 +654,7 @@ public final class GameClient {
         clientTicks++;
         float targetRain = info != null && info.raining() ? 1 : 0;
         rainSmooth += (targetRain - rainSmooth) * 0.02f;
+        ambience.tickMusic();
         if (server == null) return;
         if (screen == Screen.LOADING) {
             int need = 0, have = 0;
@@ -712,34 +715,10 @@ public final class GameClient {
         if (server != null && server.viewDistance != settings.renderDistance) send(new C2S.SetViewDistance(settings.renderDistance));
     }
 
-    // ------------------------------------------------------------------ ambience (cave mood, reverb, underwater)
-    float mood, reverbEnv;
-    final Random ambRnd = new Random();
+    // ------------------------------------------------------------------ ambience (music, biome/cave mood, underwater, rain)
+    final Ambience ambience = new Ambience(this);
 
-    void ambience() {
-        if (ps == null || world == null) return;
-        int px = (int) Math.floor(ps.x()), py = (int) Math.floor(ps.y() + ps.eyeHeight()), pz = (int) Math.floor(ps.z());
-        // enclosure estimate for reverb: no sky above the head and solid blocks around
-        int sky = world.getSkyLight(px, py, pz);
-        float target = world.hasSky ? (15 - sky) / 15f : 0.8f;
-        if (py > 62 && world.hasSky) target *= 0.5f;
-        reverbEnv += (target - reverbEnv) * 0.05f;
-        audio.setEnvironment(reverbEnv, ps.submerged() ? 1 : 0);
-        // vanilla-style cave mood: sample a random nearby air block; darkness builds mood, at 100% play ambient.cave
-        if (screen == Screen.PAUSE || ps.dead()) return;
-        int bx = px + ambRnd.nextInt(17) - 8, by = py + ambRnd.nextInt(17) - 8, bz = pz + ambRnd.nextInt(17) - 8;
-        if (by > 0 && by < 255 && world.getBlock(bx, by, bz) == Blocks.AIR && world.isLoaded(bx, bz)) {
-            int bsky = world.hasSky ? world.getSkyLight(bx, by, bz) : 0, bl = world.getBlockLight(bx, by, bz);
-            if (bsky <= 0) mood += (15 - bl) / 6000f;
-            else mood -= bsky / 6000f;
-        }
-        mood = Math.max(0, mood);
-        if (mood >= 1) {
-            mood = 0;
-            double dx = bx - ps.x(), dy = by - ps.y(), dz = bz - ps.z(), d = Math.max(0.5, Math.sqrt(dx * dx + dy * dy + dz * dz));
-            audio.play("ambient.cave", ps.x() + dx / d * 6, ps.y() + ps.eyeHeight() + dy / d * 6, ps.z() + dz / d * 6, 0.7f, 0.8f + ambRnd.nextFloat() * 0.2f);
-        }
-    }
+    void ambience() { ambience.tick(screen == Screen.PAUSE); }
 
     void updateLook() {
         double dx, dy;

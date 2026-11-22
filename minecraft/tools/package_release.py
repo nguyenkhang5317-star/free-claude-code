@@ -58,7 +58,7 @@ def main():
     os.makedirs(dist)
 
     print("[1/5] compiling")
-    sources = [os.path.join(r, f) for r, _, fs in os.walk("src") for f in fs if f.endswith(".java")]
+    sources = [os.path.join(r, f) for d in ("src", "third_party/jorbis/src") for r, _, fs in os.walk(d) for f in fs if f.endswith(".java")]
     with open(os.path.join(build, "sources.txt"), "w") as f:
         f.write("\n".join(sources))
     run(shlex.split(a.javac) + shlex.split(a.javac_flags) + ["-encoding", "UTF-8", "-nowarn", "-d", classes] + sources)
@@ -93,6 +93,14 @@ def main():
             os.remove(exe)
     shutil.copy(jar, os.path.join(win, "app", "Minecraft.jar"))
     shutil.copytree("data", os.path.join(win, "app", "data"))
+    os.makedirs(os.path.join(win, "resourcepacks"))
+    with open(os.path.join(win, "resourcepacks", "README.txt"), "w", newline="\r\n") as f:
+        f.write("Put resource packs (.zip or folders containing assets/minecraft/sounds.json) here.\n"
+                "Sound event ids match Minecraft Java 1.16.5, so sound packs made for Minecraft work as-is.\n")
+    lic = os.path.join(win, "licenses")
+    os.makedirs(lic)
+    shutil.copy(os.path.join("third_party", "jorbis", "COPYING.LIB"), os.path.join(lic, "JOrbis-LGPL-2.1.txt"))
+    shutil.copy(os.path.join("third_party", "jorbis", "PROVENANCE.md"), os.path.join(lic, "JOrbis-README.md"))
     with open(os.path.join(win, "README.txt"), "w", newline="\r\n") as f:
         f.write(f"""Minecraft {VERSION} - original Java rebuild (desktop app)
 ==========================================================
@@ -106,6 +114,14 @@ The data pack (blocks, items, recipes, mobs, biomes, sounds, textures, tuning) i
 Controls: WASD move, mouse look, Space jump (double-tap = fly in creative), Left Shift sneak, Left Ctrl sprint,
 left click break/attack, right click use/place, middle click pick block, 1-9 / wheel hotbar, E inventory,
 Q drop (Ctrl+Q stack), F swap hands, T chat, / command, F1 hide HUD, F2 screenshot, F3 debug, F5 camera, F11 fullscreen.
+
+SOUNDS - original Minecraft audio
+  This game ships no Mojang files. If Minecraft Java Edition is installed on this PC (official launcher or any
+  launcher using %APPDATA%\\.minecraft) and you have played 1.16.x or newer once, the game automatically uses the
+  original sounds and music from your installation (Options -> "Sounds: Original Minecraft").
+  You can also drop resource packs into the resourcepacks\\ folder next to Minecraft.exe.
+  Minecraft installed somewhere else? Set the environment variable MC_ASSETS to that .minecraft folder.
+  Without either, built-in synthesised sounds are used.
 
 If Windows SmartScreen warns about an unknown publisher: More info -> Run anyway (the exe is unsigned).
 """)

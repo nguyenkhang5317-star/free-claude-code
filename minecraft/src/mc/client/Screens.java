@@ -194,9 +194,27 @@ public final class Screens {
             int d = c.server.level.difficulty;
             if (g.button("Difficulty: " + diff[d], x, y + 96, 150, 20, true)) c.server.inbound.add(new C2S.Chat("/difficulty " + ((d + 1) % 4)));
         }
-        g.text("Controls: WASD move, Space jump (double-tap: fly in creative), Shift sneak, Ctrl sprint", x, y + 124, 0xA0A0A0);
-        g.text("LMB break/attack, RMB use/place, MMB pick, 1-9/wheel hotbar, E inventory, Q drop", x, y + 134, 0xA0A0A0);
-        g.text("F swap hands, T chat, / command, F1 hide HUD, F2 screenshot, F3 debug, F5 camera", x, y + 144, 0xA0A0A0);
+        double mv = g.slider("Music: " + (s.musicVolume <= 0 ? "OFF" : (int) (s.musicVolume * 100) + "%"), x + 160, y + 96, 150, 20, s.musicVolume);
+        if (mv != s.musicVolume) { s.musicVolume = mv; c.audio.setMusicVolume((float) mv); }
+        boolean orig = !"builtin".equals(s.soundSource);
+        String label = !orig ? "Sounds: Built-in (synthesised)" : c.audio.usingPack() ? "Sounds: Original Minecraft" : "Sounds: Original (not found)";
+        if (g.button(label, x, y + 120, 310, 20, true)) {
+            s.soundSource = orig ? "builtin" : "auto";
+            c.audio.stopMusic();
+            c.audio.configure(!orig);
+            s.save();
+        }
+        String src = orig && c.audio.usingPack() ? "Using: " + c.audio.source() : orig ? "No Minecraft install found - or add a pack to resourcepacks/" : "Original sounds are off";
+        if (g.textWidth(src) > 310) {
+            while (src.length() > 4 && g.textWidth(src + "...") > 310) src = src.substring(0, src.length() - 1);
+            src += "...";
+        }
+        g.text(src, x, y + 144, 0x909090);
+        if (y + 186 < g.height - 32) {
+            g.text("Controls: WASD move, Space jump (double-tap: fly in creative), Shift sneak, Ctrl sprint", x, y + 160, 0xA0A0A0);
+            g.text("LMB break/attack, RMB use/place, MMB pick, 1-9/wheel hotbar, E inventory, Q drop", x, y + 170, 0xA0A0A0);
+            g.text("F swap hands, T chat, / command, F1 hide HUD, F2 screenshot, F3 debug, F5 camera", x, y + 180, 0xA0A0A0);
+        }
         if (g.button("Done", W / 2 - 100, g.height - 30, 200, 20, true)) back();
     }
 

@@ -60,6 +60,7 @@
     "death": "entity.cow.death",
     "step": "entity.cow.step"
    },
+   "sound_volume": 0.4,
    "model": [
     {
      "name": "body",

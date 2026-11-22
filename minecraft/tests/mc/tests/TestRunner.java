@@ -89,6 +89,7 @@ public final class TestRunner {
         System.out.println("[sound audit]");
         test("every referenced sound id exists", TestRunner::soundReferences);
         test("every sound synthesises audible output", TestRunner::soundSynthesis);
+        test("resource-pack sounds: sounds.json + Ogg Vorbis decode", TestRunner::soundPack);
 
         System.out.printf("%n%d passed, %d failed%n", passed, failed);
         for (String f : failures) System.out.println("  - " + f);
@@ -422,5 +423,34 @@ public final class TestRunner {
             if (pcm.length == 0 || peak < 0.01 || peak > 1.0001) silent.add(e.getKey() + "(peak " + String.format("%.3f", peak) + ")");
         }
         check(silent.isEmpty(), "silent or clipping sounds: " + silent);
+    }
+
+    static void soundPack() throws Exception {
+        Path dir = Paths.get(System.getProperty("mc.tests", "tests"), "fixtures", "soundpack");
+        mc.client.SoundPack sp = mc.client.SoundPack.discover(List.of(dir), List.of());
+        check(sp != null, "fixture pack not found in " + dir);
+        Random r = new Random(1);
+        mc.client.SoundPack.Pick pk = sp.pick("entity.cow.ambient", r); // event reference -> block.stone.break -> test/tone
+        check(pk != null && pk.variant().name.equals("test/tone"), "event reference not followed: " + (pk == null ? null : pk.variant().name));
+        check(Math.abs(pk.pitch() - 0.9f) < 1e-6 && Math.abs(pk.volume() - 0.8f) < 1e-6, "variant volume/pitch not applied");
+        mc.client.OggDecoder.Clip c = sp.clip(pk.variant());
+        check(c != null && c.rate == 44100, "tone.ogg did not decode");
+        check(Math.abs(c.seconds() - 0.25) < 0.03, "decoded length " + c.seconds());
+        // the decoded waveform must match the 440 Hz source tone
+        double num = 0, da = 0, db = 0;
+        for (int i = 0; i < Math.min(c.pcm.length, 11025); i++) {
+            double t = i / 44100.0, ref = 0.5 * Math.sin(2 * Math.PI * 440 * t) * Math.min(1, (0.25 - t) * 40), x = c.pcm[i] / 32768.0;
+            num += x * ref; da += x * x; db += ref * ref;
+        }
+        check(num / Math.sqrt(da * db) > 0.99, "decoded audio does not match the source (corr " + num / Math.sqrt(da * db) + ")");
+        mc.client.SoundPack.Pick m = sp.pick("music.menu", r);
+        check(m.variant().stream, "stream flag lost");
+        try (mc.client.OggDecoder d = sp.stream(m.variant())) {
+            check(d.channels == 2 && d.rate == 48000, "stereo stream header");
+            float[] buf = new float[2048 * 2];
+            long n = 0; int k;
+            while ((k = d.read(buf, 2048)) > 0) n += k;
+            check(Math.abs(n / 48000.0 - 0.25) < 0.03, "streamed length " + n / 48000.0);
+        }
     }
 }

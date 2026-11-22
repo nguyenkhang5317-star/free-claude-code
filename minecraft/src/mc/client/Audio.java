@@ -8,13 +8,30 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * Audio (Section 2.8 IAudioBus). All sounds are synthesised procedurally ({@link Sfx}) from data/sounds.json ids — no
- * sampled or copied audio. Each id has several variants picked at random per play (like vanilla's multiple
- * recordings). The mixer streams 44.1 kHz stereo with vanilla-style linear distance attenuation, equal-power panning,
- * distance air-absorption low-pass, smooth gain ramps, cave reverb, underwater muffling, rain bed and a soft limiter.
+ * Audio (Section 2.8 IAudioBus).
+ * <p>
+ * Two sound sources share one mixer:
+ * <ul>
+ *   <li><b>Original Minecraft sounds</b> ({@link SoundPack}): when the player has Minecraft Java installed (or drops a
+ *   resource pack into {@code resourcepacks/}), every event id is looked up in that pack's {@code sounds.json} and the
+ *   .ogg files are decoded at runtime. Nothing is bundled. Playback then follows vanilla's OpenAL setup exactly: linear
+ *   roll-off to {@code attenuation_distance × max(1, volume)}, gain {@code min(1, volume) × variant volume}, pitch clamped to
+ *   0.5–2.0, no filtering or reverb; music and ambient loops are streamed.</li>
+ *   <li><b>Built-in sounds</b> ({@link Sfx}): procedural synthesis for every registered id (original work), used for
+ *   anything the pack lacks or when no pack is found. These get a little reverb/air-absorption to sit better.</li>
+ * </ul>
  */
 public final class Audio {
     private Audio() { }
+
+    /** A looping, fadeable sound (underwater / biome ambience). */
+    public interface Loop {
+        void setVolume(float v);
+
+        void stop();
+
+        boolean alive();
+    }
 
     public interface IAudioBus {
         void play(String id, double x, double y, double z, float volume, float pitch);
@@ -27,8 +44,30 @@ public final class Audio {
 
         void setRain(float level);
 
-        /** reverb 0..1 (enclosed / cave), underwater 0..1 (muffle). */
+        /** reverb 0..1 (enclosed / cave), underwater 0..1 (muffle). Built-in sounds only. */
         default void setEnvironment(float reverb, float underwater) { }
+
+        /** True when original sounds from a resource pack / Minecraft installation are active. */
+        default boolean usingPack() { return false; }
+
+        /** True when the active pack defines this event (used for pack-only ambience and music). */
+        default boolean packHas(String id) { return false; }
+
+        /** Human readable description of the sound source. */
+        default String source() { return "built-in"; }
+
+        /** Re-scan resource packs / Minecraft installation; enable=false forces built-in sounds. */
+        default void configure(boolean enablePack) { }
+
+        default Loop loop(String id, float volume) { return null; }
+
+        default boolean playMusic(String id) { return false; }
+
+        default boolean musicPlaying() { return false; }
+
+        default void stopMusic() { }
+
+        default void setMusicVolume(float v) { }
 
         void close();
     }
@@ -55,7 +94,7 @@ public final class Audio {
     public static final int VARIANTS = 4;
     static final Map<String, float[][]> CACHE = new ConcurrentHashMap<>();
 
-    /** Synthesise (and cache) all variants of a sound id. Returns null if the id is unknown. */
+    /** Synthesise (and cache) all variants of a built-in sound id. Returns null if the id is unknown. */
     public static float[][] variants(String id) {
         float[][] c = CACHE.get(id);
         if (c != null) return c;
@@ -70,50 +109,114 @@ public final class Audio {
         return out;
     }
 
-    /** Mono PCM of the first variant of a sound id (used by tests); null if unknown. */
+    /** Mono PCM of the first built-in variant of a sound id (used by tests); null if unknown. */
     public static float[] pcm(String id) {
         float[][] v = variants(id);
         return v == null ? null : v[0];
     }
 
-    /** Render every registered sound in the background so the first play never stalls the game. */
-    public static void prewarm() {
-        Thread t = new Thread(() -> {
-            for (String id : new ArrayList<>(Registries.SOUNDS.keySet())) {
-                try { variants(id); } catch (Throwable ignored) { }
-            }
-        }, "audio-prewarm");
-        t.setDaemon(true);
-        t.setPriority(Thread.MIN_PRIORITY);
-        t.start();
-    }
-
     /** Streaming mixer using javax.sound.sampled. */
     public static final class Synth implements IAudioBus {
+        /** One-shot voice (mono, optionally positional). */
         static final class Voice {
-            float[] pcm;
+            float[] pf;             // built-in PCM
+            short[] ps;             // pack PCM
+            int len;
             double pos, rate;
             float gl, gr, tl, tr;   // current / target gains (ramped per block to avoid zipper noise)
-            float lpk = 1;          // one-pole low-pass coefficient (air absorption / occlusion)
-            double sl, sr;          // filter state
+            float lpk = 1;          // one-pole low-pass coefficient (built-in only)
+            double sl, sr;
             double x, y, z;
-            boolean positional, fresh = true;
-            float vol, loud;
+            boolean positional, fresh = true, vanilla;
+            float vol, range = 16, loud;
         }
 
-        static final int MAX_VOICES = 64, BLOCK = 256;
+        /** Streamed voice: music or ambient loop, non-positional, stereo or mono. */
+        final class Stream implements Loop {
+            final SoundPack.Variant variant;
+            OggDecoder dec;
+            final boolean music, looping;
+            float[] buf = new float[0];
+            int ch = 1, frames;     // decoded frames in buf
+            double pos, step;
+            volatile float target;
+            float gain;
+            volatile boolean stopped;
+            boolean ended;
+
+            Stream(SoundPack.Variant v, OggDecoder d, boolean music, boolean looping, float vol) {
+                variant = v; dec = d; this.music = music; this.looping = looping; target = vol; gain = music ? vol : 0;
+                ch = d.channels;
+                step = d.rate / (double) RATE;
+            }
+
+            public void setVolume(float v) { target = v; }
+
+            public void stop() { stopped = true; }
+
+            public boolean alive() { return !ended; }
+
+            /** Ensure at least idx+2 frames are buffered; returns false at end of data. */
+            boolean fill(int need) {
+                if (need < frames) return true;
+                int keep = Math.max(0, frames - (int) pos);
+                int start = (int) pos;
+                float[] nb = buf.length >= (keep + 4096) * ch ? buf : new float[(keep + 4096) * ch];
+                System.arraycopy(buf, start * ch, nb, 0, keep * ch);
+                buf = nb;
+                pos -= start;
+                frames = keep;
+                need -= start;
+                try {
+                    while (frames <= need) {
+                        int n = dec.read(tmp(ch), 2048);
+                        if (n == 0) {
+                            if (!looping || stopped) return false;
+                            dec.close();
+                            dec = pack.stream(variant);
+                            n = dec.read(tmp(ch), 2048);
+                            if (n == 0) return false;
+                        }
+                        if ((frames + n) * ch > buf.length) buf = Arrays.copyOf(buf, (frames + n + 4096) * ch);
+                        System.arraycopy(tmpBuf, 0, buf, frames * ch, n * ch);
+                        frames += n;
+                    }
+                } catch (Exception e) {
+                    System.err.println("[sound] stream error " + variant.path() + ": " + e);
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        float[] tmpBuf = new float[0];
+
+        float[] tmp(int ch) {
+            if (tmpBuf.length < 2048 * ch) tmpBuf = new float[2048 * ch];
+            return tmpBuf;
+        }
+
+        static final int MAX_VOICES = 48, MAX_STREAMS = 8, BLOCK = 256;
         final ConcurrentLinkedQueue<Voice> incoming = new ConcurrentLinkedQueue<>();
+        final ConcurrentLinkedQueue<Stream> incomingStreams = new ConcurrentLinkedQueue<>();
         final List<Voice> voices = new ArrayList<>();
+        final List<Stream> streams = new ArrayList<>();
         final Random rnd = new Random();
         volatile double lx, ly, lz;
-        volatile float lyaw, master = 1, rain, reverb, underwater;
+        volatile float lyaw, master = 1, rain, reverb, underwater, musicVol = 1;
         volatile boolean running = true;
+        volatile SoundPack pack;
+        volatile Stream music;
+        java.nio.file.Path gameDir;
         SourceDataLine line;
         Thread thread;
 
-        public static IAudioBus open() {
+        public static IAudioBus open() { return open(null, true); }
+
+        public static IAudioBus open(java.nio.file.Path gameDir, boolean usePack) {
             try {
                 Synth s = new Synth();
+                s.gameDir = gameDir;
                 AudioFormat fmt = new AudioFormat(RATE, 16, 2, true, false);
                 s.line = AudioSystem.getSourceDataLine(fmt);
                 s.line.open(fmt, BLOCK * 4 * 12);
@@ -122,7 +225,7 @@ public final class Audio {
                 s.thread.setDaemon(true);
                 s.thread.setPriority(Thread.MAX_PRIORITY - 1);
                 s.thread.start();
-                prewarm();
+                s.configure(usePack);
                 return s;
             } catch (Throwable e) {
                 System.err.println("[audio] unavailable, continuing muted: " + e);
@@ -130,29 +233,157 @@ public final class Audio {
             }
         }
 
-        float[] pick(String id) {
-            float[][] v = variants(id);
-            if (v == null) return null;
-            return v[rnd.nextInt(v.length)];
+        @Override public void configure(boolean enablePack) {
+            Thread t = new Thread(() -> {
+                SoundPack p = enablePack ? SoundPack.discover(gameDir) : null;
+                pack = p;
+                // warm caches in the background so the first play of a sound never stalls
+                if (p != null) {
+                    List<String> ids = new ArrayList<>(Registries.SOUNDS.keySet());
+                    ids.removeIf(i -> i.startsWith("ambient.") || i.startsWith("music."));
+                    p.prewarm(ids);
+                    System.out.printf("[sound] decoded %d clips (%.1f MB)%n", p.clips.size(), p.memoryBytes() / 1048576.0);
+                }
+                for (String id : new ArrayList<>(Registries.SOUNDS.keySet())) {
+                    if (p != null && p.has(id)) continue;
+                    try { variants(id); } catch (Throwable ignored) { }
+                }
+            }, "audio-load");
+            t.setDaemon(true);
+            t.setPriority(Thread.MIN_PRIORITY + 1);
+            t.start();
+        }
+
+        @Override public boolean usingPack() { return pack != null; }
+
+        @Override public boolean packHas(String id) { SoundPack p = pack; return p != null && p.has(id); }
+
+        @Override public String source() {
+            SoundPack p = pack;
+            return p == null ? "built-in" : String.join(", ", p.description);
+        }
+
+        /** Try the pack first; returns true if the pack handled the event. */
+        boolean playPack(String id, double x, double y, double z, float volume, float pitch, boolean positional) {
+            SoundPack p = pack;
+            if (p == null || !p.has(id)) return false;
+            SoundPack.Pick pk = p.pick(id, rnd);
+            if (pk == null) return true; // defined but empty (vanilla: silent)
+            if (pk.variant().stream) {
+                try {
+                    Stream s = new Stream(pk.variant(), p.stream(pk.variant()), false, false, Math.min(1, volume) * pk.volume());
+                    s.gain = s.target;
+                    s.step *= Math.max(0.5, Math.min(2, pitch * pk.pitch()));
+                    incomingStreams.add(s);
+                } catch (Exception e) { return false; }
+                return true;
+            }
+            if (p.isBroken(pk.variant())) return false; // missing/corrupt file: use the built-in sound
+            OggDecoder.Clip c = p.cached(pk.variant());
+            if (c == null) {
+                // first use: decode off the game thread, then start the voice (a few ms late, never a frame hitch)
+                long asked = System.nanoTime();
+                loader.execute(() -> {
+                    OggDecoder.Clip dc = p.clip(pk.variant());
+                    if (dc != null && dc.pcm.length > 0 && System.nanoTime() - asked < 1_500_000_000L)
+                        incoming.add(packVoice(dc, pk, x, y, z, volume, pitch, positional));
+                });
+                return true;
+            }
+            if (c.pcm.length == 0) return false;
+            incoming.add(packVoice(c, pk, x, y, z, volume, pitch, positional));
+            return true;
+        }
+
+        final java.util.concurrent.ExecutorService loader = java.util.concurrent.Executors.newSingleThreadExecutor(r -> {
+            Thread t = new Thread(r, "audio-decode");
+            t.setDaemon(true);
+            return t;
+        });
+
+        Voice packVoice(OggDecoder.Clip c, SoundPack.Pick pk, double x, double y, double z, float volume, float pitch, boolean positional) {
+            Voice v = new Voice();
+            v.ps = c.pcm;
+            v.len = c.pcm.length;
+            v.vanilla = true;
+            float pt = Math.max(0.5f, Math.min(2f, pitch * pk.pitch()));
+            v.rate = pt * c.rate / (double) RATE;
+            v.vol = Math.min(1, Math.max(0, volume)) * pk.volume();
+            v.range = pk.variant().attenuation * Math.max(1, volume);
+            v.positional = positional;
+            v.x = x; v.y = y; v.z = z;
+            if (!positional) { v.tl = v.tr = v.gl = v.gr = v.vol * 0.7071f; v.fresh = false; }
+            return v;
         }
 
         public void play(String id, double x, double y, double z, float volume, float pitch) {
-            float[] p = pick(id);
-            if (p == null) return;
+            if (playPack(id, x, y, z, volume, pitch, true)) return;
+            float[][] vs = variants(id);
+            if (vs == null) return;
             Voice v = new Voice();
-            // a touch of random pitch so repeated sounds never machine-gun
-            double jitter = 1 + (rnd.nextDouble() - 0.5) * 0.04;
-            v.pcm = p; v.rate = Math.max(0.25, Math.min(4, pitch * jitter)); v.x = x; v.y = y; v.z = z; v.positional = true; v.vol = volume;
+            double jitter = 1 + (rnd.nextDouble() - 0.5) * 0.04; // a touch of random pitch so repeats never machine-gun
+            v.pf = vs[rnd.nextInt(vs.length)];
+            v.len = v.pf.length;
+            v.rate = Math.max(0.25, Math.min(4, pitch * jitter));
+            v.x = x; v.y = y; v.z = z; v.positional = true;
+            v.vol = Math.min(1, volume) * 0.8f; // built-in clips are peak-normalised; keep them at the old loudness
+            v.range = 16 * Math.max(1, volume);
             incoming.add(v);
         }
 
         public void playUi(String id, float volume, float pitch) {
-            float[] p = pick(id);
-            if (p == null) return;
+            if (playPack(id, 0, 0, 0, volume, pitch, false)) return;
+            float[][] vs = variants(id);
+            if (vs == null) return;
             Voice v = new Voice();
-            v.pcm = p; v.rate = pitch; v.vol = volume; v.tl = v.tr = volume; v.gl = v.gr = volume;
+            v.pf = vs[rnd.nextInt(vs.length)];
+            v.len = v.pf.length;
+            v.rate = pitch; v.vol = volume;
+            v.tl = v.tr = v.gl = v.gr = volume;
+            v.fresh = false;
             incoming.add(v);
         }
+
+        @Override public Loop loop(String id, float volume) {
+            SoundPack p = pack;
+            if (p == null || !p.has(id)) return null;
+            SoundPack.Pick pk = p.pick(id, rnd);
+            if (pk == null) return null;
+            try {
+                Stream s = new Stream(pk.variant(), p.stream(pk.variant()), false, true, volume * pk.volume());
+                incomingStreams.add(s);
+                return s;
+            } catch (Exception e) {
+                System.err.println("[sound] loop " + id + ": " + e);
+                return null;
+            }
+        }
+
+        @Override public boolean playMusic(String id) {
+            SoundPack p = pack;
+            if (p == null || !p.has(id)) return false;
+            SoundPack.Pick pk = p.pick(id, rnd);
+            if (pk == null) return false;
+            try {
+                Stream s = new Stream(pk.variant(), p.stream(pk.variant()), true, false, pk.volume());
+                s.step *= Math.max(0.5, Math.min(2, pk.pitch()));
+                Stream old = music;
+                if (old != null) old.stop();
+                music = s;
+                incomingStreams.add(s);
+                System.out.println("[sound] music: " + pk.variant().name);
+                return true;
+            } catch (Exception e) {
+                System.err.println("[sound] music " + id + ": " + e);
+                return false;
+            }
+        }
+
+        @Override public boolean musicPlaying() { Stream m = music; return m != null && !m.ended && !m.stopped; }
+
+        @Override public void stopMusic() { Stream m = music; if (m != null) m.stop(); music = null; }
+
+        @Override public void setMusicVolume(float v) { musicVol = v; }
 
         public void listener(double x, double y, double z, float yaw) { lx = x; ly = y; lz = z; lyaw = yaw; }
 
@@ -163,27 +394,31 @@ public final class Audio {
         @Override public void setEnvironment(float rv, float uw) { reverb = rv; underwater = uw; }
 
         void spatial(Voice v) {
-            if (!v.positional) { v.lpk = 1; return; }
+            if (!v.positional) return;
             double dx = v.x - lx, dy = v.y - ly, dz = v.z - lz;
             double d = Math.sqrt(dx * dx + dy * dy + dz * dz);
-            // vanilla: linear roll-off to 16 blocks (further for loud sounds), gain capped at 1
-            double range = 16 * Math.max(1, v.vol);
-            float att = (float) Math.max(0, 1 - d / range) * Math.min(1, v.vol);
+            float att = (float) Math.max(0, 1 - d / v.range) * v.vol;
             double yaw = Math.toRadians(lyaw);
-            double side = d < 0.01 ? 0 : (dx * -Math.cos(yaw) + dz * -Math.sin(yaw)) / d;
-            double front = d < 0.01 ? 1 : (dx * -Math.sin(yaw) + dz * Math.cos(yaw)) / d;
-            double pan = side * Math.min(1, d / 1.5) * 0.85; // very close sounds stay centred
-            if (front < 0) att *= (float) (1 + front * 0.12); // slightly duller/quieter behind
+            double side = d < 1e-4 ? 0 : (dx * -Math.cos(yaw) + dz * -Math.sin(yaw)) / d;
+            double front = d < 1e-4 ? 1 : (dx * -Math.sin(yaw) + dz * Math.cos(yaw)) / d;
+            double pan;
+            if (v.vanilla) {
+                pan = side; // OpenAL-style panning of a mono source, no filtering
+                v.lpk = 1;
+            } else {
+                pan = side * Math.min(1, d / 1.5) * 0.85;
+                if (front < 0) att *= (float) (1 + front * 0.12);
+                double cutoff = 18000 / (1 + d / 10.0) * (front < 0 ? 0.75 : 1);
+                if (underwater > 0) cutoff = Math.min(cutoff, 900);
+                v.lpk = (float) Math.min(1, 1 - Math.exp(-2 * Math.PI * cutoff / RATE));
+            }
             v.tl = (float) (att * Math.sqrt(0.5 * (1 - pan)));
             v.tr = (float) (att * Math.sqrt(0.5 * (1 + pan)));
-            double cutoff = 18000 / (1 + d / 10.0) * (front < 0 ? 0.75 : 1);
-            if (underwater > 0) cutoff = Math.min(cutoff, 900);
-            v.lpk = (float) Math.min(1, 1 - Math.exp(-2 * Math.PI * cutoff / RATE));
             v.loud = att;
             if (v.fresh) { v.gl = v.tl; v.gr = v.tr; v.fresh = false; }
         }
 
-        // --- reverb (Freeverb-style: 4 parallel combs + 2 allpasses per channel)
+        // --- reverb for built-in sounds (Freeverb-style: 4 parallel combs + 2 allpasses per channel)
         static final int[] COMB = {1116, 1188, 1277, 1356}, AP = {556, 441};
         final float[][] combL = new float[4][], combR = new float[4][], apL = new float[2][], apR = new float[2][];
         final int[] ciL = new int[4], ciR = new int[4], aiL = new int[2], aiR = new int[2];
@@ -217,6 +452,88 @@ public final class Audio {
             return out * 0.25f;
         }
 
+        /** Transparent below 0.85 full scale, soft knee above (vanilla OpenAL would hard-clip). */
+        static double limit(double x) {
+            double a = Math.abs(x);
+            if (a <= 0.85) return x;
+            double y = 0.85 + 0.15 * Math.tanh((a - 0.85) / 0.15);
+            return x < 0 ? -y : y;
+        }
+
+        void mixVoices(float[] mixL, float[] mixR, float[] send, int frames) {
+            for (int vi = voices.size() - 1; vi >= 0; vi--) {
+                Voice v = voices.get(vi);
+                spatial(v);
+                float dl = (v.tl - v.gl) / frames, dr = (v.tr - v.gr) / frames;
+                int len = v.len;
+                double k = v.lpk;
+                boolean filt = k < 0.9999;
+                float[] pf = v.pf;
+                short[] ps = v.ps;
+                for (int i = 0; i < frames; i++) {
+                    int p = (int) v.pos;
+                    if (p >= len) break;
+                    double fr = v.pos - p;
+                    float a, b;
+                    if (ps != null) { a = ps[p] * (1f / 32768f); b = p + 1 < len ? ps[p + 1] * (1f / 32768f) : 0; }
+                    else { a = pf[p]; b = p + 1 < len ? pf[p + 1] : 0; }
+                    float s = (float) (a + (b - a) * fr);
+                    if (filt) {
+                        v.sl += (s * v.gl - v.sl) * k;
+                        v.sr += (s * v.gr - v.sr) * k;
+                    } else {
+                        v.sl = s * v.gl;
+                        v.sr = s * v.gr;
+                    }
+                    mixL[i] += (float) v.sl;
+                    mixR[i] += (float) v.sr;
+                    if (!v.vanilla) send[i] += (float) ((v.sl + v.sr) * 0.5);
+                    v.gl += dl;
+                    v.gr += dr;
+                    v.pos += v.rate;
+                }
+                v.gl = v.tl;
+                v.gr = v.tr;
+                if (v.pos >= len) voices.remove(vi);
+            }
+        }
+
+        void mixStreams(float[] mixL, float[] mixR, int frames) {
+            for (int si = streams.size() - 1; si >= 0; si--) {
+                Stream s = streams.get(si);
+                float tgt = s.stopped ? 0 : s.target * (s.music ? musicVol : 1);
+                // music stops with a short fade; loops fade with their handle (vanilla ticks the fade at 20 Hz)
+                float rate = s.music ? 0.0008f : 0.0006f;
+                int ch = s.ch;
+                boolean alive = true;
+                for (int i = 0; i < frames; i++) {
+                    s.gain += Math.max(-rate, Math.min(rate, tgt - s.gain));
+                    int p = (int) s.pos;
+                    if (!s.fill(p + 1)) { alive = false; break; }
+                    p = (int) s.pos;
+                    double fr = s.pos - p;
+                    float l, r;
+                    if (ch == 1) {
+                        float a = s.buf[p], b = s.buf[p + 1];
+                        l = r = (float) (a + (b - a) * fr) * 0.7071f;
+                    } else {
+                        float a = s.buf[p * ch], b = s.buf[(p + 1) * ch];
+                        float c = s.buf[p * ch + 1], d = s.buf[(p + 1) * ch + 1];
+                        l = (float) (a + (b - a) * fr);
+                        r = (float) (c + (d - c) * fr);
+                    }
+                    mixL[i] += l * s.gain;
+                    mixR[i] += r * s.gain;
+                    s.pos += s.step;
+                }
+                if (!alive || (s.stopped && s.gain <= 0.0005f)) {
+                    s.ended = true;
+                    s.dec.close();
+                    streams.remove(si);
+                }
+            }
+        }
+
         void run() {
             int frames = BLOCK;
             byte[] buf = new byte[frames * 4];
@@ -227,60 +544,43 @@ public final class Audio {
                 Voice nv;
                 while ((nv = incoming.poll()) != null) {
                     if (voices.size() >= MAX_VOICES) {
-                        // steal the quietest voice
+                        // nearest-first priority: drop the quietest voice
                         int q = 0;
                         for (int i = 1; i < voices.size(); i++) if (voices.get(i).loud < voices.get(q).loud) q = i;
                         voices.remove(q);
                     }
                     voices.add(nv);
                 }
+                Stream ns;
+                while ((ns = incomingStreams.poll()) != null) {
+                    if (streams.size() >= MAX_STREAMS) { Stream o = streams.remove(0); o.ended = true; o.dec.close(); }
+                    streams.add(ns);
+                }
                 Arrays.fill(mixL, 0);
                 Arrays.fill(mixR, 0);
                 Arrays.fill(send, 0);
-                for (int vi = voices.size() - 1; vi >= 0; vi--) {
-                    Voice v = voices.get(vi);
-                    spatial(v);
-                    float dl = (v.tl - v.gl) / frames, dr = (v.tr - v.gr) / frames;
-                    float[] pcm = v.pcm;
-                    int len = pcm.length;
-                    double k = v.lpk;
-                    for (int i = 0; i < frames; i++) {
-                        int p = (int) v.pos;
-                        if (p >= len) break;
-                        double fr = v.pos - p;
-                        float s = (float) (pcm[p] + ((p + 1 < len ? pcm[p + 1] : 0) - pcm[p]) * fr); // linear interpolation
-                        v.sl += (s * v.gl - v.sl) * k;
-                        v.sr += (s * v.gr - v.sr) * k;
-                        mixL[i] += (float) v.sl;
-                        mixR[i] += (float) v.sr;
-                        send[i] += (float) ((v.sl + v.sr) * 0.5);
-                        v.gl += dl;
-                        v.gr += dr;
-                        v.pos += v.rate;
-                    }
-                    v.gl = v.tl;
-                    v.gr = v.tr;
-                    if (v.pos >= len) voices.remove(vi);
-                }
-                float rainT = rain, revT = reverb, uwT = underwater;
+                mixVoices(mixL, mixR, send, frames);
+                mixStreams(mixL, mixR, frames);
+                boolean builtinEnv = pack == null;
+                float rainT = builtinEnv ? rain : 0, revT = builtinEnv ? reverb : 0, uwT = builtinEnv ? underwater : 0;
+                float m = master;
                 for (int i = 0; i < frames; i++) {
                     rainNow += (rainT - rainNow) * 0.0005f;
                     revNow += (revT - revNow) * 0.0002f;
                     uwNow += (uwT - uwNow) * 0.001f;
-                    // rain bed: decorrelated low-passed noise + sparse drops
-                    if (rainNow > 0.001f) {
+                    if (rainNow > 0.001f) { // built-in rain bed (the pack mode plays weather.rain events instead)
                         rl += ((rnd.nextDouble() * 2 - 1) - rl) * 0.25; rr += ((rnd.nextDouble() * 2 - 1) - rr) * 0.25;
                         rl2 += (rl - rl2) * 0.5; rr2 += (rr - rr2) * 0.5;
                         float drop = rnd.nextInt(900) == 0 ? (float) (rnd.nextDouble() * 0.6) : 0;
                         mixL[i] += (float) (rl2 * 0.22 + drop) * rainNow;
                         mixR[i] += (float) (rr2 * 0.22 + (rnd.nextInt(900) == 0 ? rnd.nextDouble() * 0.6 : 0)) * rainNow;
                     }
-                    // cave / enclosed reverb (always a little, more underground)
-                    float wet = 0.06f + revNow * 0.32f;
-                    float in = send[i] * wet;
-                    mixL[i] += reverbTap(in, true);
-                    mixR[i] += reverbTap(in, false);
-                    // underwater muffle on the whole mix
+                    if (builtinEnv || revNow > 0.0001f) {
+                        float wet = builtinEnv ? 0.06f + revNow * 0.32f : 0;
+                        float in = send[i] * wet;
+                        mixL[i] += reverbTap(in, true);
+                        mixR[i] += reverbTap(in, false);
+                    }
                     double outL = mixL[i], outR = mixR[i];
                     if (uwNow > 0.001f) {
                         double kk = 0.06;
@@ -288,7 +588,7 @@ public final class Audio {
                         outL = outL + (uwL * 0.9 - outL) * uwNow;
                         outR = outR + (uwR * 0.9 - outR) * uwNow;
                     }
-                    int L = (int) (Math.tanh(outL * master * 0.9) * 31000), R = (int) (Math.tanh(outR * master * 0.9) * 31000);
+                    int L = (int) (limit(outL * m) * 32767), R = (int) (limit(outR * m) * 32767);
                     buf[i * 4] = (byte) L; buf[i * 4 + 1] = (byte) (L >> 8);
                     buf[i * 4 + 2] = (byte) R; buf[i * 4 + 3] = (byte) (R >> 8);
                 }

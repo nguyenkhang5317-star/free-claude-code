@@ -23,6 +23,8 @@ public class Animal extends Mob {
 
     public boolean isBaby() { return growAge < 0; }
 
+    @Override protected boolean isBabyVoice() { return isBaby(); }
+
     public Item breedItem() {
         String s = type.str("breed_item");
         return s == null ? null : Items.get(s);

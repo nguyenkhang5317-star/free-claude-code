@@ -637,8 +637,8 @@ final class Sfx {
                 modes(o, 0, 3800, new double[]{1, 2.3}, new double[]{1, 0.5}, 0.01, 0.6, r);
                 return o;
             }
-            case "block.portal.trigger": case "block.portal.travel": {
-                double len = id.endsWith("travel") ? 2.6 : 2.0;
+            case "block.portal.trigger": case "block.portal.travel": case "block.portal.ambient": {
+                double len = id.endsWith("travel") ? 2.6 : id.endsWith("ambient") ? 1.6 : 2.0;
                 o = new float[n(len)];
                 BQ f = BQ.bp(400, 2);
                 double[] ph = new double[4], fr = {98, 98.7, 147.2, 196.4};

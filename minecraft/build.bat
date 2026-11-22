@@ -16,6 +16,7 @@ mkdir build\classes build\tests build\jar
 
 echo [build] compiling sources
 dir /s /b src\*.java > build\sources.txt
+dir /s /b third_party\jorbis\src\*.java >> build\sources.txt
 javac --release 17 -encoding UTF-8 -nowarn -d build\classes @build\sources.txt || exit /b 1
 xcopy /e /i /q data build\classes\data >nul
 

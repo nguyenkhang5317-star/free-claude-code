@@ -1085,6 +1085,162 @@
    "freq": 70,
    "duration": 2.0,
    "volume": 0.3
+  },
+  "block.portal.ambient": {
+   "synth": "chime",
+   "freq": 120,
+   "duration": 2.0,
+   "volume": 0.4
+  },
+  "block.lava.pop": {
+   "synth": "pop",
+   "freq": 300,
+   "duration": 0.15,
+   "volume": 0.5
+  },
+  "block.lava.ambient": {
+   "synth": "noise",
+   "freq": 400,
+   "duration": 0.8,
+   "volume": 0.3
+  },
+  "block.water.ambient": {
+   "synth": "noise",
+   "freq": 1800,
+   "duration": 1.2,
+   "volume": 0.2
+  },
+  "weather.rain.above": {
+   "synth": "noise",
+   "freq": 2500,
+   "duration": 1.0,
+   "volume": 0.1
+  },
+  "ambient.underwater.enter": {
+   "synth": "noise",
+   "freq": 700,
+   "duration": 0.6,
+   "volume": 0.5
+  },
+  "ambient.underwater.exit": {
+   "synth": "noise",
+   "freq": 1200,
+   "duration": 0.5,
+   "volume": 0.5
+  },
+  "ambient.underwater.loop": {
+   "synth": "noise",
+   "freq": 250,
+   "duration": 3.0,
+   "volume": 0.3
+  },
+  "ambient.underwater.loop.additions": {
+   "synth": "pop",
+   "freq": 500,
+   "duration": 0.3,
+   "volume": 0.3
+  },
+  "ambient.underwater.loop.additions.rare": {
+   "synth": "groan",
+   "freq": 90,
+   "duration": 1.5,
+   "volume": 0.3
+  },
+  "ambient.underwater.loop.additions.ultra_rare": {
+   "synth": "groan",
+   "freq": 60,
+   "duration": 2.5,
+   "volume": 0.3
+  },
+  "ambient.nether_wastes.loop": {
+   "synth": "noise",
+   "freq": 200,
+   "duration": 3.0,
+   "volume": 0.3
+  },
+  "ambient.nether_wastes.mood": {
+   "synth": "groan",
+   "freq": 65,
+   "duration": 2.0,
+   "volume": 0.3
+  },
+  "ambient.nether_wastes.additions": {
+   "synth": "groan",
+   "freq": 110,
+   "duration": 1.2,
+   "volume": 0.3
+  },
+  "ambient.crimson_forest.loop": {
+   "synth": "noise",
+   "freq": 200,
+   "duration": 3.0,
+   "volume": 0.3
+  },
+  "ambient.crimson_forest.mood": {
+   "synth": "groan",
+   "freq": 65,
+   "duration": 2.0,
+   "volume": 0.3
+  },
+  "ambient.crimson_forest.additions": {
+   "synth": "groan",
+   "freq": 110,
+   "duration": 1.2,
+   "volume": 0.3
+  },
+  "ambient.warped_forest.loop": {
+   "synth": "noise",
+   "freq": 200,
+   "duration": 3.0,
+   "volume": 0.3
+  },
+  "ambient.warped_forest.mood": {
+   "synth": "groan",
+   "freq": 65,
+   "duration": 2.0,
+   "volume": 0.3
+  },
+  "ambient.warped_forest.additions": {
+   "synth": "groan",
+   "freq": 110,
+   "duration": 1.2,
+   "volume": 0.3
+  },
+  "ambient.soul_sand_valley.loop": {
+   "synth": "noise",
+   "freq": 200,
+   "duration": 3.0,
+   "volume": 0.3
+  },
+  "ambient.soul_sand_valley.mood": {
+   "synth": "groan",
+   "freq": 65,
+   "duration": 2.0,
+   "volume": 0.3
+  },
+  "ambient.soul_sand_valley.additions": {
+   "synth": "groan",
+   "freq": 110,
+   "duration": 1.2,
+   "volume": 0.3
+  },
+  "ambient.basalt_deltas.loop": {
+   "synth": "noise",
+   "freq": 200,
+   "duration": 3.0,
+   "volume": 0.3
+  },
+  "ambient.basalt_deltas.mood": {
+   "synth": "groan",
+   "freq": 65,
+   "duration": 2.0,
+   "volume": 0.3
+  },
+  "ambient.basalt_deltas.additions": {
+   "synth": "groan",
+   "freq": 110,
+   "duration": 1.2,
+   "volume": 0.3
   }
  }
 }

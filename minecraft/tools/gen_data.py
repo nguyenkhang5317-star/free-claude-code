@@ -602,7 +602,7 @@ ENTITIES = [
      "xp": [1, 3], "drops": [{"item": "minecraft:beef", "min": 1, "max": 3, "cooked": "minecraft:cooked_beef"}, {"item": "minecraft:leather", "min": 0, "max": 2}],
      "goals": [[0, "swim"], [1, "panic"], [3, "tempt:minecraft:wheat"], [5, "wander"], [6, "look_at_player"], [7, "random_look"]],
      "breed_item": "minecraft:wheat", "interact": "milk",
-     "sounds": {"ambient": "entity.cow.ambient", "hurt": "entity.cow.hurt", "death": "entity.cow.death", "step": "entity.cow.step"},
+     "sounds": {"ambient": "entity.cow.ambient", "hurt": "entity.cow.hurt", "death": "entity.cow.death", "step": "entity.cow.step"}, "sound_volume": 0.4,
      "model": [part("body", p16(-6, 10, -9), p16(12, 10, 18), "#443626", "spots", color2="#E8E8E8"),
                part("head", p16(-4, 12, -15), p16(8, 8, 6), "#443626", "spots", face={"eyes": "#111111", "mouth": "#C8A8A0"}, color2="#E8E8E8", pivot=p16(0, 16, -9)),
                part("horn0", p16(-5, 19, -13), p16(1, 3, 1), "#D8D0C0"), part("horn1", p16(4, 19, -13), p16(1, 3, 1), "#D8D0C0")]
@@ -801,7 +801,23 @@ SOUNDS.update({
     "weather.rain": {"synth": "noise", "freq": 5000, "duration": 1.0, "volume": 0.15},
     "entity.lightning_bolt.thunder": {"synth": "boom", "freq": 45, "duration": 2.5, "volume": 1.0},
     "ambient.cave": {"synth": "groan", "freq": 70, "duration": 2.0, "volume": 0.3},
+    # vanilla client ambience (Ambience.java); played from resource packs / Minecraft assets when available
+    "block.portal.ambient": {"synth": "chime", "freq": 120, "duration": 2.0, "volume": 0.4},
+    "block.lava.pop": {"synth": "pop", "freq": 300, "duration": 0.15, "volume": 0.5},
+    "block.lava.ambient": {"synth": "noise", "freq": 400, "duration": 0.8, "volume": 0.3},
+    "block.water.ambient": {"synth": "noise", "freq": 1800, "duration": 1.2, "volume": 0.2},
+    "weather.rain.above": {"synth": "noise", "freq": 2500, "duration": 1.0, "volume": 0.1},
+    "ambient.underwater.enter": {"synth": "noise", "freq": 700, "duration": 0.6, "volume": 0.5},
+    "ambient.underwater.exit": {"synth": "noise", "freq": 1200, "duration": 0.5, "volume": 0.5},
+    "ambient.underwater.loop": {"synth": "noise", "freq": 250, "duration": 3.0, "volume": 0.3},
+    "ambient.underwater.loop.additions": {"synth": "pop", "freq": 500, "duration": 0.3, "volume": 0.3},
+    "ambient.underwater.loop.additions.rare": {"synth": "groan", "freq": 90, "duration": 1.5, "volume": 0.3},
+    "ambient.underwater.loop.additions.ultra_rare": {"synth": "groan", "freq": 60, "duration": 2.5, "volume": 0.3},
 })
+for nb in ["nether_wastes", "crimson_forest", "warped_forest", "soul_sand_valley", "basalt_deltas"]:
+    SOUNDS["ambient.%s.loop" % nb] = {"synth": "noise", "freq": 200, "duration": 3.0, "volume": 0.3}
+    SOUNDS["ambient.%s.mood" % nb] = {"synth": "groan", "freq": 65, "duration": 2.0, "volume": 0.3}
+    SOUNDS["ambient.%s.additions" % nb] = {"synth": "groan", "freq": 110, "duration": 1.2, "volume": 0.3}
 
 TUNING = {
     "_comment": "All gameplay tuning values (Section 1.6: never inline constants). Units: blocks, ticks.",

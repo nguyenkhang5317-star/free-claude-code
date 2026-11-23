@@ -26,13 +26,18 @@ public final class Actions {
             p.inJump = in.jump();
             p.inSneak = in.sneak();
             p.inSprint = in.sprint();
-            p.yaw = in.yaw();
-            p.headYaw = in.yaw();
-            p.pitch = Math.max(-90, Math.min(90, in.pitch()));
+            if (Float.isFinite(in.yaw())) {
+                float yaw = in.yaw() % 360000f; // keep magnitude bounded so float precision never degrades
+                p.yaw = yaw;
+                p.headYaw = yaw;
+            }
+            if (Float.isFinite(in.pitch())) p.pitch = Math.max(-90, Math.min(90, in.pitch()));
             if (p.sleeping && (in.sneak() || in.jump())) p.wake();
         } else if (pk instanceof C2S.Dig) {
             C2S.Dig d = (C2S.Dig) pk;
-            if (p.menu == p.invMenu || true) p.dig(d.x(), d.y(), d.z());
+            double r = p.reach() + 2;
+            if (p.distSq(d.x() + 0.5, d.y() + 0.5, d.z() + 0.5) > r * r) return; // same reach check as useOn
+            p.dig(d.x(), d.y(), d.z());
             // vanilla mining swing: restart the arm swing once it is past its first half -> continuous chopping motion
             if (p.swingTime <= 2) p.swing();
         } else if (pk instanceof C2S.StopDig) {
@@ -60,6 +65,7 @@ public final class Actions {
         } else if (pk instanceof C2S.Drop) {
             if (!p.isSpectator()) p.dropHeld(((C2S.Drop) pk).all());
         } else if (pk instanceof C2S.SwapHands) {
+            if (p.isSpectator()) return;
             ItemStack h = p.inventory.held();
             p.inventory.setHeld(p.inventory.offhand());
             p.inventory.setOffhand(h);
@@ -75,7 +81,8 @@ public final class Actions {
             s.playerInventoryOpen = false;
         } else if (pk instanceof C2S.PickBlock) {
             C2S.PickBlock pb = (C2S.PickBlock) pk;
-            pickBlock(p, p.world.getBlock(pb.x(), pb.y(), pb.z()));
+            double r = p.reach() + 2;
+            if (p.distSq(pb.x() + 0.5, pb.y() + 0.5, pb.z() + 0.5) <= r * r) pickBlock(p, p.world.getBlock(pb.x(), pb.y(), pb.z()));
         } else if (pk instanceof C2S.SetFlying) {
             if (p.mayFly()) p.flying = ((C2S.SetFlying) pk).flying() || p.isSpectator();
         } else if (pk instanceof C2S.CreativeGive) {
@@ -92,7 +99,7 @@ public final class Actions {
 
     public static void openInventory(IntegratedServer s) { s.playerInventoryOpen = true; }
 
-    private static float clamp(float v) { return Math.max(-1, Math.min(1, v)); }
+    private static float clamp(float v) { return Float.isFinite(v) ? Math.max(-1, Math.min(1, v)) : 0; }
 
     private static void pickBlock(Player p, int state) {
         if (state == Blocks.AIR) return;

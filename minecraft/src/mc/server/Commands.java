@@ -14,10 +14,14 @@ public final class Commands {
         text = text.trim();
         if (text.isEmpty()) return;
         if (!text.startsWith("/")) { s.message("<" + s.player.name + "> " + text); return; }
-        String[] a = text.substring(1).split("\\s+");
+        String body = text.substring(1).trim();
+        if (body.isEmpty()) { s.message("Unknown command. Type /help for help."); return; }
+        String[] a = body.split("\\s+");
         try {
             String r = run(s, a);
             if (r != null) s.message(r);
+        } catch (NumberFormatException e) {
+            s.message("Invalid number" + (e.getMessage() != null && e.getMessage().startsWith("For input string") ? ": " + e.getMessage().substring(e.getMessage().indexOf('"')) : ""));
         } catch (RuntimeException e) {
             s.message("Error: " + e.getMessage());
         }
@@ -30,22 +34,24 @@ public final class Commands {
             case "help":
                 return "Commands: /time set|add, /weather clear|rain|thunder, /gamerule, /gamemode, /difficulty, /give, /tp, /kill, /seed, /summon, /spawnpoint, /setworldspawn, /effect, /xp, /clear";
             case "time": {
-                if (a.length < 3) return "Usage: /time set <day|noon|night|midnight|ticks> or /time add <ticks>";
+                if (a.length >= 2 && a[1].equals("query")) return "The time is " + l.timeOfDay();
+                if (a.length < 3 || !(a[1].equals("set") || a[1].equals("add")))
+                    return "Usage: /time set <day|noon|night|midnight|ticks> or /time add <ticks>";
                 long v;
                 switch (a[2]) {
                     case "day": v = 1000; break;
                     case "noon": v = 6000; break;
                     case "night": v = 13000; break;
                     case "midnight": v = 18000; break;
-                    default: v = Long.parseLong(a[2]);
+                    default: v = intArg(a[2], a[1].equals("add") ? Integer.MIN_VALUE : 0, Integer.MAX_VALUE);
                 }
-                if (a[1].equals("add")) l.dayTime += v;
+                if (a[1].equals("add")) l.dayTime = Math.max(0, l.dayTime + v);
                 else l.dayTime = (l.dayTime / 24000) * 24000 + v;
                 return "Set the time to " + l.timeOfDay();
             }
             case "weather": {
                 if (a.length < 2) return "Usage: /weather clear|rain|thunder [seconds]";
-                int dur = a.length > 2 ? Integer.parseInt(a[2]) * 20 : 6000;
+                int dur = a.length > 2 ? intArg(a[2], 0, 1_000_000) * 20 : 6000;
                 switch (a[1]) {
                     case "clear": l.raining = false; l.thundering = false; l.clearTime = dur; break;
                     case "rain": l.raining = true; l.thundering = false; l.rainTime = dur; l.clearTime = 0; break;
@@ -58,6 +64,10 @@ public final class Commands {
                 if (a.length == 1) return "Gamerules: " + l.gamerules;
                 if (!l.gamerules.containsKey(a[1])) return "Unknown gamerule " + a[1];
                 if (a.length == 2) return a[1] + " = " + l.gamerules.get(a[1]);
+                String old = l.gamerules.get(a[1]);
+                boolean boolRule = "true".equals(old) || "false".equals(old);
+                if (boolRule && !a[2].equals("true") && !a[2].equals("false")) return "Invalid boolean '" + a[2] + "' (expected true or false)";
+                if (!boolRule) intArg(a[2], 0, Integer.MAX_VALUE);
                 l.gamerules.put(a[1], a[2]);
                 return "Gamerule " + a[1] + " is now set to: " + a[2];
             }
@@ -85,7 +95,7 @@ public final class Commands {
                 String id = a[1].contains(":") ? a[1] : "minecraft:" + a[1];
                 Item it = Items.get(id);
                 if (it == null) return "Unknown item " + id;
-                int n = a.length > 2 ? Integer.parseInt(a[2]) : 1;
+                int n = a.length > 2 ? intArg(a[2], 1, 6400) : 1;
                 int left = n;
                 while (left > 0) {
                     int c = Math.min(left, it.maxStack);
@@ -96,7 +106,7 @@ public final class Commands {
             }
             case "tp": case "teleport": {
                 if (a.length < 4) return "Usage: /tp x y z";
-                double x = coord(a[1], p.x), y = coord(a[2], p.y), z = coord(a[3], p.z);
+                double x = coord(a[1], p.x, 30_000_000), y = coord(a[2], p.y, 20_000_000), z = coord(a[3], p.z, 30_000_000);
                 p.setPos(x, y, z);
                 p.vx = p.vy = p.vz = 0;
                 p.fallDistance = 0;
@@ -127,15 +137,17 @@ public final class Commands {
             case "effect": {
                 if (a.length < 2) return "Usage: /effect <id> [seconds] [amplifier] | /effect clear";
                 if (a[1].equals("clear")) { p.effects.clear(); return "Removed every effect"; }
-                int sec = a.length > 2 ? Integer.parseInt(a[2]) : 30, amp = a.length > 3 ? Integer.parseInt(a[3]) : 0;
-                p.addEffect(a[1].replace("minecraft:", ""), sec * 20, amp);
-                return "Applied effect " + a[1];
+                String eid = a[1].replace("minecraft:", "");
+                if (!EFFECTS.contains(eid)) return "Unknown effect " + a[1];
+                int sec = a.length > 2 ? intArg(a[2], 1, 1_000_000) : 30, amp = a.length > 3 ? intArg(a[3], 0, 255) : 0;
+                p.addEffect(eid, sec * 20, amp);
+                return "Applied effect " + eid;
             }
             case "xp": case "experience": {
                 if (a.length < 2) return "Usage: /xp <amount>[L]";
                 String v = a[1];
-                if (v.endsWith("L") || v.endsWith("l")) p.xpLevel += Integer.parseInt(v.substring(0, v.length() - 1));
-                else p.giveXp(Integer.parseInt(v));
+                if (v.endsWith("L") || v.endsWith("l")) p.addXpLevels(intArg(v.substring(0, v.length() - 1), -1_000_000, 1_000_000));
+                else p.giveXp(intArg(v, -100_000_000, 100_000_000));
                 return "Gave experience to " + p.name;
             }
             case "clear":
@@ -149,8 +161,28 @@ public final class Commands {
         }
     }
 
-    private static double coord(String s, double base) {
-        if (s.startsWith("~")) return base + (s.length() > 1 ? Double.parseDouble(s.substring(1)) : 0);
-        return Double.parseDouble(s);
+    /** Vanilla 1.16.5 status effect ids; unknown ids are rejected instead of polluting the effect list. */
+    static final java.util.Set<String> EFFECTS = java.util.Set.of(
+            "speed", "slowness", "haste", "mining_fatigue", "strength", "instant_health", "instant_damage", "jump_boost",
+            "nausea", "regeneration", "resistance", "fire_resistance", "water_breathing", "invisibility", "blindness",
+            "night_vision", "hunger", "weakness", "poison", "wither", "health_boost", "absorption", "saturation",
+            "glowing", "levitation", "luck", "unluck", "slow_falling", "conduit_power", "dolphins_grace", "bad_omen",
+            "hero_of_the_village");
+
+    static int intArg(String s, int min, int max) {
+        long v;
+        try { v = Long.parseLong(s); } catch (NumberFormatException e) { throw new IllegalArgumentException("Invalid integer '" + s + "'"); }
+        if (v < min || v > max) throw new IllegalArgumentException("Integer must be between " + min + " and " + max + ", found " + s);
+        return (int) v;
+    }
+
+    static double coord(String s, double base, double limit) {
+        double v;
+        try {
+            if (s.startsWith("~")) v = base + (s.length() > 1 ? Double.parseDouble(s.substring(1)) : 0);
+            else v = Double.parseDouble(s);
+        } catch (NumberFormatException e) { throw new IllegalArgumentException("Invalid coordinate '" + s + "'"); }
+        if (!Double.isFinite(v) || Math.abs(v) > limit) throw new IllegalArgumentException("Coordinate out of range: " + s);
+        return v;
     }
 }

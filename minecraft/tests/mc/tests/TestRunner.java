@@ -91,6 +91,13 @@ public final class TestRunner {
         test("every sound synthesises audible output", TestRunner::soundSynthesis);
         test("resource-pack sounds: sounds.json + Ogg Vorbis decode", TestRunner::soundPack);
 
+        test("resource-pack sounds: corrupt files and cyclic events are safe", TestRunner::soundPackRobust);
+
+        System.out.println("[robustness]");
+        test("commands reject bad arguments", TestRunner::commandArgs);
+        test("server ignores hostile input packets", TestRunner::hostilePackets);
+        test("xp: removal clamps at level 0, level-up sound rate-limited", TestRunner::xpClamp);
+
         System.out.printf("%n%d passed, %d failed%n", passed, failed);
         for (String f : failures) System.out.println("  - " + f);
         System.exit(failed == 0 ? 0 : 1);
@@ -423,6 +430,106 @@ public final class TestRunner {
             if (pcm.length == 0 || peak < 0.01 || peak > 1.0001) silent.add(e.getKey() + "(peak " + String.format("%.3f", peak) + ")");
         }
         check(silent.isEmpty(), "silent or clipping sounds: " + silent);
+    }
+
+    static void soundPackRobust() throws Exception {
+        Path dir = tempDir("badpack");
+        Path snd = Files.createDirectories(dir.resolve("Bad/assets/minecraft/sounds"));
+        byte[] junk = new byte[4096];
+        new Random(5).nextBytes(junk);
+        Files.write(snd.resolve("junk.ogg"), junk);
+        Files.writeString(snd.getParent().resolve("sounds.json"), "{\"x.junk\": {\"sounds\": [{\"name\": \"junk\", \"stream\": true}]},"
+                + "\"x.a\": {\"sounds\": [{\"name\": \"x.b\", \"type\": \"event\"}]},"
+                + "\"x.b\": {\"sounds\": [{\"name\": \"x.a\", \"type\": \"event\", \"weight\": 99999999999}]}}");
+        mc.client.SoundPack sp = mc.client.SoundPack.discover(List.of(dir), List.of());
+        check(sp != null, "pack not discovered");
+        int failures = 0;
+        for (int i = 0; i < 50; i++) {
+            try { sp.stream(sp.pick("x.junk", new Random(i)).variant()).close(); } catch (java.io.IOException e) { failures++; }
+        }
+        check(failures == 50, "corrupt ogg should fail to open as a stream");
+        sp.prewarm(List.of("x.a")); // must terminate (cycle a -> b -> a)
+        check(sp.pick("x.a", new Random(1)) == null, "cyclic event reference should resolve to silence");
+        sp.close();
+        // the file handle was released: the pack directory can be deleted (would fail on Windows if leaked)
+        Files.delete(snd.resolve("junk.ogg"));
+    }
+
+    static void commandArgs() throws Exception {
+        IntegratedServer s = IntegratedServer.create(null, "Cmd", 7L, Player.SURVIVAL, true);
+        Player p = s.player;
+        double x0 = p.x, y0 = p.y, z0 = p.z;
+        long t0 = System.nanoTime();
+        mc.server.Commands.chat(s, "/give stone 2000000000");
+        check(System.nanoTime() - t0 < 2_000_000_000L, "/give with a huge count must not hang");
+        check(p.inventory.count(Items.get("minecraft:stone")) == 0, "/give over the 6400 limit must be rejected");
+        mc.server.Commands.chat(s, "/give stone 70");
+        check(p.inventory.count(Items.get("minecraft:stone")) == 70, "/give stone 70");
+        for (String bad : new String[]{"/tp NaN 80 0", "/tp 0 Infinity 0", "/tp 1e309 0 0", "/tp ~NaN ~ ~", "/tp 99999999 70 0"}) {
+            mc.server.Commands.chat(s, bad);
+            check(p.x == x0 && p.y == y0 && p.z == z0, bad + " moved the player to " + p.x + "," + p.y + "," + p.z);
+        }
+        mc.server.Commands.chat(s, "/effect banana");
+        mc.server.Commands.chat(s, "/effect regeneration 10 -1");
+        mc.server.Commands.chat(s, "/effect speed 2000000000");
+        check(p.effects.isEmpty(), "invalid /effect calls applied effects: " + p.effects.keySet());
+        mc.server.Commands.chat(s, "/effect speed 10 1");
+        check(p.effects.containsKey("speed") && p.effects.get("speed")[1] == 200, "/effect speed 10 1");
+        s.level.dayTime = 1000;
+        mc.server.Commands.chat(s, "/time add -999999999");
+        check(s.level.dayTime >= 0, "negative day time " + s.level.dayTime);
+        mc.server.Commands.chat(s, "/time foo 5");
+        mc.server.Commands.chat(s, "/weather rain 2000000000");
+        check(s.level.rainTime >= 0, "weather duration overflowed: " + s.level.rainTime);
+        mc.server.Commands.chat(s, "/gamerule doDaylightCycle banana");
+        mc.server.Commands.chat(s, "/gamerule randomTickSpeed fast");
+        check(s.level.rule("doDaylightCycle") && "3".equals(s.level.gamerules.get("randomTickSpeed")), "invalid gamerule values were stored: " + s.level.gamerules);
+        mc.server.Commands.chat(s, "/");
+        mc.server.Commands.chat(s, "/   ");
+        s.shutdown();
+    }
+
+    static void hostilePackets() throws Exception {
+        IntegratedServer s = IntegratedServer.create(null, "Packets", 8L, Player.SURVIVAL, true);
+        Player p = s.player;
+        for (int i = 0; i < 40; i++) {
+            mc.server.Actions.handle(s, new mc.net.C2S.Input(Float.NaN, Float.POSITIVE_INFINITY, false, false, true, Float.NaN, Float.NaN));
+            s.tick();
+        }
+        check(Double.isFinite(p.x) && Double.isFinite(p.y) && Double.isFinite(p.z) && Float.isFinite(p.yaw) && Float.isFinite(p.pitch),
+                "NaN input corrupted the player: " + p.x + "," + p.y + "," + p.z + " yaw " + p.yaw + " pitch " + p.pitch);
+        mc.server.Actions.handle(s, new mc.net.C2S.Dig((int) p.x + 500, 40, (int) p.z, 1));
+        check(!p.digging, "server accepted a dig 500 blocks away");
+        mc.server.Actions.handle(s, new mc.net.C2S.Select(99));
+        mc.server.Actions.handle(s, new mc.net.C2S.Select(-1));
+        check(p.inventory.selected >= 0 && p.inventory.selected < 9, "bad hotbar slot accepted");
+        for (int slot : new int[]{-999, -1, 46, 999, Integer.MAX_VALUE, Integer.MIN_VALUE})
+            for (int button : new int[]{0, 1, 2, -1, 99})
+                mc.server.Actions.handle(s, new mc.net.C2S.Click(0, slot, button, slot % 2 == 0));
+        mc.server.Actions.handle(s, new mc.net.C2S.Attack(Integer.MIN_VALUE));
+        mc.server.Actions.handle(s, new mc.net.C2S.CreativeGive("minecraft:stone", 64)); // survival: ignored
+        check(p.inventory.count(Items.get("minecraft:stone")) == 0, "creative give accepted in survival");
+        s.tick();
+        s.shutdown();
+    }
+
+    static void xpClamp() throws Exception {
+        IntegratedServer s = IntegratedServer.create(null, "Xp", 9L, Player.SURVIVAL, false); // not headless: sounds reach outbound
+        Player p = s.player;
+        p.giveXp(-50);
+        check(p.xpLevel == 0 && p.xpProgress >= 0 && p.xpTotal >= 0, "negative xp: level " + p.xpLevel + " progress " + p.xpProgress);
+        p.giveXp(7 + 9 + 11); // exactly 3 levels (7, 9, 11 points)
+        check(p.xpLevel == 3 && p.xpProgress < 1e-4, "3 levels expected, got " + p.xpLevel + " + " + p.xpProgress);
+        p.giveXp(-8); // back into level 2 (11 points per level) with 11 - 8 = 3 points
+        check(p.xpLevel == 2 && Math.abs(p.xpProgress - 3 / 11f) < 1e-3, "removal across a level: " + p.xpLevel + " + " + p.xpProgress);
+        p.addXpLevels(-1000);
+        check(p.xpLevel == 0 && p.xpProgress == 0, "levels below zero");
+        s.outbound.clear();
+        p.giveXp(5_000_000); // hundreds of level-ups in one call
+        long sounds = s.outbound.stream().filter(pk -> pk.toString().contains("entity.player.levelup")).count();
+        check(p.xpLevel > 100, "large xp gain: level " + p.xpLevel);
+        check(sounds <= 1, "level-up sound must be rate limited, got " + sounds);
+        s.shutdown();
     }
 
     static void soundPack() throws Exception {

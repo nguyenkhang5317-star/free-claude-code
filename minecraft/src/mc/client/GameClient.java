@@ -216,6 +216,7 @@ public final class GameClient {
     void setCaptured(boolean c) {
         if (c == captured) return;
         captured = c;
+        if (canvas == null) return; // offscreen / tests
         SwingUtilities.invokeLater(() -> {
             if (c) {
                 BufferedImage blank = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);

@@ -104,7 +104,7 @@ DECISIONS.md   decision log        PLAYTEST.md   Tier 1 acceptance record
 
 ## Verification suite
 
-Run it with `build.bat`, `./build.sh`, or `java -cp build/classes:build/tests -Dmc.data=data mc.tests.TestRunner`. It has 23 checks:
+Run it with `build.bat`, `./build.sh`, or `java -cp build/classes:build/tests -Dmc.data=data mc.tests.TestRunner`. It has 28 checks:
 - **Registry completeness:** textures, loot, items, recipes, entities and biomes.
 - **Seed determinism:**
   - Chunk hashes are compared across runs and across generation orders.
@@ -119,3 +119,8 @@ Run it with `build.bat`, `./build.sh`, or `java -cp build/classes:build/tests -D
   - Every referenced sound id exists.
   - Every sound synthesises audible, non-clipping PCM.
   - Resource-pack sounds: `sounds.json` semantics (weights, event references, volume/pitch, stream) and Ogg Vorbis decoding are checked against a generated test pack in `tests/fixtures/soundpack/`.
+  - Broken packs are safe: corrupt `.ogg` files fail without leaking file handles, and cyclic event references resolve to silence.
+- **Robustness:**
+  - Commands reject bad arguments (huge `/give` counts, NaN/∞/out-of-range `/tp`, unknown effects, overflowing durations, invalid gamerule values).
+  - The server ignores hostile packets (NaN look/move input, digging out of reach, bad hotbar/menu slots, creative give in survival).
+  - XP removal stops at level 0, and the level-up sound is rate-limited like vanilla.

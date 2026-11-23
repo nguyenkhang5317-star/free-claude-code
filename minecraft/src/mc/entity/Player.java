@@ -462,14 +462,32 @@ public final class Player extends LivingEntity {
         return 7 + level * 2;
     }
 
+    private int lastLevelUpSound = Integer.MIN_VALUE / 2;
+
+    /** Vanilla PlayerEntity#giveExperiencePoints, including removal of points (never below level 0, progress 0). */
     public void giveXp(int amount) {
-        xpTotal += amount;
+        xpTotal = (int) Math.max(0, Math.min(Integer.MAX_VALUE, (long) xpTotal + amount));
         xpProgress += amount / (float) xpForLevel(xpLevel);
+        while (xpProgress < 0) {
+            float removed = xpProgress * xpForLevel(xpLevel);
+            if (xpLevel <= 0) { xpProgress = 0; break; }
+            addXpLevels(-1);
+            xpProgress = 1 + removed / xpForLevel(xpLevel);
+        }
         while (xpProgress >= 1) {
             xpProgress = (xpProgress - 1) * xpForLevel(xpLevel);
-            xpLevel++;
+            addXpLevels(1);
             xpProgress /= xpForLevel(xpLevel);
-            if (xpLevel % 5 == 0) world.playSound("entity.player.levelup", x, y, z, (xpLevel > 30 ? 1f : xpLevel / 30f) * 0.75f, 1f);
+        }
+    }
+
+    /** Vanilla PlayerEntity#addExperienceLevel: clamps at 0 and rate-limits the level-up sound to once per 100 ticks. */
+    public void addXpLevels(int levels) {
+        xpLevel = (int) Math.max(0, Math.min(100_000_000, (long) xpLevel + levels));
+        if (xpLevel == 0) xpProgress = 0;
+        if (levels > 0 && xpLevel % 5 == 0 && lastLevelUpSound < age - 100) {
+            lastLevelUpSound = age;
+            world.playSound("entity.player.levelup", x, y, z, (xpLevel > 30 ? 1f : xpLevel / 30f) * 0.75f, 1f);
         }
     }
 

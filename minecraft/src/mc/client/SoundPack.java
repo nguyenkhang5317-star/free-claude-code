@@ -53,6 +53,8 @@ public final class SoundPack {
         boolean has(String path);
 
         String name();
+
+        default void close() { }
     }
 
     static final class DirPack implements Source {
@@ -77,15 +79,22 @@ public final class SoundPack {
             label = file.getFileName().toString();
             // packs are sometimes zipped with an extra top-level folder
             String pre = "";
-            if (zip.getEntry("assets/minecraft/sounds.json") == null) {
-                for (Enumeration<? extends ZipEntry> e = zip.entries(); e.hasMoreElements(); ) {
-                    String n = e.nextElement().getName();
-                    int i = n.indexOf("assets/minecraft/");
-                    if (i > 0 && n.indexOf('/') == i - 1) { pre = n.substring(0, i); break; }
+            try {
+                if (zip.getEntry("assets/minecraft/sounds.json") == null) {
+                    for (Enumeration<? extends ZipEntry> e = zip.entries(); e.hasMoreElements(); ) {
+                        String n = e.nextElement().getName();
+                        int i = n.indexOf("assets/minecraft/");
+                        if (i > 0 && n.indexOf('/') == i - 1) { pre = n.substring(0, i); break; }
+                    }
                 }
+            } catch (RuntimeException e) {
+                zip.close(); // never leak the file handle (Windows would keep the pack locked)
+                throw e;
             }
             prefix = pre + "assets/";
         }
+
+        @Override public void close() { try { zip.close(); } catch (IOException ignored) { } }
 
         public InputStream open(String p) throws IOException {
             ZipEntry e = zip.getEntry(prefix + p);
@@ -235,7 +244,7 @@ public final class SoundPack {
                 System.err.println("[sound] bad sounds.json in " + s.name() + ": " + e);
             }
         }
-        if (sp.events.isEmpty()) return null;
+        if (sp.events.isEmpty()) { sp.close(); return null; }
         Collections.reverse(sp.description);
         System.out.println("[sound] using " + sp.events.size() + " sound events from " + sp.description);
         return sp;
@@ -259,7 +268,7 @@ public final class SoundPack {
                         if (name == null) continue;
                         boolean ev = "event".equals(Json.str(m, "type", "file"));
                         list.add(new Variant(name, (float) Json.num(m, "volume", 1), (float) Json.num(m, "pitch", 1),
-                                Math.max(1, (int) Json.num(m, "weight", 1)), (int) Json.num(m, "attenuation_distance", 16),
+                                (int) Math.max(1, Math.min(1_000_000, Json.num(m, "weight", 1))), (int) Json.num(m, "attenuation_distance", 16),
                                 Boolean.TRUE.equals(m.get("stream")), ev));
                     }
                 }
@@ -309,6 +318,14 @@ public final class SoundPack {
 
     public boolean isBroken(Variant v) { return broken.contains(v.path()); }
 
+    volatile boolean closed;
+
+    /** Releases zip handles; called when the sound mode is switched or the game exits. */
+    public void close() {
+        closed = true;
+        for (Source s : sources) s.close();
+    }
+
     /** Already-decoded clip or null (never blocks). */
     public OggDecoder.Clip cached(Variant v) { return clips.get(v.path()); }
 
@@ -316,12 +333,13 @@ public final class SoundPack {
     public OggDecoder.Clip clip(Variant v) {
         String p = v.path();
         OggDecoder.Clip c = clips.get(p);
-        if (c != null || broken.contains(p)) return c;
+        if (c != null || broken.contains(p) || closed) return c;
         try (InputStream in = open(p)) {
             c = OggDecoder.decodeMono(in.readAllBytes());
             clips.put(p, c);
             return c;
         } catch (Exception e) {
+            if (closed) return null;
             if (broken.add(p)) System.err.println("[sound] cannot load " + p + ": " + e);
             return null;
         }
@@ -329,16 +347,26 @@ public final class SoundPack {
 
     /** Opens a streaming decoder (music, long ambient loops). */
     public OggDecoder stream(Variant v) throws IOException {
-        return new OggDecoder(new java.io.BufferedInputStream(open(v.path()), 65536));
+        InputStream in = new java.io.BufferedInputStream(open(v.path()), 65536);
+        try {
+            return new OggDecoder(in);
+        } catch (IOException | RuntimeException e) {
+            in.close(); // a corrupt file must not leak its handle
+            throw e;
+        }
     }
 
     /** Decode every file referenced by the given events (background warm-up so first plays never hitch). */
-    public void prewarm(Collection<String> ids) {
+    public void prewarm(Collection<String> ids) { prewarm(ids, new HashSet<>()); }
+
+    private void prewarm(Collection<String> ids, Set<String> seen) {
         for (String id : ids) {
+            if (closed) return;
+            if (!seen.add(id)) continue; // event references may form cycles in broken packs
             List<Variant> l = events.get(id);
             if (l == null) continue;
             for (Variant v : new ArrayList<>(l)) {
-                if (v.event) { prewarm(List.of(v.name.startsWith("minecraft:") ? v.name.substring(10) : v.name)); continue; }
+                if (v.event) { prewarm(List.of(v.name.startsWith("minecraft:") ? v.name.substring(10) : v.name), seen); continue; }
                 if (!v.stream) clip(v);
             }
         }

@@ -222,8 +222,8 @@ public abstract class LivingEntity extends Entity {
             int[] v = e.getValue();
             int amp = v[0];
             switch (e.getKey()) {
-                case "regeneration": { int iv = 50 >> amp; if (iv <= 0 || v[1] % iv == 0) heal(1); break; }
-                case "poison": { int iv = 25 >> amp; if ((iv <= 0 || v[1] % iv == 0) && health > 1) hurt(DamageSource.MAGIC, 1); break; }
+                case "regeneration": { int iv = amp >= 31 ? 0 : 50 >> Math.max(0, amp); if (iv <= 0 || v[1] % iv == 0) heal(1); break; }
+                case "poison": { int iv = amp >= 31 ? 0 : 25 >> Math.max(0, amp); if ((iv <= 0 || v[1] % iv == 0) && health > 1) hurt(DamageSource.MAGIC, 1); break; }
                 default: break;
             }
             if (--v[1] <= 0) {
@@ -295,6 +295,7 @@ public abstract class LivingEntity extends Entity {
         if (!partial) {
             String snd = type.sound("hurt");
             if (snd != null) world.playSound(snd, x, y, z, voiceVolume(), voicePitch());
+            if (this instanceof Mob m) m.ambientTimer = -80; // vanilla MobEntity#playHurtSound
         }
         onHurt(src, amount);
         if (health <= 0) die(src);

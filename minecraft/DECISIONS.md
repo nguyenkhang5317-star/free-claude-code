@@ -100,3 +100,20 @@
 - **2026-11-22, Decision on flicker:** the black flicker while walking on Windows came from the Direct3D/DirectDraw pipeline and AWT background erase. Java2D now defaults to the software pipeline (`d3d=false`, `noddraw=true`, `noerasebackground=true`; opt back in with `-Dmc.gpu=true`), the canvas ignores repaint, each frame is composed into one BufferedImage and blitted once, and the BufferStrategy is only (re)created on the render thread.
 - **2026-11-22, Decision on animation:** a real 3D first-person hand/item (`FirstPerson`) replaces the 2D overlay, with vanilla equip, swing, bob, arm lag, eat and bow poses. Mobs use vanilla attack swing, zombie arms, death roll, idle sway, creeper swell/flash, spider legs and lerped body yaw; the camera has vanilla view-bob and hurt/death tilt. The red full-screen hurt overlay was removed (vanilla uses tilt + red mob tint).
   - The sound audit found 2 dangling ids. `block.chest.place` was mapped to `block.wood.place` and `block.portal.break` to `block.glass.break`, matching vanilla's material groups.
+
+## Bug sweep (2026-11-22)
+
+- Method: ecj static lint (100 warnings, 0 errors; the remaining warnings were reviewed as guarded nulls or intentionally cached handles), a client monkey test (random keys/mouse/screens, about 12,000 frames over 3 seeds, including quit → reopen), and a server fuzzer (random and invalid C2S packets plus junk commands, 8 seeds × 6000 ticks, save → reopen every ~1000 ticks with position/XP/inventory comparison).
+- Fixed:
+  - `/give <item> 2000000000` looped until the JVM ran out of memory. Counts are now limited to 1–6400 (vanilla limit).
+  - `/tp` accepted `NaN`, `Infinity` and `1e309`, leaving the player at NaN coordinates. Coordinates must now be finite and within ±30,000,000 horizontally and ±20,000,000 vertically.
+  - A NaN yaw/pitch/move value in an `Input` packet turned the player position into NaN (the world then generated chunks at NaN). Non-finite values are ignored.
+  - `Dig` packets had no reach check (unlike `UseOn`), so blocks could be mined anywhere. Same reach check as `UseOn`; `PickBlock` too. Spectators can no longer swap hands.
+  - `/weather` and `/effect` durations overflowed when multiplied by 20. `/effect` accepted unknown ids (shown on the HUD) and negative amplifiers (regeneration every tick). Now: vanilla effect ids only, amplifier 0–255, bounded durations, overflow-safe shift.
+  - `/xp` with negative values made the XP bar negative, and `/xp nL` could make levels negative. Points and levels are now removed like vanilla and clamp at 0. One large gain played hundreds of level-up sounds in the same tick; the sound is now rate-limited to once per 100 ticks (vanilla `addExperienceLevel`).
+  - `/gamerule` stored any text (for example `doDaylightCycle banana`). Values are now validated as boolean or integer. `/time` treated any first word as `set`, and `/time add` could make the time negative. `/time query` was added.
+  - Number errors print readable messages instead of `For input string`.
+  - Mob ambient timer: vanilla `rand.nextInt(1000) < livingSoundTime++`, with no extra `> 80` gate (which added about 4 s between idle sounds). Hurting a mob resets the timer like `MobEntity#playHurtSound`.
+  - Sound packs: a corrupt `.ogg` opened as a stream leaked its file handle (Windows locks the pack). Zip packs were never closed when the Sounds option was switched, or when discovery found no sounds. Toggling the option quickly could let an older discovery win. Cyclic event references overflowed the stack in the warm-up thread. Very large weights overflowed the weighted pick. When 8 streams were active, the music could be evicted first. Streams are now closed on exit.
+  - `GameClient.setCaptured` touched the window when there is none (offscreen/tests).
+

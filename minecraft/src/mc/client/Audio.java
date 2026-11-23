@@ -233,10 +233,25 @@ public final class Audio {
             }
         }
 
+        final java.util.concurrent.atomic.AtomicInteger configGen = new java.util.concurrent.atomic.AtomicInteger();
+
         @Override public void configure(boolean enablePack) {
+            int gen = configGen.incrementAndGet();
             Thread t = new Thread(() -> {
-                SoundPack p = enablePack ? SoundPack.discover(gameDir) : null;
-                pack = p;
+                SoundPack p;
+                synchronized (configGen) {
+                    // toggling the option quickly must not let an older, slower discovery win
+                    if (gen != configGen.get()) return;
+                    p = enablePack ? SoundPack.discover(gameDir) : null;
+                    if (gen != configGen.get()) { if (p != null) p.close(); return; }
+                    SoundPack old = pack;
+                    pack = p;
+                    if (old != null) {
+                        stopStreams(); // they read from the old pack's files
+                        try { Thread.sleep(250); } catch (InterruptedException ignored) { }
+                        old.close();
+                    }
+                }
                 // warm caches in the background so the first play of a sound never stalls
                 if (p != null) {
                     List<String> ids = new ArrayList<>(Registries.SOUNDS.keySet());
@@ -380,6 +395,11 @@ public final class Audio {
         }
 
         @Override public boolean musicPlaying() { Stream m = music; return m != null && !m.ended && !m.stopped; }
+
+        volatile boolean killStreams;
+
+        /** Fade out every stream (used before the pack that feeds them is closed). */
+        void stopStreams() { killStreams = true; music = null; }
 
         @Override public void stopMusic() { Stream m = music; if (m != null) m.stop(); music = null; }
 
@@ -551,9 +571,16 @@ public final class Audio {
                     }
                     voices.add(nv);
                 }
+                boolean kill = killStreams;
+                if (kill) { killStreams = false; for (Stream st : streams) st.stop(); }
                 Stream ns;
                 while ((ns = incomingStreams.poll()) != null) {
-                    if (streams.size() >= MAX_STREAMS) { Stream o = streams.remove(0); o.ended = true; o.dec.close(); }
+                    if (kill) ns.stop();
+                    if (streams.size() >= MAX_STREAMS) {
+                        int victim = 0; // oldest non-music stream (music keeps playing when many loops overlap)
+                        while (victim < streams.size() - 1 && streams.get(victim).music) victim++;
+                        Stream o = streams.remove(victim); o.ended = true; o.dec.close();
+                    }
                     streams.add(ns);
                 }
                 Arrays.fill(mixL, 0);
@@ -594,10 +621,21 @@ public final class Audio {
                 }
                 line.write(buf, 0, buf.length);
             }
+            for (Stream st : streams) { st.ended = true; st.dec.close(); }
+            streams.clear();
+            Stream ns;
+            while ((ns = incomingStreams.poll()) != null) ns.dec.close();
         }
 
         public void close() {
             running = false;
+            configGen.incrementAndGet();
+            SoundPack p = pack;
+            pack = null;
+            if (p != null) {
+                try { if (thread != null) thread.join(500); } catch (InterruptedException ignored) { }
+                p.close();
+            }
             try { if (line != null) { line.stop(); line.close(); } } catch (Exception ignored) { }
         }
     }

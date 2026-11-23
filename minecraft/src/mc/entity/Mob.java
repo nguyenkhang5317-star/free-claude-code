@@ -106,8 +106,8 @@ public class Mob extends LivingEntity {
             pitch = approachLinear(pitch, 0, 10);
         }
         if (Math.abs(wrap(headYaw - yaw)) > 75) yaw = approach(yaw, headYaw, 10);
-        // ambient sounds
-        if (++ambientTimer > 80 && rng.nextInt(1000) < ambientTimer) {
+        // ambient sounds (vanilla MobEntity#baseTick: rand.nextInt(1000) < livingSoundTime++)
+        if (rng.nextInt(1000) < ambientTimer++) {
             ambientTimer = -80;
             String s = type.sound("ambient");
             if (s != null) world.playSound(s, x, y, z, voiceVolume(), voicePitch());

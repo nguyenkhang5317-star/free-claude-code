@@ -1,0 +1,27 @@
+{
+  "block.stone.break": {
+    "sounds": [
+      {
+        "name": "test/tone",
+        "pitch": 0.9,
+        "volume": 0.8
+      }
+    ]
+  },
+  "entity.cow.ambient": {
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "music.menu": {
+    "sounds": [
+      {
+        "name": "test/stereo",
+        "stream": true
+      }
+    ]
+  }
+}

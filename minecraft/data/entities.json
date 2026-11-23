@@ -1,0 +1,2125 @@
+{
+ "entities": [
+  {
+   "id": "minecraft:cow",
+   "name": "Cow",
+   "health": 10,
+   "speed": 0.25,
+   "width": 0.9,
+   "height": 1.4,
+   "eye": 1.3,
+   "category": "creature",
+   "xp": [
+    1,
+    3
+   ],
+   "drops": [
+    {
+     "item": "minecraft:beef",
+     "min": 1,
+     "max": 3,
+     "cooked": "minecraft:cooked_beef"
+    },
+    {
+     "item": "minecraft:leather",
+     "min": 0,
+     "max": 2
+    }
+   ],
+   "goals": [
+    [
+     0,
+     "swim"
+    ],
+    [
+     1,
+     "panic"
+    ],
+    [
+     3,
+     "tempt:minecraft:wheat"
+    ],
+    [
+     5,
+     "wander"
+    ],
+    [
+     6,
+     "look_at_player"
+    ],
+    [
+     7,
+     "random_look"
+    ]
+   ],
+   "breed_item": "minecraft:wheat",
+   "interact": "milk",
+   "sounds": {
+    "ambient": "entity.cow.ambient",
+    "hurt": "entity.cow.hurt",
+    "death": "entity.cow.death",
+    "step": "entity.cow.step"
+   },
+   "sound_volume": 0.4,
+   "model": [
+    {
+     "name": "body",
+     "origin": [
+      -0.375,
+      0.625,
+      -0.5625
+     ],
+     "size": [
+      0.75,
+      0.625,
+      1.125
+     ],
+     "color": "#443626",
+     "pattern": "spots",
+     "color2": "#E8E8E8"
+    },
+    {
+     "name": "head",
+     "origin": [
+      -0.25,
+      0.75,
+      -0.9375
+     ],
+     "size": [
+      0.5,
+      0.5,
+      0.375
+     ],
+     "color": "#443626",
+     "pattern": "spots",
+     "face": {
+      "eyes": "#111111",
+      "mouth": "#C8A8A0"
+     },
+     "pivot": [
+      0.0,
+      1.0,
+      -0.5625
+     ],
+     "color2": "#E8E8E8"
+    },
+    {
+     "name": "horn0",
+     "origin": [
+      -0.3125,
+      1.1875,
+      -0.8125
+     ],
+     "size": [
+      0.0625,
+      0.1875,
+      0.0625
+     ],
+     "color": "#D8D0C0",
+     "pattern": "noise"
+    },
+    {
+     "name": "horn1",
+     "origin": [
+      0.25,
+      1.1875,
+      -0.8125
+     ],
+     "size": [
+      0.0625,
+      0.1875,
+      0.0625
+     ],
+     "color": "#D8D0C0",
+     "pattern": "noise"
+    },
+    {
+     "name": "leg0",
+     "origin": [
+      -0.375,
+      0,
+      -0.5
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#443626",
+     "pattern": "spots",
+     "pivot": [
+      -0.25,
+      0.75,
+      -0.375
+     ],
+     "color2": "#E8E8E8"
+    },
+    {
+     "name": "leg1",
+     "origin": [
+      0.125,
+      0,
+      -0.5
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#443626",
+     "pattern": "spots",
+     "pivot": [
+      0.25,
+      0.75,
+      -0.375
+     ],
+     "color2": "#E8E8E8"
+    },
+    {
+     "name": "leg2",
+     "origin": [
+      -0.375,
+      0,
+      0.3125
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#443626",
+     "pattern": "spots",
+     "pivot": [
+      -0.25,
+      0.75,
+      0.4375
+     ],
+     "color2": "#E8E8E8"
+    },
+    {
+     "name": "leg3",
+     "origin": [
+      0.125,
+      0,
+      0.3125
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#443626",
+     "pattern": "spots",
+     "pivot": [
+      0.25,
+      0.75,
+      0.4375
+     ],
+     "color2": "#E8E8E8"
+    }
+   ],
+   "animations": {
+    "walk": {
+     "leg0": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     },
+     "leg1": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     },
+     "leg2": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     },
+     "leg3": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     }
+    },
+    "attachments": {
+     "horn0": "head",
+     "horn1": "head"
+    }
+   },
+   "spawn": {
+    "group": [
+     2,
+     4
+    ],
+    "weight": 8,
+    "light_min": 9,
+    "ground": [
+     "minecraft:grass_block"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:pig",
+   "name": "Pig",
+   "health": 10,
+   "speed": 0.25,
+   "width": 0.9,
+   "height": 0.9,
+   "eye": 0.765,
+   "category": "creature",
+   "xp": [
+    1,
+    3
+   ],
+   "drops": [
+    {
+     "item": "minecraft:porkchop",
+     "min": 1,
+     "max": 3,
+     "cooked": "minecraft:cooked_porkchop"
+    }
+   ],
+   "goals": [
+    [
+     0,
+     "swim"
+    ],
+    [
+     1,
+     "panic"
+    ],
+    [
+     4,
+     "tempt:minecraft:carrot"
+    ],
+    [
+     6,
+     "wander"
+    ],
+    [
+     7,
+     "look_at_player"
+    ],
+    [
+     8,
+     "random_look"
+    ]
+   ],
+   "breed_item": "minecraft:carrot",
+   "sounds": {
+    "ambient": "entity.pig.ambient",
+    "hurt": "entity.pig.hurt",
+    "death": "entity.pig.death",
+    "step": "entity.pig.step"
+   },
+   "model": [
+    {
+     "name": "body",
+     "origin": [
+      -0.3125,
+      0.375,
+      -0.5
+     ],
+     "size": [
+      0.625,
+      0.5,
+      1.0
+     ],
+     "color": "#F0A5A2",
+     "pattern": "noise"
+    },
+    {
+     "name": "head",
+     "origin": [
+      -0.25,
+      0.375,
+      -0.9375
+     ],
+     "size": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "color": "#F0A5A2",
+     "pattern": "noise",
+     "face": {
+      "eyes": "#111111",
+      "snout": "#DB635F"
+     },
+     "pivot": [
+      0.0,
+      0.625,
+      -0.5
+     ]
+    },
+    {
+     "name": "leg0",
+     "origin": [
+      -0.3125,
+      0,
+      -0.4375
+     ],
+     "size": [
+      0.25,
+      0.375,
+      0.25
+     ],
+     "color": "#E8958F",
+     "pattern": "noise",
+     "pivot": [
+      -0.1875,
+      0.375,
+      -0.3125
+     ]
+    },
+    {
+     "name": "leg1",
+     "origin": [
+      0.0625,
+      0,
+      -0.4375
+     ],
+     "size": [
+      0.25,
+      0.375,
+      0.25
+     ],
+     "color": "#E8958F",
+     "pattern": "noise",
+     "pivot": [
+      0.1875,
+      0.375,
+      -0.3125
+     ]
+    },
+    {
+     "name": "leg2",
+     "origin": [
+      -0.3125,
+      0,
+      0.25
+     ],
+     "size": [
+      0.25,
+      0.375,
+      0.25
+     ],
+     "color": "#E8958F",
+     "pattern": "noise",
+     "pivot": [
+      -0.1875,
+      0.375,
+      0.375
+     ]
+    },
+    {
+     "name": "leg3",
+     "origin": [
+      0.0625,
+      0,
+      0.25
+     ],
+     "size": [
+      0.25,
+      0.375,
+      0.25
+     ],
+     "color": "#E8958F",
+     "pattern": "noise",
+     "pivot": [
+      0.1875,
+      0.375,
+      0.375
+     ]
+    }
+   ],
+   "animations": {
+    "walk": {
+     "leg0": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     },
+     "leg1": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     },
+     "leg2": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     },
+     "leg3": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     }
+    }
+   },
+   "spawn": {
+    "group": [
+     2,
+     4
+    ],
+    "weight": 10,
+    "light_min": 9,
+    "ground": [
+     "minecraft:grass_block"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:sheep",
+   "name": "Sheep",
+   "health": 8,
+   "speed": 0.23,
+   "width": 0.9,
+   "height": 1.3,
+   "eye": 1.235,
+   "category": "creature",
+   "xp": [
+    1,
+    3
+   ],
+   "drops": [
+    {
+     "item": "minecraft:mutton",
+     "min": 1,
+     "max": 2,
+     "cooked": "minecraft:cooked_mutton"
+    },
+    {
+     "item": "minecraft:white_wool",
+     "min": 1,
+     "max": 1
+    }
+   ],
+   "goals": [
+    [
+     0,
+     "swim"
+    ],
+    [
+     1,
+     "panic"
+    ],
+    [
+     3,
+     "tempt:minecraft:wheat"
+    ],
+    [
+     5,
+     "eat_grass"
+    ],
+    [
+     6,
+     "wander"
+    ],
+    [
+     7,
+     "look_at_player"
+    ],
+    [
+     8,
+     "random_look"
+    ]
+   ],
+   "breed_item": "minecraft:wheat",
+   "interact": "shear",
+   "sounds": {
+    "ambient": "entity.sheep.ambient",
+    "hurt": "entity.sheep.hurt",
+    "death": "entity.sheep.death",
+    "step": "entity.sheep.step"
+   },
+   "model": [
+    {
+     "name": "body",
+     "origin": [
+      -0.3125,
+      0.6875,
+      -0.5
+     ],
+     "size": [
+      0.625,
+      0.5625,
+      1.0
+     ],
+     "color": "#E7E7E7",
+     "pattern": "wool"
+    },
+    {
+     "name": "head",
+     "origin": [
+      -0.1875,
+      0.875,
+      -0.8125
+     ],
+     "size": [
+      0.375,
+      0.375,
+      0.4375
+     ],
+     "color": "#D8C8B8",
+     "pattern": "noise",
+     "face": {
+      "eyes": "#111111"
+     },
+     "pivot": [
+      0.0,
+      1.0625,
+      -0.5
+     ]
+    },
+    {
+     "name": "leg0",
+     "origin": [
+      -0.3125,
+      0,
+      -0.4375
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#E7E7E7",
+     "pattern": "wool",
+     "pivot": [
+      -0.1875,
+      0.75,
+      -0.3125
+     ]
+    },
+    {
+     "name": "leg1",
+     "origin": [
+      0.0625,
+      0,
+      -0.4375
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#E7E7E7",
+     "pattern": "wool",
+     "pivot": [
+      0.1875,
+      0.75,
+      -0.3125
+     ]
+    },
+    {
+     "name": "leg2",
+     "origin": [
+      -0.3125,
+      0,
+      0.25
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#E7E7E7",
+     "pattern": "wool",
+     "pivot": [
+      -0.1875,
+      0.75,
+      0.375
+     ]
+    },
+    {
+     "name": "leg3",
+     "origin": [
+      0.0625,
+      0,
+      0.25
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#E7E7E7",
+     "pattern": "wool",
+     "pivot": [
+      0.1875,
+      0.75,
+      0.375
+     ]
+    }
+   ],
+   "animations": {
+    "walk": {
+     "leg0": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     },
+     "leg1": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     },
+     "leg2": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     },
+     "leg3": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     }
+    }
+   },
+   "spawn": {
+    "group": [
+     2,
+     4
+    ],
+    "weight": 12,
+    "light_min": 9,
+    "ground": [
+     "minecraft:grass_block"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:chicken",
+   "name": "Chicken",
+   "health": 4,
+   "speed": 0.25,
+   "width": 0.4,
+   "height": 0.7,
+   "eye": 0.644,
+   "category": "creature",
+   "xp": [
+    1,
+    3
+   ],
+   "drops": [
+    {
+     "item": "minecraft:chicken",
+     "min": 1,
+     "max": 1,
+     "cooked": "minecraft:cooked_chicken"
+    },
+    {
+     "item": "minecraft:feather",
+     "min": 0,
+     "max": 2
+    }
+   ],
+   "goals": [
+    [
+     0,
+     "swim"
+    ],
+    [
+     1,
+     "panic"
+    ],
+    [
+     3,
+     "tempt:minecraft:wheat_seeds"
+    ],
+    [
+     5,
+     "wander"
+    ],
+    [
+     6,
+     "look_at_player"
+    ],
+    [
+     7,
+     "random_look"
+    ]
+   ],
+   "breed_item": "minecraft:wheat_seeds",
+   "slow_fall": true,
+   "lays_eggs": true,
+   "sounds": {
+    "ambient": "entity.chicken.ambient",
+    "hurt": "entity.chicken.hurt",
+    "death": "entity.chicken.death",
+    "step": "entity.chicken.step"
+   },
+   "model": [
+    {
+     "name": "body",
+     "origin": [
+      -0.1875,
+      0.25,
+      -0.25
+     ],
+     "size": [
+      0.375,
+      0.375,
+      0.5
+     ],
+     "color": "#F5F5F5",
+     "pattern": "noise"
+    },
+    {
+     "name": "head",
+     "origin": [
+      -0.125,
+      0.5,
+      -0.375
+     ],
+     "size": [
+      0.25,
+      0.375,
+      0.1875
+     ],
+     "color": "#F5F5F5",
+     "pattern": "noise",
+     "face": {
+      "eyes": "#111111"
+     },
+     "pivot": [
+      0.0,
+      0.5625,
+      -0.25
+     ]
+    },
+    {
+     "name": "beak",
+     "origin": [
+      -0.125,
+      0.625,
+      -0.5
+     ],
+     "size": [
+      0.25,
+      0.125,
+      0.125
+     ],
+     "color": "#F0B020",
+     "pattern": "noise"
+    },
+    {
+     "name": "wattle",
+     "origin": [
+      -0.0625,
+      0.5,
+      -0.4375
+     ],
+     "size": [
+      0.125,
+      0.125,
+      0.0625
+     ],
+     "color": "#E01E1E",
+     "pattern": "noise"
+    },
+    {
+     "name": "leg0",
+     "origin": [
+      -0.125,
+      0.0,
+      -0.0625
+     ],
+     "size": [
+      0.0625,
+      0.3125,
+      0.0625
+     ],
+     "color": "#F0B020",
+     "pattern": "noise",
+     "pivot": [
+      -0.09375,
+      0.3125,
+      -0.03125
+     ]
+    },
+    {
+     "name": "leg1",
+     "origin": [
+      0.0625,
+      0.0,
+      -0.0625
+     ],
+     "size": [
+      0.0625,
+      0.3125,
+      0.0625
+     ],
+     "color": "#F0B020",
+     "pattern": "noise",
+     "pivot": [
+      0.09375,
+      0.3125,
+      -0.03125
+     ]
+    }
+   ],
+   "animations": {
+    "walk": {
+     "leg0": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     },
+     "leg1": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     }
+    },
+    "attachments": {
+     "beak": "head",
+     "wattle": "head"
+    }
+   },
+   "spawn": {
+    "group": [
+     2,
+     4
+    ],
+    "weight": 10,
+    "light_min": 9,
+    "ground": [
+     "minecraft:grass_block"
+    ]
+   }
+  },
+  {
+   "id": "minecraft:zombie",
+   "name": "Zombie",
+   "health": 20,
+   "damage": [
+    2,
+    3,
+    4
+   ],
+   "speed": 0.23,
+   "width": 0.6,
+   "height": 1.95,
+   "eye": 1.74,
+   "category": "monster",
+   "xp": [
+    5,
+    5
+   ],
+   "drops": [
+    {
+     "item": "minecraft:rotten_flesh",
+     "min": 0,
+     "max": 2
+    }
+   ],
+   "undead": true,
+   "burns_in_sun": true,
+   "goals": [
+    [
+     0,
+     "swim"
+    ],
+    [
+     2,
+     "melee_attack"
+    ],
+    [
+     5,
+     "move_towards_target"
+    ],
+    [
+     7,
+     "wander"
+    ],
+    [
+     8,
+     "look_at_player"
+    ],
+    [
+     8,
+     "random_look"
+    ],
+    [
+     1,
+     "target:player"
+    ]
+   ],
+   "sounds": {
+    "ambient": "entity.zombie.ambient",
+    "hurt": "entity.zombie.hurt",
+    "death": "entity.zombie.death",
+    "step": "entity.zombie.step"
+   },
+   "model": [
+    {
+     "name": "head",
+     "origin": [
+      -0.25,
+      1.5,
+      -0.25
+     ],
+     "size": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "color": "#5E8A4A",
+     "pattern": "noise",
+     "face": {
+      "eyes": "#111111",
+      "mouth": "#2A4A2A"
+     },
+     "pivot": [
+      0.0,
+      1.5,
+      0.0
+     ]
+    },
+    {
+     "name": "body",
+     "origin": [
+      -0.25,
+      0.75,
+      -0.125
+     ],
+     "size": [
+      0.5,
+      0.75,
+      0.25
+     ],
+     "color": "#2AA8A8",
+     "pattern": "noise",
+     "pivot": [
+      0.0,
+      1.5,
+      0.0
+     ]
+    },
+    {
+     "name": "arm0",
+     "origin": [
+      -0.5,
+      0.75,
+      -0.125
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#5E8A4A",
+     "pattern": "noise",
+     "pivot": [
+      -0.375,
+      1.375,
+      0.0
+     ]
+    },
+    {
+     "name": "arm1",
+     "origin": [
+      0.25,
+      0.75,
+      -0.125
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#5E8A4A",
+     "pattern": "noise",
+     "pivot": [
+      0.375,
+      1.375,
+      0.0
+     ]
+    },
+    {
+     "name": "leg0",
+     "origin": [
+      -0.25,
+      0.0,
+      -0.125
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#3A3AAA",
+     "pattern": "noise",
+     "pivot": [
+      -0.125,
+      0.75,
+      0.0
+     ]
+    },
+    {
+     "name": "leg1",
+     "origin": [
+      0.0,
+      0.0,
+      -0.125
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#3A3AAA",
+     "pattern": "noise",
+     "pivot": [
+      0.125,
+      0.75,
+      0.0
+     ]
+    }
+   ],
+   "animations": {
+    "walk": {
+     "leg0": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     },
+     "leg1": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     },
+     "arm0": {
+      "axis": "x",
+      "amp": 0.15,
+      "phase": 0,
+      "offset": -1.5708
+     },
+     "arm1": {
+      "axis": "x",
+      "amp": 0.15,
+      "phase": 3.14159,
+      "offset": -1.5708
+     }
+    }
+   },
+   "spawn": {
+    "group": [
+     4,
+     4
+    ],
+    "weight": 100,
+    "light_max": 7
+   }
+  },
+  {
+   "id": "minecraft:skeleton",
+   "name": "Skeleton",
+   "health": 20,
+   "damage": [
+    2,
+    3,
+    4
+   ],
+   "speed": 0.25,
+   "width": 0.6,
+   "height": 1.99,
+   "eye": 1.74,
+   "category": "monster",
+   "xp": [
+    5,
+    5
+   ],
+   "drops": [
+    {
+     "item": "minecraft:bone",
+     "min": 0,
+     "max": 2
+    },
+    {
+     "item": "minecraft:arrow",
+     "min": 0,
+     "max": 2
+    }
+   ],
+   "undead": true,
+   "burns_in_sun": true,
+   "goals": [
+    [
+     0,
+     "swim"
+    ],
+    [
+     4,
+     "ranged_attack"
+    ],
+    [
+     5,
+     "wander"
+    ],
+    [
+     6,
+     "look_at_player"
+    ],
+    [
+     6,
+     "random_look"
+    ],
+    [
+     1,
+     "target:player"
+    ]
+   ],
+   "ranged": {
+    "range": 15,
+    "preferred": 10,
+    "draw_ticks": 20,
+    "interval": 40
+   },
+   "sounds": {
+    "ambient": "entity.skeleton.ambient",
+    "hurt": "entity.skeleton.hurt",
+    "death": "entity.skeleton.death",
+    "step": "entity.skeleton.step",
+    "shoot": "entity.skeleton.shoot"
+   },
+   "model": [
+    {
+     "name": "head",
+     "origin": [
+      -0.25,
+      1.5,
+      -0.25
+     ],
+     "size": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "color": "#C8C8C8",
+     "pattern": "noise",
+     "face": {
+      "eyes": "#1A1A1A",
+      "mouth": "#3A3A3A"
+     },
+     "pivot": [
+      0.0,
+      1.5,
+      0.0
+     ]
+    },
+    {
+     "name": "body",
+     "origin": [
+      -0.25,
+      0.75,
+      -0.125
+     ],
+     "size": [
+      0.5,
+      0.75,
+      0.25
+     ],
+     "color": "#B8B8B8",
+     "pattern": "noise",
+     "pivot": [
+      0.0,
+      1.5,
+      0.0
+     ]
+    },
+    {
+     "name": "arm0",
+     "origin": [
+      -0.375,
+      0.75,
+      -0.0625
+     ],
+     "size": [
+      0.125,
+      0.75,
+      0.125
+     ],
+     "color": "#C8C8C8",
+     "pattern": "noise",
+     "pivot": [
+      -0.3125,
+      1.375,
+      0.0
+     ]
+    },
+    {
+     "name": "arm1",
+     "origin": [
+      0.25,
+      0.75,
+      -0.0625
+     ],
+     "size": [
+      0.125,
+      0.75,
+      0.125
+     ],
+     "color": "#C8C8C8",
+     "pattern": "noise",
+     "pivot": [
+      0.3125,
+      1.375,
+      0.0
+     ]
+    },
+    {
+     "name": "leg0",
+     "origin": [
+      -0.1875,
+      0.0,
+      -0.0625
+     ],
+     "size": [
+      0.125,
+      0.75,
+      0.125
+     ],
+     "color": "#A8A8A8",
+     "pattern": "noise",
+     "pivot": [
+      -0.125,
+      0.75,
+      0.0
+     ]
+    },
+    {
+     "name": "leg1",
+     "origin": [
+      0.0625,
+      0.0,
+      -0.0625
+     ],
+     "size": [
+      0.125,
+      0.75,
+      0.125
+     ],
+     "color": "#A8A8A8",
+     "pattern": "noise",
+     "pivot": [
+      0.125,
+      0.75,
+      0.0
+     ]
+    }
+   ],
+   "animations": {
+    "walk": {
+     "leg0": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     },
+     "leg1": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     },
+     "arm0": {
+      "axis": "x",
+      "amp": 1.0,
+      "phase": 3.14159
+     },
+     "arm1": {
+      "axis": "x",
+      "amp": 1.0,
+      "phase": 0
+     }
+    }
+   },
+   "spawn": {
+    "group": [
+     4,
+     4
+    ],
+    "weight": 100,
+    "light_max": 7
+   }
+  },
+  {
+   "id": "minecraft:creeper",
+   "name": "Creeper",
+   "health": 20,
+   "speed": 0.25,
+   "width": 0.6,
+   "height": 1.7,
+   "eye": 1.445,
+   "category": "monster",
+   "xp": [
+    5,
+    5
+   ],
+   "drops": [
+    {
+     "item": "minecraft:gunpowder",
+     "min": 0,
+     "max": 2
+    }
+   ],
+   "fuse": 30,
+   "explosion": 3,
+   "goals": [
+    [
+     1,
+     "swim"
+    ],
+    [
+     2,
+     "creeper_swell"
+    ],
+    [
+     4,
+     "melee_attack"
+    ],
+    [
+     5,
+     "wander"
+    ],
+    [
+     6,
+     "look_at_player"
+    ],
+    [
+     6,
+     "random_look"
+    ],
+    [
+     1,
+     "target:player"
+    ]
+   ],
+   "sounds": {
+    "hurt": "entity.creeper.hurt",
+    "death": "entity.creeper.death",
+    "primed": "entity.creeper.primed"
+   },
+   "model": [
+    {
+     "name": "head",
+     "origin": [
+      -0.25,
+      1.125,
+      -0.25
+     ],
+     "size": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "color": "#4FA83A",
+     "pattern": "creeper",
+     "face": {
+      "creeper": "#111111"
+     },
+     "pivot": [
+      0.0,
+      1.125,
+      0.0
+     ]
+    },
+    {
+     "name": "body",
+     "origin": [
+      -0.25,
+      0.375,
+      -0.125
+     ],
+     "size": [
+      0.5,
+      0.75,
+      0.25
+     ],
+     "color": "#4FA83A",
+     "pattern": "creeper"
+    },
+    {
+     "name": "leg0",
+     "origin": [
+      -0.25,
+      0,
+      -0.375
+     ],
+     "size": [
+      0.25,
+      0.375,
+      0.25
+     ],
+     "color": "#4FA83A",
+     "pattern": "creeper",
+     "pivot": [
+      -0.125,
+      0.375,
+      -0.25
+     ]
+    },
+    {
+     "name": "leg1",
+     "origin": [
+      0.0,
+      0,
+      -0.375
+     ],
+     "size": [
+      0.25,
+      0.375,
+      0.25
+     ],
+     "color": "#4FA83A",
+     "pattern": "creeper",
+     "pivot": [
+      0.125,
+      0.375,
+      -0.25
+     ]
+    },
+    {
+     "name": "leg2",
+     "origin": [
+      -0.25,
+      0,
+      0.125
+     ],
+     "size": [
+      0.25,
+      0.375,
+      0.25
+     ],
+     "color": "#4FA83A",
+     "pattern": "creeper",
+     "pivot": [
+      -0.125,
+      0.375,
+      0.25
+     ]
+    },
+    {
+     "name": "leg3",
+     "origin": [
+      0.0,
+      0,
+      0.125
+     ],
+     "size": [
+      0.25,
+      0.375,
+      0.25
+     ],
+     "color": "#4FA83A",
+     "pattern": "creeper",
+     "pivot": [
+      0.125,
+      0.375,
+      0.25
+     ]
+    }
+   ],
+   "animations": {
+    "walk": {
+     "leg0": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     },
+     "leg1": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     },
+     "leg2": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     },
+     "leg3": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     }
+    }
+   },
+   "spawn": {
+    "group": [
+     4,
+     4
+    ],
+    "weight": 100,
+    "light_max": 7
+   }
+  },
+  {
+   "id": "minecraft:spider",
+   "name": "Spider",
+   "health": 16,
+   "damage": [
+    2,
+    2,
+    3
+   ],
+   "speed": 0.3,
+   "width": 1.4,
+   "height": 0.9,
+   "eye": 0.65,
+   "category": "monster",
+   "xp": [
+    5,
+    5
+   ],
+   "drops": [
+    {
+     "item": "minecraft:string",
+     "min": 0,
+     "max": 2
+    },
+    {
+     "item": "minecraft:spider_eye",
+     "min": 0,
+     "max": 1,
+     "chance": 0.333
+    }
+   ],
+   "climbs": true,
+   "neutral_in_light": 12,
+   "goals": [
+    [
+     1,
+     "swim"
+    ],
+    [
+     3,
+     "leap_at_target"
+    ],
+    [
+     4,
+     "melee_attack"
+    ],
+    [
+     5,
+     "wander"
+    ],
+    [
+     6,
+     "look_at_player"
+    ],
+    [
+     6,
+     "random_look"
+    ],
+    [
+     1,
+     "target:player"
+    ]
+   ],
+   "sounds": {
+    "ambient": "entity.spider.ambient",
+    "hurt": "entity.spider.hurt",
+    "death": "entity.spider.death",
+    "step": "entity.spider.step"
+   },
+   "model": [
+    {
+     "name": "head",
+     "origin": [
+      -0.25,
+      0.3125,
+      -0.6875
+     ],
+     "size": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "color": "#342D27",
+     "pattern": "noise",
+     "face": {
+      "spider": "#C81E1E"
+     },
+     "pivot": [
+      0.0,
+      0.5625,
+      -0.1875
+     ]
+    },
+    {
+     "name": "body0",
+     "origin": [
+      -0.1875,
+      0.375,
+      -0.1875
+     ],
+     "size": [
+      0.375,
+      0.375,
+      0.375
+     ],
+     "color": "#342D27",
+     "pattern": "noise"
+    },
+    {
+     "name": "body1",
+     "origin": [
+      -0.3125,
+      0.3125,
+      0.1875
+     ],
+     "size": [
+      0.625,
+      0.5,
+      0.75
+     ],
+     "color": "#2A2420",
+     "pattern": "noise"
+    },
+    {
+     "name": "leg0",
+     "origin": [
+      -0.9375,
+      0.5,
+      -0.25
+     ],
+     "size": [
+      0.875,
+      0.125,
+      0.125
+     ],
+     "color": "#2A2420",
+     "pattern": "noise",
+     "pivot": [
+      -0.0625,
+      0.5625,
+      -0.1875
+     ]
+    },
+    {
+     "name": "leg1",
+     "origin": [
+      0.0625,
+      0.5,
+      -0.25
+     ],
+     "size": [
+      0.875,
+      0.125,
+      0.125
+     ],
+     "color": "#2A2420",
+     "pattern": "noise",
+     "pivot": [
+      0.0625,
+      0.5625,
+      -0.1875
+     ]
+    },
+    {
+     "name": "leg2",
+     "origin": [
+      -0.9375,
+      0.5,
+      -0.09375
+     ],
+     "size": [
+      0.875,
+      0.125,
+      0.125
+     ],
+     "color": "#2A2420",
+     "pattern": "noise",
+     "pivot": [
+      -0.0625,
+      0.5625,
+      -0.03125
+     ]
+    },
+    {
+     "name": "leg3",
+     "origin": [
+      0.0625,
+      0.5,
+      -0.09375
+     ],
+     "size": [
+      0.875,
+      0.125,
+      0.125
+     ],
+     "color": "#2A2420",
+     "pattern": "noise",
+     "pivot": [
+      0.0625,
+      0.5625,
+      -0.03125
+     ]
+    },
+    {
+     "name": "leg4",
+     "origin": [
+      -0.9375,
+      0.5,
+      0.0625
+     ],
+     "size": [
+      0.875,
+      0.125,
+      0.125
+     ],
+     "color": "#2A2420",
+     "pattern": "noise",
+     "pivot": [
+      -0.0625,
+      0.5625,
+      0.125
+     ]
+    },
+    {
+     "name": "leg5",
+     "origin": [
+      0.0625,
+      0.5,
+      0.0625
+     ],
+     "size": [
+      0.875,
+      0.125,
+      0.125
+     ],
+     "color": "#2A2420",
+     "pattern": "noise",
+     "pivot": [
+      0.0625,
+      0.5625,
+      0.125
+     ]
+    },
+    {
+     "name": "leg6",
+     "origin": [
+      -0.9375,
+      0.5,
+      0.21875
+     ],
+     "size": [
+      0.875,
+      0.125,
+      0.125
+     ],
+     "color": "#2A2420",
+     "pattern": "noise",
+     "pivot": [
+      -0.0625,
+      0.5625,
+      0.28125
+     ]
+    },
+    {
+     "name": "leg7",
+     "origin": [
+      0.0625,
+      0.5,
+      0.21875
+     ],
+     "size": [
+      0.875,
+      0.125,
+      0.125
+     ],
+     "color": "#2A2420",
+     "pattern": "noise",
+     "pivot": [
+      0.0625,
+      0.5625,
+      0.28125
+     ]
+    }
+   ],
+   "animations": {
+    "walk": {
+     "leg0": {
+      "axis": "y",
+      "amp": 0.4,
+      "phase": 0.0
+     },
+     "leg1": {
+      "axis": "y",
+      "amp": 0.4,
+      "phase": 3.14159
+     },
+     "leg2": {
+      "axis": "y",
+      "amp": 0.4,
+      "phase": 0.0
+     },
+     "leg3": {
+      "axis": "y",
+      "amp": 0.4,
+      "phase": 3.14159
+     },
+     "leg4": {
+      "axis": "y",
+      "amp": 0.4,
+      "phase": 0.0
+     },
+     "leg5": {
+      "axis": "y",
+      "amp": 0.4,
+      "phase": 3.14159
+     },
+     "leg6": {
+      "axis": "y",
+      "amp": 0.4,
+      "phase": 0.0
+     },
+     "leg7": {
+      "axis": "y",
+      "amp": 0.4,
+      "phase": 3.14159
+     }
+    }
+   },
+   "spawn": {
+    "group": [
+     4,
+     4
+    ],
+    "weight": 100,
+    "light_max": 7
+   }
+  },
+  {
+   "id": "minecraft:item",
+   "name": "Item",
+   "health": 5,
+   "speed": 0,
+   "width": 0.25,
+   "height": 0.25,
+   "eye": 0.2,
+   "category": "misc",
+   "model": [],
+   "sounds": {}
+  },
+  {
+   "id": "minecraft:experience_orb",
+   "name": "Experience Orb",
+   "health": 5,
+   "speed": 0,
+   "width": 0.5,
+   "height": 0.5,
+   "eye": 0.25,
+   "category": "misc",
+   "model": [],
+   "sounds": {}
+  },
+  {
+   "id": "minecraft:arrow",
+   "name": "Arrow",
+   "health": 1,
+   "speed": 0,
+   "width": 0.5,
+   "height": 0.5,
+   "eye": 0.13,
+   "category": "misc",
+   "model": [],
+   "sounds": {
+    "hit": "entity.arrow.hit"
+   }
+  },
+  {
+   "id": "minecraft:tnt",
+   "name": "Primed TNT",
+   "health": 1,
+   "speed": 0,
+   "width": 0.98,
+   "height": 0.98,
+   "eye": 0.15,
+   "category": "misc",
+   "fuse": 80,
+   "explosion": 4,
+   "model": [],
+   "sounds": {
+    "primed": "entity.tnt.primed"
+   }
+  },
+  {
+   "id": "minecraft:falling_block",
+   "name": "Falling Block",
+   "health": 1,
+   "speed": 0,
+   "width": 0.98,
+   "height": 0.98,
+   "eye": 0.49,
+   "category": "misc",
+   "model": [],
+   "sounds": {}
+  },
+  {
+   "id": "minecraft:player",
+   "name": "Player",
+   "health": 20,
+   "speed": 0.1,
+   "width": 0.6,
+   "height": 1.8,
+   "eye": 1.62,
+   "category": "misc",
+   "model": [
+    {
+     "name": "head",
+     "origin": [
+      -0.25,
+      1.5,
+      -0.25
+     ],
+     "size": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "color": "#C89A7A",
+     "pattern": "noise",
+     "face": {
+      "eyes": "#3A2A8A",
+      "mouth": "#7A4A3A"
+     },
+     "pivot": [
+      0.0,
+      1.5,
+      0.0
+     ]
+    },
+    {
+     "name": "body",
+     "origin": [
+      -0.25,
+      0.75,
+      -0.125
+     ],
+     "size": [
+      0.5,
+      0.75,
+      0.25
+     ],
+     "color": "#2AA8C8",
+     "pattern": "noise",
+     "pivot": [
+      0.0,
+      1.5,
+      0.0
+     ]
+    },
+    {
+     "name": "arm0",
+     "origin": [
+      -0.5,
+      0.75,
+      -0.125
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#C89A7A",
+     "pattern": "noise",
+     "pivot": [
+      -0.375,
+      1.375,
+      0.0
+     ]
+    },
+    {
+     "name": "arm1",
+     "origin": [
+      0.25,
+      0.75,
+      -0.125
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#C89A7A",
+     "pattern": "noise",
+     "pivot": [
+      0.375,
+      1.375,
+      0.0
+     ]
+    },
+    {
+     "name": "leg0",
+     "origin": [
+      -0.25,
+      0.0,
+      -0.125
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#3A3AAA",
+     "pattern": "noise",
+     "pivot": [
+      -0.125,
+      0.75,
+      0.0
+     ]
+    },
+    {
+     "name": "leg1",
+     "origin": [
+      0.0,
+      0.0,
+      -0.125
+     ],
+     "size": [
+      0.25,
+      0.75,
+      0.25
+     ],
+     "color": "#3A3AAA",
+     "pattern": "noise",
+     "pivot": [
+      0.125,
+      0.75,
+      0.0
+     ]
+    }
+   ],
+   "animations": {
+    "walk": {
+     "leg0": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 0
+     },
+     "leg1": {
+      "axis": "x",
+      "amp": 1.4,
+      "phase": 3.14159
+     },
+     "arm0": {
+      "axis": "x",
+      "amp": 1.0,
+      "phase": 3.14159
+     },
+     "arm1": {
+      "axis": "x",
+      "amp": 1.0,
+      "phase": 0
+     }
+    }
+   },
+   "sounds": {
+    "hurt": "entity.player.hurt",
+    "death": "entity.player.death"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1664 @@
+{
+ "tags": {
+  "#minecraft:planks": [
+   "minecraft:oak_planks",
+   "minecraft:spruce_planks",
+   "minecraft:birch_planks",
+   "minecraft:jungle_planks",
+   "minecraft:acacia_planks",
+   "minecraft:dark_oak_planks",
+   "minecraft:crimson_planks",
+   "minecraft:warped_planks"
+  ],
+  "#minecraft:logs": [
+   "minecraft:oak_log",
+   "minecraft:spruce_log",
+   "minecraft:birch_log",
+   "minecraft:jungle_log",
+   "minecraft:acacia_log",
+   "minecraft:dark_oak_log",
+   "minecraft:crimson_stem",
+   "minecraft:warped_stem"
+  ],
+  "#minecraft:logs_that_burn": [
+   "minecraft:oak_log",
+   "minecraft:spruce_log",
+   "minecraft:birch_log",
+   "minecraft:jungle_log",
+   "minecraft:acacia_log",
+   "minecraft:dark_oak_log"
+  ],
+  "#minecraft:wool": [
+   "minecraft:white_wool",
+   "minecraft:orange_wool",
+   "minecraft:magenta_wool",
+   "minecraft:light_blue_wool",
+   "minecraft:yellow_wool",
+   "minecraft:lime_wool",
+   "minecraft:pink_wool",
+   "minecraft:gray_wool",
+   "minecraft:light_gray_wool",
+   "minecraft:cyan_wool",
+   "minecraft:purple_wool",
+   "minecraft:blue_wool",
+   "minecraft:brown_wool",
+   "minecraft:green_wool",
+   "minecraft:red_wool",
+   "minecraft:black_wool"
+  ],
+  "#minecraft:coals": [
+   "minecraft:coal",
+   "minecraft:charcoal"
+  ],
+  "#minecraft:stone_tool_materials": [
+   "minecraft:cobblestone",
+   "minecraft:blackstone"
+  ],
+  "#minecraft:soul_fire_base_blocks": [
+   "minecraft:soul_sand",
+   "minecraft:soul_soil"
+  ]
+ },
+ "recipes": [
+  {
+   "type": "shapeless",
+   "result": "minecraft:oak_planks",
+   "count": 4,
+   "ingredients": [
+    "minecraft:oak_log"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:spruce_planks",
+   "count": 4,
+   "ingredients": [
+    "minecraft:spruce_log"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:birch_planks",
+   "count": 4,
+   "ingredients": [
+    "minecraft:birch_log"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:jungle_planks",
+   "count": 4,
+   "ingredients": [
+    "minecraft:jungle_log"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:acacia_planks",
+   "count": 4,
+   "ingredients": [
+    "minecraft:acacia_log"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:dark_oak_planks",
+   "count": 4,
+   "ingredients": [
+    "minecraft:dark_oak_log"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:crimson_planks",
+   "count": 4,
+   "ingredients": [
+    "minecraft:crimson_stem"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:warped_planks",
+   "count": 4,
+   "ingredients": [
+    "minecraft:warped_stem"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:stick",
+   "count": 4,
+   "pattern": [
+    "#",
+    "#"
+   ],
+   "key": {
+    "#": "#minecraft:planks"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:crafting_table",
+   "count": 1,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "#minecraft:planks"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:chest",
+   "count": 1,
+   "pattern": [
+    "###",
+    "# #",
+    "###"
+   ],
+   "key": {
+    "#": "#minecraft:planks"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:furnace",
+   "count": 1,
+   "pattern": [
+    "###",
+    "# #",
+    "###"
+   ],
+   "key": {
+    "#": "#minecraft:stone_tool_materials"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:torch",
+   "count": 4,
+   "pattern": [
+    "C",
+    "S"
+   ],
+   "key": {
+    "C": "#minecraft:coals",
+    "S": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:soul_torch",
+   "count": 4,
+   "pattern": [
+    "C",
+    "S",
+    "B"
+   ],
+   "key": {
+    "C": "#minecraft:coals",
+    "S": "minecraft:stick",
+    "B": "#minecraft:soul_fire_base_blocks"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:ladder",
+   "count": 3,
+   "pattern": [
+    "S S",
+    "SSS",
+    "S S"
+   ],
+   "key": {
+    "S": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:bookshelf",
+   "count": 1,
+   "pattern": [
+    "###",
+    "BBB",
+    "###"
+   ],
+   "key": {
+    "#": "#minecraft:planks",
+    "B": "minecraft:book"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:book",
+   "count": 1,
+   "ingredients": [
+    "minecraft:paper",
+    "minecraft:paper",
+    "minecraft:paper",
+    "minecraft:leather"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:paper",
+   "count": 3,
+   "pattern": [
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:sugar_cane"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:red_bed",
+   "count": 1,
+   "pattern": [
+    "WWW",
+    "PPP"
+   ],
+   "key": {
+    "W": "minecraft:red_wool",
+    "P": "#minecraft:planks"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:white_wool",
+   "count": 1,
+   "pattern": [
+    "SS",
+    "SS"
+   ],
+   "key": {
+    "S": "minecraft:string"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:red_wool",
+   "count": 1,
+   "ingredients": [
+    "minecraft:red_dye",
+    "minecraft:white_wool"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:red_dye",
+   "count": 1,
+   "ingredients": [
+    "minecraft:poppy"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:white_dye",
+   "count": 1,
+   "ingredients": [
+    "minecraft:bone_meal"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:bone_meal",
+   "count": 3,
+   "ingredients": [
+    "minecraft:bone"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:tnt",
+   "count": 1,
+   "pattern": [
+    "GSG",
+    "SGS",
+    "GSG"
+   ],
+   "key": {
+    "G": "minecraft:gunpowder",
+    "S": "minecraft:sand"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:stone_bricks",
+   "count": 4,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:stone"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:bricks",
+   "count": 1,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:brick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:nether_bricks",
+   "count": 1,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:nether_brick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:sandstone",
+   "count": 1,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:sand"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:red_sandstone",
+   "count": 1,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:red_sand"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:snow_block",
+   "count": 1,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:snowball"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:clay",
+   "count": 1,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:clay_ball"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:glowstone",
+   "count": 1,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:glowstone_dust"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:quartz_block",
+   "count": 1,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:quartz"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:polished_granite",
+   "count": 4,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:granite"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:polished_diorite",
+   "count": 4,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:diorite"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:polished_andesite",
+   "count": 4,
+   "pattern": [
+    "##",
+    "##"
+   ],
+   "key": {
+    "#": "minecraft:andesite"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:stone_slab",
+   "count": 6,
+   "pattern": [
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:smooth_stone"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:cobblestone_slab",
+   "count": 6,
+   "pattern": [
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:cobblestone"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:oak_slab",
+   "count": 6,
+   "pattern": [
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:oak_planks"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:jack_o_lantern",
+   "count": 1,
+   "pattern": [
+    "P",
+    "T"
+   ],
+   "key": {
+    "P": "minecraft:carved_pumpkin",
+    "T": "minecraft:torch"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:iron_block",
+   "count": 1,
+   "pattern": [
+    "###",
+    "###",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:iron_ingot"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:iron_ingot",
+   "count": 9,
+   "ingredients": [
+    "minecraft:iron_block"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:gold_block",
+   "count": 1,
+   "pattern": [
+    "###",
+    "###",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:gold_ingot"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:gold_ingot",
+   "count": 9,
+   "ingredients": [
+    "minecraft:gold_block"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:diamond_block",
+   "count": 1,
+   "pattern": [
+    "###",
+    "###",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:diamond"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:diamond",
+   "count": 9,
+   "ingredients": [
+    "minecraft:diamond_block"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:emerald_block",
+   "count": 1,
+   "pattern": [
+    "###",
+    "###",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:emerald"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:emerald",
+   "count": 9,
+   "ingredients": [
+    "minecraft:emerald_block"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:coal_block",
+   "count": 1,
+   "pattern": [
+    "###",
+    "###",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:coal"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:coal",
+   "count": 9,
+   "ingredients": [
+    "minecraft:coal_block"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:lapis_block",
+   "count": 1,
+   "pattern": [
+    "###",
+    "###",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:lapis_lazuli"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:lapis_lazuli",
+   "count": 9,
+   "ingredients": [
+    "minecraft:lapis_block"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:redstone_block",
+   "count": 1,
+   "pattern": [
+    "###",
+    "###",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:redstone"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:redstone",
+   "count": 9,
+   "ingredients": [
+    "minecraft:redstone_block"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:netherite_block",
+   "count": 1,
+   "pattern": [
+    "###",
+    "###",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:netherite_ingot"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:netherite_ingot",
+   "count": 9,
+   "ingredients": [
+    "minecraft:netherite_block"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:iron_ingot",
+   "count": 1,
+   "pattern": [
+    "###",
+    "###",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:iron_nugget"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:gold_ingot",
+   "count": 1,
+   "pattern": [
+    "###",
+    "###",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:gold_nugget"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:iron_nugget",
+   "count": 9,
+   "ingredients": [
+    "minecraft:iron_ingot"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:gold_nugget",
+   "count": 9,
+   "ingredients": [
+    "minecraft:gold_ingot"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:netherite_ingot",
+   "count": 1,
+   "ingredients": [
+    "minecraft:netherite_scrap",
+    "minecraft:netherite_scrap",
+    "minecraft:netherite_scrap",
+    "minecraft:netherite_scrap",
+    "minecraft:gold_ingot",
+    "minecraft:gold_ingot",
+    "minecraft:gold_ingot",
+    "minecraft:gold_ingot"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:wooden_pickaxe",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    " # ",
+    " # "
+   ],
+   "key": {
+    "X": "#minecraft:planks",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:wooden_axe",
+   "count": 1,
+   "pattern": [
+    "XX",
+    "X#",
+    " #"
+   ],
+   "key": {
+    "X": "#minecraft:planks",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:wooden_shovel",
+   "count": 1,
+   "pattern": [
+    "X",
+    "#",
+    "#"
+   ],
+   "key": {
+    "X": "#minecraft:planks",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:wooden_sword",
+   "count": 1,
+   "pattern": [
+    "X",
+    "X",
+    "#"
+   ],
+   "key": {
+    "X": "#minecraft:planks",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:wooden_hoe",
+   "count": 1,
+   "pattern": [
+    "XX",
+    " #",
+    " #"
+   ],
+   "key": {
+    "X": "#minecraft:planks",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:stone_pickaxe",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    " # ",
+    " # "
+   ],
+   "key": {
+    "X": "#minecraft:stone_tool_materials",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:stone_axe",
+   "count": 1,
+   "pattern": [
+    "XX",
+    "X#",
+    " #"
+   ],
+   "key": {
+    "X": "#minecraft:stone_tool_materials",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:stone_shovel",
+   "count": 1,
+   "pattern": [
+    "X",
+    "#",
+    "#"
+   ],
+   "key": {
+    "X": "#minecraft:stone_tool_materials",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:stone_sword",
+   "count": 1,
+   "pattern": [
+    "X",
+    "X",
+    "#"
+   ],
+   "key": {
+    "X": "#minecraft:stone_tool_materials",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:stone_hoe",
+   "count": 1,
+   "pattern": [
+    "XX",
+    " #",
+    " #"
+   ],
+   "key": {
+    "X": "#minecraft:stone_tool_materials",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:iron_pickaxe",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    " # ",
+    " # "
+   ],
+   "key": {
+    "X": "minecraft:iron_ingot",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:iron_axe",
+   "count": 1,
+   "pattern": [
+    "XX",
+    "X#",
+    " #"
+   ],
+   "key": {
+    "X": "minecraft:iron_ingot",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:iron_shovel",
+   "count": 1,
+   "pattern": [
+    "X",
+    "#",
+    "#"
+   ],
+   "key": {
+    "X": "minecraft:iron_ingot",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:iron_sword",
+   "count": 1,
+   "pattern": [
+    "X",
+    "X",
+    "#"
+   ],
+   "key": {
+    "X": "minecraft:iron_ingot",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:iron_hoe",
+   "count": 1,
+   "pattern": [
+    "XX",
+    " #",
+    " #"
+   ],
+   "key": {
+    "X": "minecraft:iron_ingot",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:golden_pickaxe",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    " # ",
+    " # "
+   ],
+   "key": {
+    "X": "minecraft:gold_ingot",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:golden_axe",
+   "count": 1,
+   "pattern": [
+    "XX",
+    "X#",
+    " #"
+   ],
+   "key": {
+    "X": "minecraft:gold_ingot",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:golden_shovel",
+   "count": 1,
+   "pattern": [
+    "X",
+    "#",
+    "#"
+   ],
+   "key": {
+    "X": "minecraft:gold_ingot",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:golden_sword",
+   "count": 1,
+   "pattern": [
+    "X",
+    "X",
+    "#"
+   ],
+   "key": {
+    "X": "minecraft:gold_ingot",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:golden_hoe",
+   "count": 1,
+   "pattern": [
+    "XX",
+    " #",
+    " #"
+   ],
+   "key": {
+    "X": "minecraft:gold_ingot",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:diamond_pickaxe",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    " # ",
+    " # "
+   ],
+   "key": {
+    "X": "minecraft:diamond",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:diamond_axe",
+   "count": 1,
+   "pattern": [
+    "XX",
+    "X#",
+    " #"
+   ],
+   "key": {
+    "X": "minecraft:diamond",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:diamond_shovel",
+   "count": 1,
+   "pattern": [
+    "X",
+    "#",
+    "#"
+   ],
+   "key": {
+    "X": "minecraft:diamond",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:diamond_sword",
+   "count": 1,
+   "pattern": [
+    "X",
+    "X",
+    "#"
+   ],
+   "key": {
+    "X": "minecraft:diamond",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:diamond_hoe",
+   "count": 1,
+   "pattern": [
+    "XX",
+    " #",
+    " #"
+   ],
+   "key": {
+    "X": "minecraft:diamond",
+    "#": "minecraft:stick"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:leather_helmet",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:leather"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:leather_chestplate",
+   "count": 1,
+   "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+   ],
+   "key": {
+    "X": "minecraft:leather"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:leather_leggings",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    "X X",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:leather"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:leather_boots",
+   "count": 1,
+   "pattern": [
+    "X X",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:leather"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:iron_helmet",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:iron_ingot"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:iron_chestplate",
+   "count": 1,
+   "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+   ],
+   "key": {
+    "X": "minecraft:iron_ingot"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:iron_leggings",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    "X X",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:iron_ingot"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:iron_boots",
+   "count": 1,
+   "pattern": [
+    "X X",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:iron_ingot"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:golden_helmet",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:gold_ingot"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:golden_chestplate",
+   "count": 1,
+   "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+   ],
+   "key": {
+    "X": "minecraft:gold_ingot"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:golden_leggings",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    "X X",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:gold_ingot"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:golden_boots",
+   "count": 1,
+   "pattern": [
+    "X X",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:gold_ingot"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:diamond_helmet",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:diamond"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:diamond_chestplate",
+   "count": 1,
+   "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+   ],
+   "key": {
+    "X": "minecraft:diamond"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:diamond_leggings",
+   "count": 1,
+   "pattern": [
+    "XXX",
+    "X X",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:diamond"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:diamond_boots",
+   "count": 1,
+   "pattern": [
+    "X X",
+    "X X"
+   ],
+   "key": {
+    "X": "minecraft:diamond"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:bread",
+   "count": 1,
+   "pattern": [
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:wheat"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:bowl",
+   "count": 4,
+   "pattern": [
+    "# #",
+    " # "
+   ],
+   "key": {
+    "#": "#minecraft:planks"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:mushroom_stew",
+   "count": 1,
+   "ingredients": [
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom",
+    "minecraft:bowl"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:pumpkin_pie",
+   "count": 1,
+   "ingredients": [
+    "minecraft:pumpkin",
+    "minecraft:sugar",
+    "minecraft:egg"
+   ]
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:sugar",
+   "count": 1,
+   "ingredients": [
+    "minecraft:sugar_cane"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:golden_apple",
+   "count": 1,
+   "pattern": [
+    "###",
+    "#A#",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:gold_ingot",
+    "A": "minecraft:apple"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:melon",
+   "count": 1,
+   "pattern": [
+    "###",
+    "###",
+    "###"
+   ],
+   "key": {
+    "#": "minecraft:melon_slice"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:bucket",
+   "count": 1,
+   "pattern": [
+    "# #",
+    " # "
+   ],
+   "key": {
+    "#": "minecraft:iron_ingot"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:shears",
+   "count": 1,
+   "pattern": [
+    " #",
+    "# "
+   ],
+   "key": {
+    "#": "minecraft:iron_ingot"
+   }
+  },
+  {
+   "type": "shapeless",
+   "result": "minecraft:flint_and_steel",
+   "count": 1,
+   "ingredients": [
+    "minecraft:iron_ingot",
+    "minecraft:flint"
+   ]
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:bow",
+   "count": 1,
+   "pattern": [
+    " #S",
+    "# S",
+    " #S"
+   ],
+   "key": {
+    "#": "minecraft:stick",
+    "S": "minecraft:string"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:arrow",
+   "count": 4,
+   "pattern": [
+    "F",
+    "#",
+    "E"
+   ],
+   "key": {
+    "F": "minecraft:flint",
+    "#": "minecraft:stick",
+    "E": "minecraft:feather"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:compass",
+   "count": 1,
+   "pattern": [
+    " # ",
+    "#R#",
+    " # "
+   ],
+   "key": {
+    "#": "minecraft:iron_ingot",
+    "R": "minecraft:redstone"
+   }
+  },
+  {
+   "type": "shaped",
+   "result": "minecraft:clock",
+   "count": 1,
+   "pattern": [
+    " # ",
+    "#R#",
+    " # "
+   ],
+   "key": {
+    "#": "minecraft:gold_ingot",
+    "R": "minecraft:redstone"
+   }
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:iron_ore",
+   "result": "minecraft:iron_ingot",
+   "xp": 0.7,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:gold_ore",
+   "result": "minecraft:gold_ingot",
+   "xp": 1.0,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:cobblestone",
+   "result": "minecraft:stone",
+   "xp": 0.1,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:stone",
+   "result": "minecraft:smooth_stone",
+   "xp": 0.1,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:sand",
+   "result": "minecraft:glass",
+   "xp": 0.1,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:red_sand",
+   "result": "minecraft:glass",
+   "xp": 0.1,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "#minecraft:logs_that_burn",
+   "result": "minecraft:charcoal",
+   "xp": 0.15,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:clay_ball",
+   "result": "minecraft:brick",
+   "xp": 0.3,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:netherrack",
+   "result": "minecraft:nether_brick",
+   "xp": 0.1,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:cactus",
+   "result": "minecraft:green_dye",
+   "xp": 1.0,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:ancient_debris",
+   "result": "minecraft:netherite_scrap",
+   "xp": 2.0,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:clay",
+   "result": "minecraft:terracotta",
+   "xp": 0.35,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:sponge",
+   "result": "minecraft:sponge",
+   "xp": 0.15,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:beef",
+   "result": "minecraft:cooked_beef",
+   "xp": 0.35,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:porkchop",
+   "result": "minecraft:cooked_porkchop",
+   "xp": 0.35,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:chicken",
+   "result": "minecraft:cooked_chicken",
+   "xp": 0.35,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:mutton",
+   "result": "minecraft:cooked_mutton",
+   "xp": 0.35,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:cod",
+   "result": "minecraft:cooked_cod",
+   "xp": 0.35,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:potato",
+   "result": "minecraft:baked_potato",
+   "xp": 0.35,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:coal_ore",
+   "result": "minecraft:coal",
+   "xp": 0.7,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:diamond_ore",
+   "result": "minecraft:diamond",
+   "xp": 0.7,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:emerald_ore",
+   "result": "minecraft:emerald",
+   "xp": 0.7,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:lapis_ore",
+   "result": "minecraft:lapis_lazuli",
+   "xp": 0.7,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:redstone_ore",
+   "result": "minecraft:redstone",
+   "xp": 0.7,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:nether_quartz_ore",
+   "result": "minecraft:quartz",
+   "xp": 0.7,
+   "cook_ticks": 200
+  },
+  {
+   "type": "smelting",
+   "input": "minecraft:nether_gold_ore",
+   "result": "minecraft:gold_ingot",
+   "xp": 0.7,
+   "cook_ticks": 200
+  }
+ ],
+ "fuel": {
+  "minecraft:coal": 1600,
+  "minecraft:charcoal": 1600,
+  "#minecraft:planks": 300,
+  "#minecraft:logs_that_burn": 300,
+  "minecraft:stick": 100,
+  "minecraft:coal_block": 16000,
+  "minecraft:blaze_rod": 2400,
+  "minecraft:lava_bucket": 20000,
+  "minecraft:crafting_table": 300,
+  "minecraft:chest": 300,
+  "minecraft:bookshelf": 300,
+  "minecraft:ladder": 300,
+  "minecraft:wooden_pickaxe": 200,
+  "minecraft:wooden_axe": 200,
+  "minecraft:wooden_shovel": 200,
+  "minecraft:wooden_sword": 200,
+  "minecraft:wooden_hoe": 200,
+  "minecraft:bowl": 100,
+  "minecraft:oak_slab": 150,
+  "#minecraft:wool": 100
+ }
+}

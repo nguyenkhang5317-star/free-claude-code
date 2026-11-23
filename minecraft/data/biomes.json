@@ -1,0 +1,1564 @@
+{
+ "biomes": [
+  {
+   "id": "minecraft:ocean",
+   "temperature": 0.5,
+   "humidity": 0.5,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:deep_ocean",
+   "temperature": 0.5,
+   "humidity": 0.5,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:frozen_ocean",
+   "temperature": 0.0,
+   "humidity": 0.5,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "snow",
+   "terrain_amp": 1.0,
+   "freeze": true
+  },
+  {
+   "id": "minecraft:cold_ocean",
+   "temperature": 0.5,
+   "humidity": 0.5,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:lukewarm_ocean",
+   "temperature": 0.5,
+   "humidity": 0.5,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:sand",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:warm_ocean",
+   "temperature": 0.5,
+   "humidity": 0.5,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:sand",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:river",
+   "temperature": 0.5,
+   "humidity": 0.5,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:sand",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:frozen_river",
+   "temperature": 0.0,
+   "humidity": 0.5,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:sand",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "snow",
+   "terrain_amp": 1.0,
+   "freeze": true
+  },
+  {
+   "id": "minecraft:beach",
+   "temperature": 0.8,
+   "humidity": 0.4,
+   "top": "minecraft:sand",
+   "filler": "minecraft:sand",
+   "underwater": "minecraft:sand",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:snowy_beach",
+   "temperature": 0.05,
+   "humidity": 0.3,
+   "top": "minecraft:sand",
+   "filler": "minecraft:sand",
+   "underwater": "minecraft:sand",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "snow",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:stone_shore",
+   "temperature": 0.2,
+   "humidity": 0.3,
+   "top": "minecraft:stone",
+   "filler": "minecraft:stone",
+   "underwater": "minecraft:stone",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:plains",
+   "temperature": 0.8,
+   "humidity": 0.4,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [
+    "oak"
+   ],
+   "tree_density": 0.003,
+   "flower_density": 0.01,
+   "grass_density": 0.25,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:sunflower_plains",
+   "temperature": 0.8,
+   "humidity": 0.4,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [
+    "oak"
+   ],
+   "tree_density": 0.003,
+   "flower_density": 0.03,
+   "grass_density": 0.25,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:forest",
+   "temperature": 0.7,
+   "humidity": 0.8,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#79C05A",
+   "foliage_color": "#59AE30",
+   "trees": [
+    "oak",
+    "oak",
+    "birch"
+   ],
+   "tree_density": 0.08,
+   "flower_density": 0.01,
+   "grass_density": 0.08,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:flower_forest",
+   "temperature": 0.7,
+   "humidity": 0.8,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#79C05A",
+   "foliage_color": "#59AE30",
+   "trees": [
+    "oak",
+    "birch"
+   ],
+   "tree_density": 0.04,
+   "flower_density": 0.12,
+   "grass_density": 0.05,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:birch_forest",
+   "temperature": 0.6,
+   "humidity": 0.6,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#88BB67",
+   "foliage_color": "#6BA941",
+   "trees": [
+    "birch"
+   ],
+   "tree_density": 0.08,
+   "flower_density": 0.01,
+   "grass_density": 0.08,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:dark_forest",
+   "temperature": 0.7,
+   "humidity": 0.8,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#507A32",
+   "foliage_color": "#59AE30",
+   "trees": [
+    "dark_oak",
+    "dark_oak",
+    "oak"
+   ],
+   "tree_density": 0.16,
+   "flower_density": 0.0,
+   "grass_density": 0.04,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:taiga",
+   "temperature": 0.25,
+   "humidity": 0.8,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#86B783",
+   "foliage_color": "#68A464",
+   "trees": [
+    "spruce"
+   ],
+   "tree_density": 0.08,
+   "flower_density": 0.0,
+   "grass_density": 0.1,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0,
+   "ferns": true
+  },
+  {
+   "id": "minecraft:snowy_taiga",
+   "temperature": -0.5,
+   "humidity": 0.4,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#80B497",
+   "foliage_color": "#60A17B",
+   "trees": [
+    "spruce"
+   ],
+   "tree_density": 0.06,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "snow",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:giant_tree_taiga",
+   "temperature": 0.3,
+   "humidity": 0.8,
+   "top": "minecraft:podzol",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#86B87F",
+   "foliage_color": "#68A55F",
+   "trees": [
+    "spruce"
+   ],
+   "tree_density": 0.12,
+   "flower_density": 0.0,
+   "grass_density": 0.1,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:snowy_tundra",
+   "temperature": 0.0,
+   "humidity": 0.5,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#80B497",
+   "foliage_color": "#60A17B",
+   "trees": [
+    "spruce"
+   ],
+   "tree_density": 0.001,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "snow",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:ice_spikes",
+   "temperature": 0.0,
+   "humidity": 0.5,
+   "top": "minecraft:snow_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "snow",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:desert",
+   "temperature": 2.0,
+   "humidity": 0.0,
+   "top": "minecraft:sand",
+   "filler": "minecraft:sand",
+   "underwater": "minecraft:sand",
+   "grass_color": "#BFB755",
+   "foliage_color": "#AEA42A",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0,
+   "cactus": 0.006,
+   "dead_bush": 0.004,
+   "stone_below": "minecraft:sandstone"
+  },
+  {
+   "id": "minecraft:savanna",
+   "temperature": 1.2,
+   "humidity": 0.0,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#BFB755",
+   "foliage_color": "#AEA42A",
+   "trees": [
+    "acacia"
+   ],
+   "tree_density": 0.005,
+   "flower_density": 0.0,
+   "grass_density": 0.5,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:jungle",
+   "temperature": 0.95,
+   "humidity": 0.9,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#59C93C",
+   "foliage_color": "#30BB0B",
+   "trees": [
+    "jungle",
+    "jungle",
+    "oak"
+   ],
+   "tree_density": 0.18,
+   "flower_density": 0.0,
+   "grass_density": 0.3,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:swamp",
+   "temperature": 0.8,
+   "humidity": 0.9,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:clay",
+   "grass_color": "#6A7039",
+   "foliage_color": "#6A7039",
+   "trees": [
+    "oak"
+   ],
+   "tree_density": 0.02,
+   "flower_density": 0.0,
+   "grass_density": 0.05,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0,
+   "mushrooms": 0.01
+  },
+  {
+   "id": "minecraft:badlands",
+   "temperature": 2.0,
+   "humidity": 0.0,
+   "top": "minecraft:red_sand",
+   "filler": "minecraft:orange_terracotta",
+   "underwater": "minecraft:red_sand",
+   "grass_color": "#90814D",
+   "foliage_color": "#9E814D",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0,
+   "cactus": 0.003,
+   "dead_bush": 0.004,
+   "bands": true
+  },
+  {
+   "id": "minecraft:mountains",
+   "temperature": 0.2,
+   "humidity": 0.3,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#8AB689",
+   "foliage_color": "#6DA36B",
+   "trees": [
+    "spruce",
+    "oak"
+   ],
+   "tree_density": 0.01,
+   "flower_density": 0.0,
+   "grass_density": 0.05,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 2.2,
+   "emerald": true,
+   "stony_peaks": 110
+  },
+  {
+   "id": "minecraft:gravelly_mountains",
+   "temperature": 0.2,
+   "humidity": 0.3,
+   "top": "minecraft:gravel",
+   "filler": "minecraft:gravel",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#8AB689",
+   "foliage_color": "#6DA36B",
+   "trees": [
+    "spruce"
+   ],
+   "tree_density": 0.003,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "rain",
+   "terrain_amp": 2.2
+  },
+  {
+   "id": "minecraft:snowy_mountains",
+   "temperature": 0.0,
+   "humidity": 0.5,
+   "top": "minecraft:grass_block",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#80B497",
+   "foliage_color": "#60A17B",
+   "trees": [
+    "spruce"
+   ],
+   "tree_density": 0.004,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [
+     {
+      "type": "minecraft:sheep",
+      "weight": 12
+     },
+     {
+      "type": "minecraft:pig",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:chicken",
+      "weight": 10
+     },
+     {
+      "type": "minecraft:cow",
+      "weight": 8
+     }
+    ],
+    "monster": [
+     {
+      "type": "minecraft:spider",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:zombie",
+      "weight": 95
+     },
+     {
+      "type": "minecraft:skeleton",
+      "weight": 100
+     },
+     {
+      "type": "minecraft:creeper",
+      "weight": 100
+     }
+    ]
+   },
+   "precipitation": "snow",
+   "terrain_amp": 1.8
+  },
+  {
+   "id": "minecraft:mushroom_fields",
+   "temperature": 0.9,
+   "humidity": 1.0,
+   "top": "minecraft:mycelium",
+   "filler": "minecraft:dirt",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": []
+   },
+   "precipitation": "rain",
+   "terrain_amp": 1.0,
+   "mushrooms": 0.03
+  },
+  {
+   "id": "minecraft:nether_wastes",
+   "temperature": 2.0,
+   "humidity": 0.0,
+   "top": "minecraft:netherrack",
+   "filler": "minecraft:netherrack",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": []
+   },
+   "precipitation": "none",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:crimson_forest",
+   "temperature": 2.0,
+   "humidity": 0.0,
+   "top": "minecraft:crimson_nylium",
+   "filler": "minecraft:netherrack",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": []
+   },
+   "precipitation": "none",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:warped_forest",
+   "temperature": 2.0,
+   "humidity": 0.0,
+   "top": "minecraft:warped_nylium",
+   "filler": "minecraft:netherrack",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": []
+   },
+   "precipitation": "none",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:soul_sand_valley",
+   "temperature": 2.0,
+   "humidity": 0.0,
+   "top": "minecraft:soul_sand",
+   "filler": "minecraft:soul_soil",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": [
+     {
+      "type": "minecraft:skeleton",
+      "weight": 20
+     }
+    ]
+   },
+   "precipitation": "none",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:basalt_deltas",
+   "temperature": 2.0,
+   "humidity": 0.0,
+   "top": "minecraft:basalt",
+   "filler": "minecraft:blackstone",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": []
+   },
+   "precipitation": "none",
+   "terrain_amp": 1.0
+  },
+  {
+   "id": "minecraft:the_end",
+   "temperature": 0.5,
+   "humidity": 0.5,
+   "top": "minecraft:end_stone",
+   "filler": "minecraft:end_stone",
+   "underwater": "minecraft:gravel",
+   "grass_color": "#91BD59",
+   "foliage_color": "#77AB2F",
+   "trees": [],
+   "tree_density": 0.0,
+   "flower_density": 0.0,
+   "grass_density": 0.0,
+   "spawns": {
+    "creature": [],
+    "monster": []
+   },
+   "precipitation": "none",
+   "terrain_amp": 1.0
+  }
+ ]
+}
